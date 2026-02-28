@@ -7,6 +7,7 @@ import type { PartyMember, Boss } from "@/types/generate";
 interface ResultCardsProps {
   party: PartyMember[];
   boss: Boss;
+  images?: Record<string, string>;
 }
 
 /** 8-bit item-acquire style card reveal */
@@ -69,7 +70,7 @@ function ItemCard({
   );
 }
 
-export function ResultCards({ party, boss }: ResultCardsProps) {
+export function ResultCards({ party, boss, images = {} }: ResultCardsProps) {
   return (
     <div className="relative z-10 flex items-center justify-center w-full min-h-screen px-4 pt-12 pb-4">
       <div className="grid grid-cols-5 gap-4 w-full max-w-6xl">
@@ -81,8 +82,16 @@ export function ResultCards({ party, boss }: ResultCardsProps) {
             borderColor="border-purple-500/50"
             glowClass="pulse-glow-gemini"
           >
-            <div className="w-full aspect-square bg-gray-800/60 flex items-center justify-center border-b border-purple-500/20">
-              <span className="text-gray-600 font-mono text-xs">LOADING...</span>
+            <div className="w-full aspect-square bg-gray-800/60 flex items-center justify-center border-b border-purple-500/20 overflow-hidden">
+              {images[member.id] ? (
+                <img
+                  src={images[member.id]}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <span className="text-gray-600 font-mono text-xs animate-pulse">LOADING...</span>
+              )}
             </div>
             <div className="p-3 flex flex-col gap-2 flex-1">
               <div>
@@ -122,8 +131,15 @@ export function ResultCards({ party, boss }: ResultCardsProps) {
           borderColor="border-red-600/60"
           glowClass="pulse-glow-red"
         >
-          <div className="w-full aspect-square bg-gray-800/60 flex items-center justify-center border-b border-red-600/20">
-            <span className="text-gray-600 font-mono text-xs">???</span>
+          <div className="w-full aspect-square bg-gray-800/60 flex items-center justify-center border-b border-red-600/20 overflow-hidden relative">
+            {images["__boss__"] && (
+              <img
+                src={images["__boss__"]}
+                alt="Boss"
+                className="w-full h-full object-cover blur-sm brightness-50"
+              />
+            )}
+            <span className="absolute text-gray-400 font-mono text-2xl font-bold">???</span>
           </div>
           <div className="p-3 flex flex-col gap-2 flex-1">
             <div>

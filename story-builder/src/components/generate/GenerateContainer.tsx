@@ -29,6 +29,7 @@ export function GenerateContainer() {
   const [phase, setPhase] = useState<Phase>("loading");
   const [answers, setAnswers] = useState<Answers | null>(null);
   const [result, setResult] = useState<GenerateResult | null>(null);
+  const [images, setImages] = useState<Record<string, string>>({});
   const [gmPose, setGmPose] = useState<GMPose>("loading1");
   const [messageIndex, setMessageIndex] = useState(0);
 
@@ -79,6 +80,32 @@ export function GenerateContainer() {
   }, [router]);
 
 
+  // Fetch character images progressively when result is available
+  useEffect(() => {
+    if (!result) return;
+
+    const allCharacters = [
+      ...result.party.map((m) => ({ id: m.id, prompt: m.imagePrompt })),
+      { id: "__boss__", prompt: result.boss.imagePrompt },
+    ];
+
+    allCharacters.forEach(async ({ id, prompt }) => {
+      try {
+        const res = await fetch("/api/generate-image", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt }),
+        });
+        const data = await res.json();
+        if (data.imageUrl) {
+          setImages((prev) => ({ ...prev, [id]: data.imageUrl }));
+        }
+      } catch {
+        // Keep LOADING... on failure
+      }
+    });
+  }, [result]);
+
   return (
     <div className="relative min-h-screen w-full bg-[#0A0A0A] overflow-hidden">
       {/* Game HUD header */}
@@ -121,7 +148,7 @@ export function GenerateContainer() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.01 }}
           >
-            <ResultCards party={result.party} boss={result.boss} />
+            <ResultCards party={result.party} boss={result.boss} images={images} />
           </motion.div>
         )}
 
