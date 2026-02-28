@@ -1,6 +1,7 @@
 import type { Answers } from "@/constants/survey";
+import type { WorldDNA } from "@/types/world";
 
-export function buildGenerateSystemPrompt(data: Answers): string {
+export function buildGenerateSystemPrompt(data: Answers, worldDna?: WorldDNA): string {
   return `너는 JRPG 게임의 세계관 제작자(Game Master)야. 유저가 입력한 데이터를 바탕으로 독특하고 매력적인 파티원 3명과 보스 1명을 생성해 줘.
 
 [유저 데이터]
@@ -36,5 +37,15 @@ export function buildGenerateSystemPrompt(data: Answers): string {
     "description": "크크크... 나를 무서워한다고?",
     "imagePrompt": "anime illustration, terrifying giant cockroach monster, dark fantasy style, intimidating pose, vibrant colors, clean background"
   }
-}`;
+}${worldDna ? `
+
+[세계 DNA - 모든 캐릭터와 세계관은 아래 World DNA를 반드시 반영해야 해]
+- 세계 이름: ${worldDna.world_name}
+- 시각 팔레트: ${worldDna.palette}
+- 분위기: ${worldDna.atmosphere}
+- 핵심 공포 테마: ${worldDna.primary_fear}
+- 보스 원형: ${worldDna.boss_archetype}
+- 보스 대사: "${worldDna.consequence_chain.boss_taunt}"
+- 승리 장면: ${worldDna.consequence_chain.victory_scene}
+- imagePrompt에는 반드시 팔레트(${worldDna.palette})와 분위기(${worldDna.atmosphere})를 반영해.` : ""}`;
 }
