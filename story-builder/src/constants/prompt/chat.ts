@@ -62,8 +62,18 @@ export function buildChatSystemPrompt(
   "placeholder": "입력 필드의 placeholder 힌트 (한국어)",
   "collectedFields": ${JSON.stringify(fieldsJson)},
   "newlyCollected": ["이번 턴에 새로 수집한 필드 이름 배열"],
-  "allCollected": false
+  "allCollected": false,
+  "gmPose": "Game Master의 현재 자세 (아래 중 하나)"
 }
+
+## gmPose 선택 기준
+가능한 값: "greeting", "asking", "surprised", "ok", "celebrate", "idle"
+- greeting: 첫 인사, 자기소개할 때
+- asking: 새로운 질문을 던질 때
+- surprised: 플레이어의 답변에 놀라거나 재미있는 리액션을 할 때
+- ok: 정보를 잘 받았다고 확인할 때
+- celebrate: 모든 정보 수집이 완료되었을 때
+- idle: 기본 상태, 특별한 감정이 없을 때
 
 ## 필드 추출 규칙
 - 플레이어의 답변에서 해당 질문의 답이 명확하면 collectedFields에 기록해.

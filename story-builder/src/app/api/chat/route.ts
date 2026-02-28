@@ -22,6 +22,7 @@ interface ChatResponse {
   collectedFields: CollectedFields;
   newlyCollected: string[];
   allCollected: boolean;
+  gmPose: string;
 }
 
 // ── Gemini Client ──
@@ -78,6 +79,7 @@ export async function POST(request: NextRequest) {
       collectedFields: merged,
       newlyCollected: parsed.newlyCollected ?? [],
       allCollected,
+      gmPose: parsed.gmPose || "idle",
     };
 
     return NextResponse.json(result);
@@ -90,6 +92,7 @@ export async function POST(request: NextRequest) {
       collectedFields: body.collectedFields,
       newlyCollected: [],
       allCollected: false,
+      gmPose: "idle",
     });
   }
 }

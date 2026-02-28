@@ -25,3 +25,9 @@ body {
 .animate-blink {
   animation: blink 1s step-end infinite;
 }
+
+/* ── Color Transition Utility ── */
+
+.color-transition {
+  transition: color 1.5s ease, background-color 1.5s ease, border-color 1.5s ease;
+}
