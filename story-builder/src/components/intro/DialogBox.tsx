@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { GeminiIcon } from "@/components/icons/GeminiIcon";
 
 interface DialogBoxProps {
   message: string;
@@ -33,8 +34,11 @@ export function DialogBox({ message, onEnter, isFinished, placeholder = "입력 
   return (
     <div className="relative z-10 border-2 border-gray-400 p-6 w-full max-w-2xl bg-black/80 font-mono flex flex-col gap-6 shadow-2xl">
       <p className="text-white text-lg min-h-[4rem] whitespace-pre-wrap leading-relaxed">
-        {isLoading && !message ? (
-          <span className="animate-pulse text-gray-500">. . .</span>
+        {isLoading ? (
+          <span className="flex items-center gap-2 animate-pulse text-gray-500">
+            <GeminiIcon size={24} />
+            Loading...
+          </span>
         ) : (
           message
         )}

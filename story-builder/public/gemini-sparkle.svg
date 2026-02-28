@@ -1,0 +1,13 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gemini-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A73E8" />
+      <stop offset="40%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+  </defs>
+  <path 
+    d="M 50,0 C 50,25 75,50 100,50 C 75,50 50,75 50,100 C 50,75 25,50 0,50 C 25,50 50,25 50,0 Z" 
+    fill="url(#gemini-gradient)" 
+  />
+</svg>

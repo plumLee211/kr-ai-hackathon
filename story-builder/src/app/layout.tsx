@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Press_Start_2P } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const pressStart2P = Press_Start_2P({
+  weight: "400",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-pixel",
 });
 
 export const metadata: Metadata = {
-  title: "Story Builder",
-  description: "AI-powered interactive story builder",
+  title: "OOO's Adventure",
+  description: "설문 기반 개인화 턴제 RPG — with Gemini Story Builder",
 };
 
 export default function RootLayout({
@@ -23,10 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="ko">
+      <body className={`${pressStart2P.variable} overflow-hidden`}>
         {children}
       </body>
     </html>
