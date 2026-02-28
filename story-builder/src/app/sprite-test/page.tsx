@@ -16,7 +16,7 @@ export default function SpriteTestPage() {
 
     // 이미지 로드
     const img = new Image();
-    img.src = "test-sprite.png"; // 아까 복사한 스프라이트 시트 이미지
+    img.src = "test-sprite4.png"; // 아까 복사한 스프라이트 시트 이미지
 
     // 게임 루프 변수
     let x = 400 - 64; // 중앙(800의 절반) - 캐릭터 너비(128의 절반)
@@ -112,7 +112,8 @@ export default function SpriteTestPage() {
           x, y, renderW, renderH                              // 캔버스에 그릴 위치와 크기
         );
 
-        animationId = requestAnimationFrame(loop);      };
+        animationId = requestAnimationFrame(loop);
+      };
 
       // 루프 시작
       animationId = requestAnimationFrame(loop);
