@@ -112,14 +112,8 @@ export function useBgm() {
     gainRef.current = gain;
   }, []);
 
-  /** Fetch Lyria BGM → 8-bit 즉시 정지 후 전환. */
+  /** Fetch Lyria BGM → Lyria 재생 시작 시 8-bit 페이드아웃. */
   const transition = useCallback(async (prompt: string) => {
-    // 8-bit 즉시 정지 (API 응답 기다리지 않음)
-    if (sourceRef.current) {
-      try { sourceRef.current.stop(); } catch { /* */ }
-      sourceRef.current = null;
-    }
-    gainRef.current = null;
     transitionedRef.current = true;
 
     try {
@@ -135,11 +129,35 @@ export function useBgm() {
 
       const audio = new Audio(`data:${mimeType};base64,${audioData}`);
       audio.loop = true;
-      audio.volume = volumeRef.current;
+      audio.volume = 0;
       lyriaRef.current = audio;
       await audio.play();
+
+      // Lyria 재생 시작 → 8-bit 페이드아웃 + Lyria 페이드인 (3초)
+      const targetVol = volumeRef.current;
+      let step = 0;
+      const steps = 30;
+      const fade = setInterval(() => {
+        step++;
+        const ratio = step / steps;
+        if (gainRef.current) {
+          gainRef.current.gain.value = targetVol * (1 - ratio);
+        }
+        if (lyriaRef.current) {
+          lyriaRef.current.volume = Math.min(1, targetVol * ratio);
+        }
+        if (step >= steps) {
+          clearInterval(fade);
+          if (sourceRef.current) {
+            try { sourceRef.current.stop(); } catch { /* */ }
+            sourceRef.current = null;
+          }
+          gainRef.current = null;
+        }
+      }, 100);
     } catch {
-      // Lyria 실패 시 무음 유지
+      // Lyria 실패 시 8-bit 유지
+      transitionedRef.current = false;
     }
   }, []);
 
@@ -155,15 +173,15 @@ export function useBgm() {
     }
   }, []);
 
-  /** Set volume (0–1). Applies to whichever source is active. */
+  /** Set volume (0–1). 전환 중에는 Lyria만 제어. */
   const setVolume = useCallback((v: number) => {
     const clamped = Math.max(0, Math.min(1, v));
     volumeRef.current = clamped;
-    if (gainRef.current) {
-      gainRef.current.gain.value = clamped;
-    }
-    if (lyriaRef.current) {
-      lyriaRef.current.volume = clamped;
+    // 전환 완료 후에는 Lyria만, 전환 전에는 8-bit만
+    if (transitionedRef.current) {
+      if (lyriaRef.current) lyriaRef.current.volume = clamped;
+    } else {
+      if (gainRef.current) gainRef.current.gain.value = clamped;
     }
   }, []);
 
