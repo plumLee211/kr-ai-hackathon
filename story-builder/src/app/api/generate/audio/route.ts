@@ -1,15 +1,15 @@
 import { GoogleGenAI } from "@google/genai";
 import { NextRequest, NextResponse } from "next/server";
 
-// user snippet에 따라 v1alpha 설정
-const client = new GoogleGenAI({ 
-  apiKey: process.env.GOOGLE_AI_API_KEY || "",
-  apiVersion: "v1alpha"
-} as any); // 타입 에러 우회
-
 export async function POST(req: NextRequest) {
   try {
     const { mood, duration = 10 } = await req.json(); // 빠른 시연을 위해 기본 10초 생성
+
+    // v1alpha 설정 — 빌드 시 모듈 로드 에러 방지를 위해 핸들러 내부에서 초기화
+    const client = new GoogleGenAI({
+      apiKey: process.env.GOOGLE_AI_API_KEY!,
+      apiVersion: "v1alpha",
+    });
 
     if (!mood) {
       return NextResponse.json({ error: "Mood is required" }, { status: 400 });
