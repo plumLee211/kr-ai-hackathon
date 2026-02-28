@@ -62,39 +62,17 @@ export function IntroContainer() {
     bgm.play();
   }, []);
 
-  // Game Master phase 진입 시 Gemini 첫 인사 요청
+  // Game Master phase 진입 시 미리 준비된 인사 즉시 표시
+  const GM_GREETING = "안녕! 나는 Game Master야.\n너만의 모험을 같이 만들어볼까?\n먼저 이름을 알려줘!";
+
   useEffect(() => {
     if (phase !== "game-master") return;
-
-    const fetchGreeting = async () => {
-      setIsLoading(true);
-      try {
-        const res = await fetch("/api/chat", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            messages: [],
-            collectedFields: createEmptyFields(),
-          }),
-        });
-        const data = await res.json();
-        const pose: GMPose = data.gmPose || "greeting";
-        // Prefetch TTS while still loading — audio ready before text appears
-        const play = await prefetch(data.gmMessage, pose);
-        // Show text + play voice simultaneously
-        setCurrentMessage(data.gmMessage);
-        setPlaceholder(data.placeholder);
-        setGmPose(pose);
-        setChatHistory([{ role: "model", content: data.gmMessage }]);
-        play();
-      } catch {
-        setCurrentMessage(
-          "안녕! 나는 Game Master야.\n너만의 모험을 같이 만들어볼까?\n먼저 이름을 알려줘!",
-        );
-      }
-      setIsLoading(false);
-    };
-    fetchGreeting();
+    setGmPose("greeting");
+    setCurrentMessage(GM_GREETING);
+    setPlaceholder("이름을 입력해줘...");
+    setChatHistory([{ role: "model", content: GM_GREETING }]);
+    // 블립 재생
+    prefetch(GM_GREETING, "greeting").then((play) => play());
   }, [phase]);
 
   // Story Engine: 새 필드가 수집될 때마다 백그라운드에서 Story Bible 증분 빌드
