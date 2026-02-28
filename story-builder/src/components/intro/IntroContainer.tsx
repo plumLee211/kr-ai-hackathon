@@ -19,6 +19,7 @@ import {
 } from "@/constants/survey";
 import type { StoryBible } from "@/types/story";
 import { useGmVoice } from "@/hooks/useGmVoice";
+import { useBgm } from "@/hooks/useBgm";
 
 type Phase = "title" | "game-master";
 
@@ -38,6 +39,7 @@ export function IntroContainer() {
   const [storyBible, setStoryBible] = useState<StoryBible | null>(null);
   const [gmPose, setGmPose] = useState<GMPose>("greeting");
   const { unlock, prefetch, stop } = useGmVoice();
+  const bgm = useBgm();
 
   const step = SURVEY_FIELDS.filter((k) => collectedFields[k] !== null).length;
 
@@ -55,39 +57,43 @@ export function IntroContainer() {
         ? "final"
         : "top";
 
-  // Game Master phase 진입 시 Gemini 첫 인사 요청
+  // 페이지 진입 시 8-bit BGM 재생 시도 (autoplay 허용 시 즉시, 아니면 첫 클릭에)
+  useEffect(() => {
+    bgm.play();
+    const startOnGesture = () => {
+      bgm.play();
+      document.removeEventListener("click", startOnGesture);
+      document.removeEventListener("touchstart", startOnGesture);
+    };
+    document.addEventListener("click", startOnGesture);
+    document.addEventListener("touchstart", startOnGesture);
+    return () => {
+      document.removeEventListener("click", startOnGesture);
+      document.removeEventListener("touchstart", startOnGesture);
+    };
+  }, []);
+
+  // Game Master phase 진입 시 미리 준비된 인사 즉시 표시
+  const GM_GREETING = "안녕! 나는 Game Master야.\n너만의 모험을 같이 만들어볼까?\n먼저 이름을 알려줘!";
+
   useEffect(() => {
     if (phase !== "game-master") return;
-
-    const fetchGreeting = async () => {
-      setIsLoading(true);
-      try {
-        const res = await fetch("/api/chat", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            messages: [],
-            collectedFields: createEmptyFields(),
-          }),
-        });
-        const data = await res.json();
-        const pose: GMPose = data.gmPose || "greeting";
-        // Prefetch TTS while still loading — audio ready before text appears
-        const play = await prefetch(data.gmMessage, pose);
-        // Show text + play voice simultaneously
-        setCurrentMessage(data.gmMessage);
-        setPlaceholder(data.placeholder);
-        setGmPose(pose);
-        setChatHistory([{ role: "model", content: data.gmMessage }]);
-        play();
-      } catch {
-        setCurrentMessage(
-          "안녕! 나는 Game Master야.\n너만의 모험을 같이 만들어볼까?\n먼저 이름을 알려줘!",
-        );
+    setGmPose("greeting");
+    setPlaceholder("이름을 입력해줘...");
+    // 블립 재생
+    prefetch(GM_GREETING, "greeting").then((play) => play());
+    // 스트리밍 효과: 글자 하나씩 표시
+    let i = 0;
+    setCurrentMessage("");
+    const timer = setInterval(() => {
+      i++;
+      setCurrentMessage(GM_GREETING.slice(0, i));
+      if (i >= GM_GREETING.length) {
+        clearInterval(timer);
+        setChatHistory([{ role: "model", content: GM_GREETING }]);
       }
-      setIsLoading(false);
-    };
-    fetchGreeting();
+    }, 40); // 40ms per char
+    return () => clearInterval(timer);
   }, [phase]);
 
   // Story Engine: 새 필드가 수집될 때마다 백그라운드에서 Story Bible 증분 빌드
@@ -114,9 +120,24 @@ export function IntroContainer() {
     buildStory();
   }, [collectedFields]);
 
+  // BGM: allCollected → Lyria 개인화 BGM으로 크로스페이드
+  useEffect(() => {
+    if (!allCollected) return;
+    const mood = storyBible?.characters?.hero_flaw
+      ? `Warm orchestral JRPG hero theme with 8-bit chiptune elements, hopeful and brave, building from gentle to triumphant`
+      : `Warm orchestral JRPG hero theme with 8-bit chiptune elements, gentle strings with light percussion, hopeful and brave`;
+    bgm.transition(mood);
+  }, [allCollected]);
+
+  // BGM 볼륨 덕킹: GM 말할 때(isLoading=false → blip 재생 중) BGM 낮추기
+  useEffect(() => {
+    if (phase !== "game-master") return;
+    bgm.setVolume(isLoading ? 0.5 : 0.3);
+  }, [isLoading, phase]);
+
   // Cleanup: stop audio on unmount
   useEffect(() => {
-    return () => stop();
+    return () => { stop(); bgm.stop(); };
   }, [stop]);
 
   const handleStart = () => {
