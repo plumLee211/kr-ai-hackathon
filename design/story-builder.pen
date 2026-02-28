@@ -1,0 +1,5856 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "ZxrzY",
+      "x": -1332,
+      "y": -35,
+      "name": "Title — Before (OOO)",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#0A0A0A",
+      "layout": "none",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "AlUSA",
+          "x": 0,
+          "y": 720,
+          "name": "Ground Line",
+          "fill": "#333333",
+          "width": 1440,
+          "height": 1
+        },
+        {
+          "type": "rectangle",
+          "id": "EWsAC",
+          "x": 80,
+          "y": 600,
+          "name": "Building 1",
+          "fill": "#1A1A1A",
+          "width": 40,
+          "height": 120,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#2A2A2A"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "MBMow",
+          "x": 130,
+          "y": 540,
+          "name": "Building 2",
+          "fill": "#161616",
+          "width": 60,
+          "height": 180,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#252525"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "1vAJm",
+          "x": 200,
+          "y": 630,
+          "name": "Building 3",
+          "fill": "#1D1D1D",
+          "width": 35,
+          "height": 90,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#2A2A2A"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "KyxcV",
+          "x": 260,
+          "y": 520,
+          "name": "Building 4",
+          "fill": "#141414",
+          "width": 50,
+          "height": 200,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#222222"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "jj1e8",
+          "x": 320,
+          "y": 580,
+          "name": "Building 5",
+          "fill": "#1A1A1A",
+          "width": 45,
+          "height": 140,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#282828"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "i1jRy",
+          "x": 1050,
+          "y": 500,
+          "name": "Building 6",
+          "fill": "#151515",
+          "width": 70,
+          "height": 220,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#242424"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "pKDz7",
+          "x": 1130,
+          "y": 560,
+          "name": "Building 7",
+          "fill": "#1C1C1C",
+          "width": 40,
+          "height": 160,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#2A2A2A"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "AciH2",
+          "x": 1190,
+          "y": 590,
+          "name": "Building 8",
+          "fill": "#181818",
+          "width": 55,
+          "height": 130,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#262626"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "6msAE",
+          "x": 1260,
+          "y": 530,
+          "name": "Building 9",
+          "fill": "#141414",
+          "width": 50,
+          "height": 190,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#232323"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "SghZU",
+          "x": 1340,
+          "y": 610,
+          "name": "Building 10",
+          "fill": "#1B1B1B",
+          "width": 60,
+          "height": 110,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#292929"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "So7lG",
+          "x": 142,
+          "y": 560,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "7utKh",
+          "x": 155,
+          "y": 560,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "gdSia",
+          "x": 142,
+          "y": 580,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "r5b6N",
+          "x": 155,
+          "y": 580,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "BOwBE",
+          "x": 142,
+          "y": 600,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "oxyKn",
+          "x": 155,
+          "y": 600,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "EHbXP",
+          "x": 270,
+          "y": 540,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "tBV05",
+          "x": 283,
+          "y": 540,
+          "name": "Win",
+          "fill": "#222222",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "lixXv",
+          "x": 270,
+          "y": 560,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "0mxxJ",
+          "x": 283,
+          "y": 560,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "vKDgx",
+          "x": 270,
+          "y": 580,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "pGlcL",
+          "x": 283,
+          "y": 580,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "GX6vn",
+          "x": 1065,
+          "y": 520,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "8YzGi",
+          "x": 1080,
+          "y": 520,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "xiEt0",
+          "x": 1095,
+          "y": 520,
+          "name": "Win",
+          "fill": "#222222",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "LQkQ7",
+          "x": 1065,
+          "y": 540,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "hUs1a",
+          "x": 1080,
+          "y": 540,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "vfRMe",
+          "x": 1095,
+          "y": 540,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "sdE0E",
+          "x": 1275,
+          "y": 550,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "ezGLT",
+          "x": 1290,
+          "y": 550,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "CIPZu",
+          "x": 1275,
+          "y": 570,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "gaVbs",
+          "x": 1290,
+          "y": 570,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "frame",
+          "id": "IP4gL",
+          "x": 0,
+          "y": 0,
+          "name": "Title Center",
+          "width": 1440,
+          "height": 900,
+          "layout": "vertical",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "kikVi",
+              "name": "spacerTop",
+              "width": 10,
+              "height": 160
+            },
+            {
+              "type": "text",
+              "id": "tuoak",
+              "name": "OOO Title",
+              "fill": "#444444",
+              "content": "OOO's",
+              "lineHeight": 1.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 72,
+              "fontWeight": "normal",
+              "letterSpacing": 4
+            },
+            {
+              "type": "text",
+              "id": "DrmIj",
+              "name": "adventure Title",
+              "fill": "#333333",
+              "content": "adventure",
+              "lineHeight": 1.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 72,
+              "fontWeight": "normal",
+              "letterSpacing": 4
+            },
+            {
+              "type": "frame",
+              "id": "F0OCv",
+              "name": "spacerSub",
+              "width": 10,
+              "height": 32
+            },
+            {
+              "type": "text",
+              "id": "onVPQ",
+              "name": "Subtitle",
+              "fill": "#2A2A2A",
+              "content": "with Gemini Story Builder",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 10,
+              "fontWeight": "normal",
+              "letterSpacing": 2
+            },
+            {
+              "type": "frame",
+              "id": "aFa8h",
+              "name": "spacerBtn",
+              "width": 10,
+              "height": 64
+            },
+            {
+              "type": "text",
+              "id": "10f5S",
+              "name": "Press Start",
+              "fill": "#555555",
+              "content": "PRESS  START",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 14,
+              "fontWeight": "normal",
+              "letterSpacing": 3
+            },
+            {
+              "type": "frame",
+              "id": "utSox",
+              "name": "spacerBot",
+              "width": 10,
+              "height": 40
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "Q5Xg4",
+          "x": 696,
+          "y": 395,
+          "name": "Cursor",
+          "fill": "#555555",
+          "width": 48,
+          "height": 4
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Xu5mN",
+      "x": 208,
+      "y": -35,
+      "name": "Title — After (김철수)",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#0A0A0A",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "9jKf6",
+          "x": 0,
+          "y": 0,
+          "name": "Night Sky",
+          "width": 1440,
+          "height": 900,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#050510",
+                "position": 0
+              },
+              {
+                "color": "#0C0828",
+                "position": 0.4
+              },
+              {
+                "color": "#150A30",
+                "position": 0.7
+              },
+              {
+                "color": "#0A0518",
+                "position": 1
+              }
+            ]
+          },
+          "layout": "none"
+        },
+        {
+          "type": "ellipse",
+          "id": "1oU56",
+          "x": 1050,
+          "y": 30,
+          "name": "Moon Glow",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#FFFFFF15",
+                "position": 0
+              },
+              {
+                "color": "#FFFFFF00",
+                "position": 1
+              }
+            ]
+          },
+          "width": 300,
+          "height": 300
+        },
+        {
+          "type": "ellipse",
+          "id": "2VgYM",
+          "x": 1180,
+          "y": 160,
+          "name": "Moon",
+          "fill": "#EEEECC",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "type": "ellipse",
+          "id": "4onOE",
+          "x": 200,
+          "y": 80,
+          "name": "Star",
+          "fill": "#FFFFFF80",
+          "width": 3,
+          "height": 3
+        },
+        {
+          "type": "ellipse",
+          "id": "u2Yto",
+          "x": 450,
+          "y": 50,
+          "name": "Star",
+          "fill": "#FFFFFF60",
+          "width": 2,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "j31wU",
+          "x": 700,
+          "y": 100,
+          "name": "Star",
+          "fill": "#FFFFFF50",
+          "width": 2,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "1lcCL",
+          "x": 900,
+          "y": 60,
+          "name": "Star",
+          "fill": "#FFFFFF70",
+          "width": 3,
+          "height": 3
+        },
+        {
+          "type": "ellipse",
+          "id": "Dvu6t",
+          "x": 350,
+          "y": 130,
+          "name": "Star",
+          "fill": "#FFFFFF40",
+          "width": 2,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "a5ise",
+          "x": 600,
+          "y": 40,
+          "name": "Star",
+          "fill": "#FFFFFF55",
+          "width": 2,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "9gSKG",
+          "x": 1300,
+          "y": 90,
+          "name": "Star",
+          "fill": "#FFFFFF45",
+          "width": 3,
+          "height": 3
+        },
+        {
+          "type": "rectangle",
+          "id": "11vtV",
+          "x": 0,
+          "y": 720,
+          "name": "Ground",
+          "fill": "#0D0D15",
+          "width": 1440,
+          "height": 180
+        },
+        {
+          "type": "rectangle",
+          "id": "VqC17",
+          "x": 0,
+          "y": 720,
+          "name": "Ground Line",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 90,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F440",
+                "position": 0
+              },
+              {
+                "color": "#9334E640",
+                "position": 0.5
+              },
+              {
+                "color": "#EA438540",
+                "position": 1
+              }
+            ]
+          },
+          "width": 1440,
+          "height": 2
+        },
+        {
+          "type": "rectangle",
+          "id": "cEhOI",
+          "x": 50,
+          "y": 560,
+          "name": "Neon Building 1",
+          "fill": "#0E0E1A",
+          "width": 50,
+          "height": 160,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#EA438550"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "JE9SE",
+          "x": 110,
+          "y": 480,
+          "name": "Neon Building 2",
+          "fill": "#0D0D18",
+          "width": 70,
+          "height": 240,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#4285F440"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "02YxI",
+          "x": 190,
+          "y": 600,
+          "name": "Neon Building 3",
+          "fill": "#100E1C",
+          "width": 40,
+          "height": 120,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#9334E650"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "BMYr1",
+          "x": 240,
+          "y": 440,
+          "name": "Neon Building 4",
+          "fill": "#0C0C16",
+          "width": 65,
+          "height": 280,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#EA438545"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "MFqJZ",
+          "x": 315,
+          "y": 540,
+          "name": "Neon Building 5",
+          "fill": "#0F0E1A",
+          "width": 55,
+          "height": 180,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#1A73E840"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "tLX0K",
+          "x": 380,
+          "y": 580,
+          "name": "Neon Building 6",
+          "fill": "#110F1E",
+          "width": 45,
+          "height": 140,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#A855F735"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "0hWPv",
+          "x": 1020,
+          "y": 460,
+          "name": "Neon Building 7",
+          "fill": "#0C0C16",
+          "width": 75,
+          "height": 260,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#4285F445"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "oPfgL",
+          "x": 1105,
+          "y": 520,
+          "name": "Neon Building 8",
+          "fill": "#0E0E1A",
+          "width": 50,
+          "height": 200,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#EA438540"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "icsB4",
+          "x": 1165,
+          "y": 550,
+          "name": "Neon Building 9",
+          "fill": "#100E1C",
+          "width": 60,
+          "height": 170,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#9334E650"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "lYhx4",
+          "x": 1240,
+          "y": 470,
+          "name": "Neon Building 10",
+          "fill": "#0D0D18",
+          "width": 55,
+          "height": 250,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#1A73E845"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "M9dk8",
+          "x": 1310,
+          "y": 570,
+          "name": "Neon Building 11",
+          "fill": "#0F0E1A",
+          "width": 70,
+          "height": 150,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#EA438535"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "1CBoh",
+          "x": 125,
+          "y": 500,
+          "name": "NWin",
+          "fill": "#4285F480",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "rpGnx",
+          "x": 140,
+          "y": 500,
+          "name": "NWin",
+          "fill": "#9334E660",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "Nr9Jz",
+          "x": 155,
+          "y": 500,
+          "name": "NWin",
+          "fill": "#4285F450",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "DUPIj",
+          "x": 125,
+          "y": 520,
+          "name": "NWin",
+          "fill": "#A855F750",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "kxiY5",
+          "x": 140,
+          "y": 520,
+          "name": "NWin",
+          "fill": "#4285F470",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "LoSyZ",
+          "x": 155,
+          "y": 520,
+          "name": "NWin",
+          "fill": "#EA438540",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "gQGhK",
+          "x": 125,
+          "y": 540,
+          "name": "NWin",
+          "fill": "#EA438555",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "ky0ch",
+          "x": 140,
+          "y": 540,
+          "name": "NWin",
+          "fill": "#A855F760",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "3Zu03",
+          "x": 255,
+          "y": 460,
+          "name": "NWin",
+          "fill": "#EA438570",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "cuQeI",
+          "x": 270,
+          "y": 460,
+          "name": "NWin",
+          "fill": "#4285F460",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "ycocj",
+          "x": 285,
+          "y": 460,
+          "name": "NWin",
+          "fill": "#A855F755",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "XGsau",
+          "x": 255,
+          "y": 480,
+          "name": "NWin",
+          "fill": "#1A73E860",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "l5gYQ",
+          "x": 270,
+          "y": 480,
+          "name": "NWin",
+          "fill": "#EA438550",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "wzi5I",
+          "x": 285,
+          "y": 480,
+          "name": "NWin",
+          "fill": "#4285F470",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "g95h5",
+          "x": 255,
+          "y": 500,
+          "name": "NWin",
+          "fill": "#9334E670",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "CDD9S",
+          "x": 270,
+          "y": 500,
+          "name": "NWin",
+          "fill": "#EA438560",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "9tQbw",
+          "x": 1040,
+          "y": 480,
+          "name": "NWin",
+          "fill": "#4285F470",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "L2CcF",
+          "x": 1055,
+          "y": 480,
+          "name": "NWin",
+          "fill": "#EA438555",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "UlphX",
+          "x": 1070,
+          "y": 480,
+          "name": "NWin",
+          "fill": "#A855F760",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "YH07T",
+          "x": 1040,
+          "y": 500,
+          "name": "NWin",
+          "fill": "#9334E660",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "wkuIf",
+          "x": 1055,
+          "y": 500,
+          "name": "NWin",
+          "fill": "#1A73E870",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "zXz5F",
+          "x": 1070,
+          "y": 500,
+          "name": "NWin",
+          "fill": "#4285F455",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "J1SOi",
+          "x": 1255,
+          "y": 490,
+          "name": "NWin",
+          "fill": "#1A73E860",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "CFH0x",
+          "x": 1270,
+          "y": 490,
+          "name": "NWin",
+          "fill": "#EA438570",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "id": "Y4NOd",
+          "x": 1255,
+          "y": 510,
+          "name": "NWin",
+          "fill": "#A855F755",
+          "width": 5,
+          "height": 5
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "DGozY",
+          "x": 120,
+          "y": 555,
+          "name": "Neon Sign 1",
+          "fill": "#EA438560",
+          "width": 30,
+          "height": 12
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "2s3zH",
+          "x": 255,
+          "y": 520,
+          "name": "Neon Sign 2",
+          "fill": "#4285F455",
+          "width": 35,
+          "height": 10
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "ZHMOK",
+          "x": 330,
+          "y": 600,
+          "name": "Neon Sign 3",
+          "fill": "#9334E660",
+          "width": 25,
+          "height": 10
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "eBi8B",
+          "x": 1035,
+          "y": 540,
+          "name": "Neon Sign 4",
+          "fill": "#4285F450",
+          "width": 40,
+          "height": 12
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "Fv9fB",
+          "x": 1255,
+          "y": 530,
+          "name": "Neon Sign 5",
+          "fill": "#EA438555",
+          "width": 30,
+          "height": 10
+        },
+        {
+          "type": "ellipse",
+          "id": "Lkl7I",
+          "x": 60,
+          "y": 450,
+          "name": "Neon Glow 1",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#EA438512",
+                "position": 0
+              },
+              {
+                "color": "#EA438500",
+                "position": 1
+              }
+            ]
+          },
+          "width": 200,
+          "height": 300
+        },
+        {
+          "type": "ellipse",
+          "id": "R9Caa",
+          "x": 210,
+          "y": 400,
+          "name": "Neon Glow 2",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F410",
+                "position": 0
+              },
+              {
+                "color": "#4285F400",
+                "position": 1
+              }
+            ]
+          },
+          "width": 200,
+          "height": 300
+        },
+        {
+          "type": "ellipse",
+          "id": "Q5Sae",
+          "x": 1000,
+          "y": 420,
+          "name": "Neon Glow 3",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F412",
+                "position": 0
+              },
+              {
+                "color": "#4285F400",
+                "position": 1
+              }
+            ]
+          },
+          "width": 200,
+          "height": 300
+        },
+        {
+          "type": "ellipse",
+          "id": "KTGZj",
+          "x": 1200,
+          "y": 430,
+          "name": "Neon Glow 4",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#EA438510",
+                "position": 0
+              },
+              {
+                "color": "#EA438500",
+                "position": 1
+              }
+            ]
+          },
+          "width": 200,
+          "height": 300
+        },
+        {
+          "type": "ellipse",
+          "id": "tCMjs",
+          "x": 365,
+          "y": 185,
+          "name": "Gemini Glow",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F430",
+                "position": 0
+              },
+              {
+                "color": "#9334E620",
+                "position": 0.4
+              },
+              {
+                "color": "#00000000",
+                "position": 1
+              }
+            ]
+          },
+          "width": 200,
+          "height": 200
+        },
+        {
+          "type": "frame",
+          "id": "00don",
+          "x": 410,
+          "y": 240,
+          "name": "Gemini Icon Main",
+          "width": 90,
+          "height": 90,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../asset/icon/gemini-icon.png",
+            "mode": "fit"
+          }
+        },
+        {
+          "type": "ellipse",
+          "id": "BC12d",
+          "x": 370,
+          "y": 290,
+          "name": "Title Glow",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F418",
+                "position": 0
+              },
+              {
+                "color": "#9334E612",
+                "position": 0.4
+              },
+              {
+                "color": "#00000000",
+                "position": 1
+              }
+            ]
+          },
+          "width": 700,
+          "height": 200
+        },
+        {
+          "type": "ellipse",
+          "id": "he4na",
+          "x": 470,
+          "y": 330,
+          "name": "Title Glow Hot",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#A855F720",
+                "position": 0
+              },
+              {
+                "color": "#EA438515",
+                "position": 0.5
+              },
+              {
+                "color": "#00000000",
+                "position": 1
+              }
+            ]
+          },
+          "width": 500,
+          "height": 120
+        },
+        {
+          "type": "ellipse",
+          "id": "ilchq",
+          "x": 590,
+          "y": 498,
+          "name": "Press Start Glow",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F425",
+                "position": 0
+              },
+              {
+                "color": "#00000000",
+                "position": 1
+              }
+            ]
+          },
+          "width": 200,
+          "height": 30
+        },
+        {
+          "type": "ellipse",
+          "id": "M3D1h",
+          "x": 270,
+          "y": 100,
+          "name": "Center Glow",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#9334E625",
+                "position": 0
+              },
+              {
+                "color": "#4285F415",
+                "position": 0.3
+              },
+              {
+                "color": "#EA438510",
+                "position": 0.6
+              },
+              {
+                "color": "#00000000",
+                "position": 1
+              }
+            ]
+          },
+          "width": 900,
+          "height": 600
+        },
+        {
+          "type": "frame",
+          "id": "x0YCO",
+          "x": 0,
+          "y": 0,
+          "name": "Title Layer",
+          "width": 1440,
+          "height": 900,
+          "layout": "vertical",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "k913h",
+              "name": "topSp",
+              "width": 10,
+              "height": 160
+            },
+            {
+              "type": "text",
+              "id": "yNpXd",
+              "name": "Name Title",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 90,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#FFFFFF",
+                    "position": 0
+                  },
+                  {
+                    "color": "#E8EAFF",
+                    "position": 0.5
+                  },
+                  {
+                    "color": "#C4B5FD",
+                    "position": 1
+                  }
+                ]
+              },
+              "content": "김철수's",
+              "lineHeight": 1.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 80,
+              "fontWeight": "normal",
+              "letterSpacing": 6
+            },
+            {
+              "type": "text",
+              "id": "O6b0A",
+              "name": "Adventure Title",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 90,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#4285F4",
+                    "position": 0
+                  },
+                  {
+                    "color": "#A855F7",
+                    "position": 0.4
+                  },
+                  {
+                    "color": "#EA4385",
+                    "position": 0.7
+                  },
+                  {
+                    "color": "#FBBC04",
+                    "position": 1
+                  }
+                ]
+              },
+              "content": "adventure",
+              "lineHeight": 1.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 80,
+              "fontWeight": "normal",
+              "letterSpacing": 6
+            },
+            {
+              "type": "frame",
+              "id": "MIKkN",
+              "name": "subSp",
+              "width": 10,
+              "height": 16
+            },
+            {
+              "type": "text",
+              "id": "HNdNu",
+              "name": "Subtitle",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 90,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#4285F4",
+                    "position": 0
+                  },
+                  {
+                    "color": "#A855F7",
+                    "position": 0.5
+                  },
+                  {
+                    "color": "#EA4385",
+                    "position": 1
+                  }
+                ]
+              },
+              "content": "⚡ with Gemini Story Builder ⚡",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 11,
+              "fontWeight": "normal",
+              "letterSpacing": 3
+            },
+            {
+              "type": "frame",
+              "id": "nU4U7",
+              "name": "btnSp",
+              "width": 10,
+              "height": 48
+            },
+            {
+              "type": "text",
+              "id": "r6X1S",
+              "name": "Press Start",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 90,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#4285F4",
+                    "position": 0
+                  },
+                  {
+                    "color": "#FBBC04",
+                    "position": 1
+                  }
+                ]
+              },
+              "content": "PRESS  START",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 16,
+              "fontWeight": "normal",
+              "letterSpacing": 4
+            },
+            {
+              "type": "frame",
+              "id": "319BO",
+              "name": "botSp",
+              "width": 10,
+              "height": 40
+            },
+            {
+              "type": "text",
+              "id": "NMtSi",
+              "name": "Powered",
+              "fill": "#EA438560",
+              "content": "Powered by Gemini 2.5",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 8,
+              "fontWeight": "normal",
+              "letterSpacing": 2
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "FMp7r",
+          "x": 380,
+          "y": 460,
+          "name": "Gemini Spark Tiny",
+          "width": 20,
+          "height": 20,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../asset/icon/gemini-icon.png",
+            "mode": "fit"
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "spPmh",
+      "x": -1332,
+      "y": 1065,
+      "name": "Step 1 — Game Master 등장",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#0A0A0A",
+      "layout": "none",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "oKprE",
+          "x": 0,
+          "y": 720,
+          "name": "Ground Line",
+          "fill": "#333333",
+          "width": 1440,
+          "height": 1
+        },
+        {
+          "type": "rectangle",
+          "id": "LTggg",
+          "x": 80,
+          "y": 600,
+          "name": "Building 1",
+          "fill": "#1A1A1A",
+          "width": 40,
+          "height": 120,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#2A2A2A"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "c4HFd",
+          "x": 130,
+          "y": 540,
+          "name": "Building 2",
+          "fill": "#161616",
+          "width": 60,
+          "height": 180,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#252525"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "LN30H",
+          "x": 200,
+          "y": 630,
+          "name": "Building 3",
+          "fill": "#1D1D1D",
+          "width": 35,
+          "height": 90,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#2A2A2A"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "iVGi5",
+          "x": 260,
+          "y": 520,
+          "name": "Building 4",
+          "fill": "#141414",
+          "width": 50,
+          "height": 200,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#222222"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "VtTzs",
+          "x": 320,
+          "y": 580,
+          "name": "Building 5",
+          "fill": "#1A1A1A",
+          "width": 45,
+          "height": 140,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#282828"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "9q33N",
+          "x": 1050,
+          "y": 500,
+          "name": "Building 6",
+          "fill": "#151515",
+          "width": 70,
+          "height": 220,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#242424"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "AV1DU",
+          "x": 1130,
+          "y": 560,
+          "name": "Building 7",
+          "fill": "#1C1C1C",
+          "width": 40,
+          "height": 160,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#2A2A2A"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "Ydff1",
+          "x": 1190,
+          "y": 590,
+          "name": "Building 8",
+          "fill": "#181818",
+          "width": 55,
+          "height": 130,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#262626"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "tLI1S",
+          "x": 1260,
+          "y": 530,
+          "name": "Building 9",
+          "fill": "#141414",
+          "width": 50,
+          "height": 190,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#232323"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "ScJlI",
+          "x": 1340,
+          "y": 610,
+          "name": "Building 10",
+          "fill": "#1B1B1B",
+          "width": 60,
+          "height": 110,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#292929"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "0r7b5",
+          "x": 142,
+          "y": 560,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "TIuc1",
+          "x": 155,
+          "y": 560,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "tjLDw",
+          "x": 142,
+          "y": 580,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "YRejg",
+          "x": 155,
+          "y": 580,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "3gi2v",
+          "x": 142,
+          "y": 600,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "7FJW5",
+          "x": 155,
+          "y": 600,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "QYwJ7",
+          "x": 270,
+          "y": 540,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "3y4lE",
+          "x": 283,
+          "y": 540,
+          "name": "Win",
+          "fill": "#222222",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "efWg8",
+          "x": 270,
+          "y": 560,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "4JCne",
+          "x": 283,
+          "y": 560,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "h7Phr",
+          "x": 270,
+          "y": 580,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "tppqz",
+          "x": 283,
+          "y": 580,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "blkEW",
+          "x": 1065,
+          "y": 520,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "ZGx6Y",
+          "x": 1080,
+          "y": 520,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "hxFQI",
+          "x": 1095,
+          "y": 520,
+          "name": "Win",
+          "fill": "#222222",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "eHxMl",
+          "x": 1065,
+          "y": 540,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "ntEGB",
+          "x": 1080,
+          "y": 540,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "7xkk0",
+          "x": 1095,
+          "y": 540,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "6s70J",
+          "x": 1275,
+          "y": 550,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "imSuV",
+          "x": 1290,
+          "y": 550,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "B88AA",
+          "x": 1275,
+          "y": 570,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "EWpf9",
+          "x": 1290,
+          "y": 570,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "frame",
+          "id": "NDGeF",
+          "x": 0,
+          "y": 0,
+          "name": "Title Center",
+          "width": 1440,
+          "height": 900,
+          "layout": "vertical",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "g3uKf",
+              "name": "spacerTop",
+              "width": 10,
+              "height": 40
+            },
+            {
+              "type": "text",
+              "id": "X833u",
+              "name": "OOO Title",
+              "fill": "#3A3A3A",
+              "content": "OOO's",
+              "lineHeight": 1.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 36,
+              "fontWeight": "normal",
+              "letterSpacing": 4
+            },
+            {
+              "type": "text",
+              "id": "vYWnz",
+              "name": "adventure Title",
+              "fill": "#2D2D2D",
+              "content": "adventure",
+              "lineHeight": 1.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 36,
+              "fontWeight": "normal",
+              "letterSpacing": 4
+            },
+            {
+              "type": "frame",
+              "id": "iHfke",
+              "name": "spacerSub",
+              "enabled": false,
+              "width": 10,
+              "height": 32
+            },
+            {
+              "type": "text",
+              "id": "eNk0h",
+              "name": "Subtitle",
+              "enabled": false,
+              "fill": "#2A2A2A",
+              "content": "with Gemini Story Builder",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 10,
+              "fontWeight": "normal",
+              "letterSpacing": 2
+            },
+            {
+              "type": "frame",
+              "id": "HK17A",
+              "name": "spacerBtn",
+              "enabled": false,
+              "width": 10,
+              "height": 64
+            },
+            {
+              "type": "text",
+              "id": "OArb9",
+              "name": "Press Start",
+              "enabled": false,
+              "fill": "#555555",
+              "content": "PRESS  START",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 14,
+              "fontWeight": "normal",
+              "letterSpacing": 3
+            },
+            {
+              "type": "frame",
+              "id": "D50qh",
+              "name": "spacerBot",
+              "enabled": false,
+              "width": 10,
+              "height": 40
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "VwD3S",
+          "x": 696,
+          "y": 395,
+          "name": "Cursor",
+          "enabled": false,
+          "fill": "#555555",
+          "width": 48,
+          "height": 4
+        },
+        {
+          "type": "frame",
+          "id": "ZcUJb",
+          "x": 0,
+          "y": 0,
+          "name": "Sky Tint",
+          "width": 1440,
+          "height": 720,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#0A0A0E",
+                "position": 0
+              },
+              {
+                "color": "#0B0A12",
+                "position": 0.5
+              },
+              {
+                "color": "#0A0A0A",
+                "position": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "ellipse",
+          "id": "spe50",
+          "x": 100,
+          "y": -100,
+          "name": "GM Ghost Glow",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#FFFFFF06",
+                "position": 0
+              },
+              {
+                "color": "#FFFFFF02",
+                "position": 0.4
+              },
+              {
+                "color": "#00000000",
+                "position": 1
+              }
+            ]
+          },
+          "width": 1240,
+          "height": 1000
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 755,
+          "id": "LJvtd",
+          "x": 211,
+          "y": 31,
+          "name": "Game Master",
+          "opacity": 0.9,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../asset/character/game-master/game-master-asking.png",
+            "mode": "fill"
+          },
+          "width": 947,
+          "height": 1419
+        },
+        {
+          "type": "frame",
+          "id": "4LZro",
+          "x": 120,
+          "y": 680,
+          "name": "Dialogue Box",
+          "width": 1200,
+          "height": 180,
+          "fill": "#0A0A0ACC",
+          "cornerRadius": 4,
+          "stroke": {
+            "align": "inside",
+            "thickness": 2,
+            "fill": "#2A2A2A"
+          },
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "WtXz8",
+              "x": 16,
+              "y": -14,
+              "name": "GM Label",
+              "width": 180,
+              "height": 28,
+              "fill": "#0E0E0E",
+              "cornerRadius": 2,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "#333333"
+              },
+              "padding": [
+                4,
+                12
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "EBpVc",
+                  "name": "GM Name",
+                  "fill": "#555555",
+                  "content": "Game Master",
+                  "fontFamily": "Press Start 2P",
+                  "fontSize": 9,
+                  "fontWeight": "normal",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "mCV9r",
+              "x": 32,
+              "y": 32,
+              "name": "Message",
+              "fill": "#888888",
+              "content": "안녕! 나는 Game Master야.\n너만의 모험을 같이 만들어볼까?\n먼저 이름을 알려줘!",
+              "lineHeight": 2.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 11,
+              "fontWeight": "normal",
+              "letterSpacing": 1
+            },
+            {
+              "type": "frame",
+              "id": "OOv40",
+              "x": 1020,
+              "y": -14,
+              "name": "Progress",
+              "width": 164,
+              "height": 28,
+              "fill": "#0E0E0E",
+              "cornerRadius": 2,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "#333333"
+              },
+              "gap": 8,
+              "padding": [
+                4,
+                12
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "bXO7L",
+                  "name": "P1",
+                  "fill": "#4285F440",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "pCOBV",
+                  "name": "P2",
+                  "fill": "#222222",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "geePx",
+                  "name": "P3",
+                  "fill": "#222222",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "S49cS",
+                  "name": "P4",
+                  "fill": "#222222",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "ICRXK",
+                  "name": "P5",
+                  "fill": "#222222",
+                  "width": 16,
+                  "height": 12
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "FUMlY",
+              "x": 32,
+              "y": 136,
+              "name": "Input Cursor",
+              "fill": "#4285F430",
+              "width": 120,
+              "height": 3
+            },
+            {
+              "type": "text",
+              "id": "IdQUk",
+              "x": 32,
+              "y": 148,
+              "name": "Input Hint",
+              "fill": "#4285F440",
+              "content": "> _",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 10,
+              "fontWeight": "normal",
+              "letterSpacing": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "1mvJg",
+      "x": 208,
+      "y": 1065,
+      "name": "Step 2 — MBTI 질문",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#0A0A0A",
+      "layout": "none",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "M6r7K",
+          "x": 0,
+          "y": 720,
+          "name": "Ground Line",
+          "fill": "#333333",
+          "width": 1440,
+          "height": 1
+        },
+        {
+          "type": "rectangle",
+          "id": "opCjo",
+          "x": 80,
+          "y": 600,
+          "name": "Building 1",
+          "fill": "#1A1A1A",
+          "width": 40,
+          "height": 120,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#9334E615"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "hynbJ",
+          "x": 130,
+          "y": 540,
+          "name": "Building 2",
+          "fill": "#161616",
+          "width": 60,
+          "height": 180,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#252525"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "7tcJg",
+          "x": 200,
+          "y": 630,
+          "name": "Building 3",
+          "fill": "#1D1D1D",
+          "width": 35,
+          "height": 90,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#2A2A2A"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "Y25gy",
+          "x": 260,
+          "y": 520,
+          "name": "Building 4",
+          "fill": "#141414",
+          "width": 50,
+          "height": 200,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#4285F412"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "z7H6B",
+          "x": 320,
+          "y": 580,
+          "name": "Building 5",
+          "fill": "#1A1A1A",
+          "width": 45,
+          "height": 140,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#282828"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "JUv9M",
+          "x": 1050,
+          "y": 500,
+          "name": "Building 6",
+          "fill": "#151515",
+          "width": 70,
+          "height": 220,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#EA438510"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "X56da",
+          "x": 1130,
+          "y": 560,
+          "name": "Building 7",
+          "fill": "#1C1C1C",
+          "width": 40,
+          "height": 160,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#2A2A2A"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "QHknf",
+          "x": 1190,
+          "y": 590,
+          "name": "Building 8",
+          "fill": "#181818",
+          "width": 55,
+          "height": 130,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#262626"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "a2ju5",
+          "x": 1260,
+          "y": 530,
+          "name": "Building 9",
+          "fill": "#141414",
+          "width": 50,
+          "height": 190,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#4285F412"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "DQlp8",
+          "x": 1340,
+          "y": 610,
+          "name": "Building 10",
+          "fill": "#1B1B1B",
+          "width": 60,
+          "height": 110,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#292929"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "4vaut",
+          "x": 142,
+          "y": 560,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "iEvDS",
+          "x": 155,
+          "y": 560,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "v0jov",
+          "x": 142,
+          "y": 580,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "OlMTQ",
+          "x": 155,
+          "y": 580,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "SL7Wr",
+          "x": 142,
+          "y": 600,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "jYSXL",
+          "x": 155,
+          "y": 600,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "PIaTC",
+          "x": 270,
+          "y": 540,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "SXsmZ",
+          "x": 283,
+          "y": 540,
+          "name": "Win",
+          "fill": "#222222",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "u4QTC",
+          "x": 270,
+          "y": 560,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "GnTCK",
+          "x": 283,
+          "y": 560,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "sVACp",
+          "x": 270,
+          "y": 580,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "OnHuf",
+          "x": 283,
+          "y": 580,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "Iv6Dw",
+          "x": 1065,
+          "y": 520,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "A9l4N",
+          "x": 1080,
+          "y": 520,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "1NZvt",
+          "x": 1095,
+          "y": 520,
+          "name": "Win",
+          "fill": "#222222",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "fWNIX",
+          "x": 1065,
+          "y": 540,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "lvRHT",
+          "x": 1080,
+          "y": 540,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "MfUKM",
+          "x": 1095,
+          "y": 540,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "rJ0uY",
+          "x": 1275,
+          "y": 550,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "6eUac",
+          "x": 1290,
+          "y": 550,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "5ikPg",
+          "x": 1275,
+          "y": 570,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "I8Ink",
+          "x": 1290,
+          "y": 570,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "frame",
+          "id": "QBsPT",
+          "x": 0,
+          "y": 0,
+          "name": "Title Center",
+          "width": 1440,
+          "height": 900,
+          "layout": "vertical",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "U1pgx",
+              "name": "spacerTop",
+              "width": 10,
+              "height": 40
+            },
+            {
+              "type": "text",
+              "id": "WU8aS",
+              "name": "OOO Title",
+              "fill": "#3A3A3A",
+              "content": "OOO's",
+              "lineHeight": 1.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 36,
+              "fontWeight": "normal",
+              "letterSpacing": 4
+            },
+            {
+              "type": "text",
+              "id": "gy48K",
+              "name": "adventure Title",
+              "fill": "#2D2D2D",
+              "content": "adventure",
+              "lineHeight": 1.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 36,
+              "fontWeight": "normal",
+              "letterSpacing": 4
+            },
+            {
+              "type": "frame",
+              "id": "Jejyu",
+              "name": "spacerSub",
+              "enabled": false,
+              "width": 10,
+              "height": 32
+            },
+            {
+              "type": "text",
+              "id": "JMtkZ",
+              "name": "Subtitle",
+              "enabled": false,
+              "fill": "#2A2A2A",
+              "content": "with Gemini Story Builder",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 10,
+              "fontWeight": "normal",
+              "letterSpacing": 2
+            },
+            {
+              "type": "frame",
+              "id": "lB0XF",
+              "name": "spacerBtn",
+              "enabled": false,
+              "width": 10,
+              "height": 64
+            },
+            {
+              "type": "text",
+              "id": "AyBBR",
+              "name": "Press Start",
+              "enabled": false,
+              "fill": "#555555",
+              "content": "PRESS  START",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 14,
+              "fontWeight": "normal",
+              "letterSpacing": 3
+            },
+            {
+              "type": "frame",
+              "id": "lFp6d",
+              "name": "spacerBot",
+              "enabled": false,
+              "width": 10,
+              "height": 40
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "LP54v",
+          "x": 696,
+          "y": 395,
+          "name": "Cursor",
+          "enabled": false,
+          "fill": "#555555",
+          "width": 48,
+          "height": 4
+        },
+        {
+          "type": "frame",
+          "id": "ltgr9",
+          "x": 0,
+          "y": 0,
+          "name": "Sky Gradient",
+          "width": 1440,
+          "height": 720,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#0A0A12",
+                "position": 0
+              },
+              {
+                "color": "#0E0A20",
+                "position": 0.4
+              },
+              {
+                "color": "#100A18",
+                "position": 0.7
+              },
+              {
+                "color": "#0A0A0E",
+                "position": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "ellipse",
+          "id": "l4Ak9",
+          "x": 300,
+          "y": 100,
+          "name": "Star",
+          "fill": "#FFFFFF30",
+          "width": 2,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "Pq6az",
+          "x": 700,
+          "y": 80,
+          "name": "Star",
+          "fill": "#FFFFFF20",
+          "width": 2,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "KbnTH",
+          "x": 1100,
+          "y": 120,
+          "name": "Star",
+          "fill": "#FFFFFF25",
+          "width": 3,
+          "height": 3
+        },
+        {
+          "type": "ellipse",
+          "id": "2lFRR",
+          "x": 80,
+          "y": -120,
+          "name": "GM Faint Glow",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F40E",
+                "position": 0
+              },
+              {
+                "color": "#9334E608",
+                "position": 0.4
+              },
+              {
+                "color": "#00000000",
+                "position": 1
+              }
+            ]
+          },
+          "width": 1280,
+          "height": 1100
+        },
+        {
+          "type": "rectangle",
+          "id": "J60Vq",
+          "x": 0,
+          "y": 719,
+          "name": "Ground Glow Line",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 90,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F415",
+                "position": 0
+              },
+              {
+                "color": "#9334E615",
+                "position": 0.5
+              },
+              {
+                "color": "#EA438515",
+                "position": 1
+              }
+            ]
+          },
+          "width": 1440,
+          "height": 2
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 755,
+          "id": "WPrvP",
+          "x": 211,
+          "y": 31,
+          "name": "Game Master",
+          "opacity": 0.9,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../asset/character/game-master/game-master-asking.png",
+            "mode": "fill"
+          },
+          "width": 947,
+          "height": 1419
+        },
+        {
+          "type": "frame",
+          "id": "7VGgH",
+          "x": 120,
+          "y": 680,
+          "name": "Dialogue Box",
+          "width": 1200,
+          "height": 180,
+          "fill": "#0A0A0ACC",
+          "cornerRadius": 4,
+          "stroke": {
+            "align": "inside",
+            "thickness": 2,
+            "fill": "#4285F425"
+          },
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "ObmkO",
+              "x": 16,
+              "y": -14,
+              "name": "GM Label",
+              "width": 180,
+              "height": 28,
+              "fill": "#0E0E10",
+              "cornerRadius": 2,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "#4285F430"
+              },
+              "padding": [
+                4,
+                12
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "kwjWu",
+                  "name": "GM Name",
+                  "fill": "#4285F460",
+                  "content": "Game Master",
+                  "fontFamily": "Press Start 2P",
+                  "fontSize": 9,
+                  "fontWeight": "normal",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "2rnwu",
+              "x": 32,
+              "y": 32,
+              "name": "Message",
+              "fill": "#AAAAAA",
+              "content": "김철수! 좋은 이름이다!\nMBTI가 뭐야?\n동료 캐릭터를 만들어줄게!",
+              "lineHeight": 2.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 11,
+              "fontWeight": "normal",
+              "letterSpacing": 1
+            },
+            {
+              "type": "frame",
+              "id": "5edsB",
+              "x": 1020,
+              "y": -14,
+              "name": "Progress",
+              "width": 164,
+              "height": 28,
+              "fill": "#0E0E10",
+              "cornerRadius": 2,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "#4285F430"
+              },
+              "gap": 8,
+              "padding": [
+                4,
+                12
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "24dyG",
+                  "name": "P1",
+                  "fill": "#4285F460",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "7SjVE",
+                  "name": "P2",
+                  "fill": "#9334E650",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "3n8yw",
+                  "name": "P3",
+                  "fill": "#222222",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "1TeJc",
+                  "name": "P4",
+                  "fill": "#222222",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "zZxv9",
+                  "name": "P5",
+                  "fill": "#222222",
+                  "width": 16,
+                  "height": 12
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "WLkFu",
+              "x": 32,
+              "y": 136,
+              "name": "Input Cursor",
+              "fill": "#4285F435",
+              "width": 120,
+              "height": 3
+            },
+            {
+              "type": "text",
+              "id": "bjy9K",
+              "x": 32,
+              "y": 148,
+              "name": "Input Hint",
+              "fill": "#4285F450",
+              "content": "> _",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 10,
+              "fontWeight": "normal",
+              "letterSpacing": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "4UQsG",
+      "x": -1332,
+      "y": 2065,
+      "name": "Step 3 — 동물/음식 질문",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#0A0A0A",
+      "layout": "none",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "SYWtL",
+          "x": 0,
+          "y": 720,
+          "name": "Ground Line",
+          "fill": "#333333",
+          "width": 1440,
+          "height": 1
+        },
+        {
+          "type": "rectangle",
+          "id": "OaPaB",
+          "x": 80,
+          "y": 600,
+          "name": "Building 1",
+          "fill": "#0E0E1A",
+          "width": 40,
+          "height": 120,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#EA438535"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "qwfV0",
+          "x": 130,
+          "y": 540,
+          "name": "Building 2",
+          "fill": "#0D0D18",
+          "width": 60,
+          "height": 180,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#4285F430"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "WaL5V",
+          "x": 200,
+          "y": 630,
+          "name": "Building 3",
+          "fill": "#100E1C",
+          "width": 35,
+          "height": 90,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#9334E638"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "kcW3f",
+          "x": 260,
+          "y": 520,
+          "name": "Building 4",
+          "fill": "#0C0C16",
+          "width": 50,
+          "height": 200,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#EA438530"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "cT0Ve",
+          "x": 320,
+          "y": 580,
+          "name": "Building 5",
+          "fill": "#0F0E1A",
+          "width": 45,
+          "height": 140,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#1A73E830"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "02FTQ",
+          "x": 1050,
+          "y": 500,
+          "name": "Building 6",
+          "fill": "#0C0C16",
+          "width": 70,
+          "height": 220,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#4285F435"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "ECycS",
+          "x": 1130,
+          "y": 560,
+          "name": "Building 7",
+          "fill": "#0E0E1A",
+          "width": 40,
+          "height": 160,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#EA438530"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "AosHw",
+          "x": 1190,
+          "y": 590,
+          "name": "Building 8",
+          "fill": "#100E1C",
+          "width": 55,
+          "height": 130,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#9334E638"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "bGtP1",
+          "x": 1260,
+          "y": 530,
+          "name": "Building 9",
+          "fill": "#0D0D18",
+          "width": 50,
+          "height": 190,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#1A73E835"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "F4s1q",
+          "x": 1340,
+          "y": 610,
+          "name": "Building 10",
+          "fill": "#0F0E1A",
+          "width": 60,
+          "height": 110,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#EA438528"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "NZu7u",
+          "x": 142,
+          "y": 560,
+          "name": "Win",
+          "fill": "#4285F430",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "PQE4M",
+          "x": 155,
+          "y": 560,
+          "name": "Win",
+          "fill": "#9334E625",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "xwTxr",
+          "x": 142,
+          "y": 580,
+          "name": "Win",
+          "fill": "#4285F420",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "WzSWW",
+          "x": 155,
+          "y": 580,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "nXGjF",
+          "x": 142,
+          "y": 600,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "EwSFS",
+          "x": 155,
+          "y": 600,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "sUFhs",
+          "x": 270,
+          "y": 540,
+          "name": "Win",
+          "fill": "#EA438530",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "V79aG",
+          "x": 283,
+          "y": 540,
+          "name": "Win",
+          "fill": "#4285F425",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "T8cMK",
+          "x": 270,
+          "y": 560,
+          "name": "Win",
+          "fill": "#9334E620",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "QyWmi",
+          "x": 283,
+          "y": 560,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "4mM67",
+          "x": 270,
+          "y": 580,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "WFNO1",
+          "x": 283,
+          "y": 580,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "tbpPD",
+          "x": 1065,
+          "y": 520,
+          "name": "Win",
+          "fill": "#4285F430",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "nMpYY",
+          "x": 1080,
+          "y": 520,
+          "name": "Win",
+          "fill": "#EA438525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "WMs8T",
+          "x": 1095,
+          "y": 520,
+          "name": "Win",
+          "fill": "#9334E620",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "IfxpD",
+          "x": 1065,
+          "y": 540,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "hM9sO",
+          "x": 1080,
+          "y": 540,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "asvVg",
+          "x": 1095,
+          "y": 540,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "IhNyh",
+          "x": 1275,
+          "y": 550,
+          "name": "Win",
+          "fill": "#1A73E830",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "Ily6t",
+          "x": 1290,
+          "y": 550,
+          "name": "Win",
+          "fill": "#EA438528",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "8nIFP",
+          "x": 1275,
+          "y": 570,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "wgSoW",
+          "x": 1290,
+          "y": 570,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "frame",
+          "id": "LT0o2",
+          "x": 0,
+          "y": 0,
+          "name": "Title Center",
+          "width": 1440,
+          "height": 900,
+          "layout": "vertical",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "zsIyd",
+              "name": "spacerTop",
+              "width": 10,
+              "height": 40
+            },
+            {
+              "type": "text",
+              "id": "a0WUc",
+              "name": "OOO Title",
+              "fill": "#3A3A3A",
+              "content": "OOO's",
+              "lineHeight": 1.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 36,
+              "fontWeight": "normal",
+              "letterSpacing": 4
+            },
+            {
+              "type": "text",
+              "id": "bZ5eG",
+              "name": "adventure Title",
+              "fill": "#2D2D2D",
+              "content": "adventure",
+              "lineHeight": 1.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 36,
+              "fontWeight": "normal",
+              "letterSpacing": 4
+            },
+            {
+              "type": "frame",
+              "id": "E4BB0",
+              "name": "spacerSub",
+              "enabled": false,
+              "width": 10,
+              "height": 32
+            },
+            {
+              "type": "text",
+              "id": "PeOZq",
+              "name": "Subtitle",
+              "enabled": false,
+              "fill": "#2A2A2A",
+              "content": "with Gemini Story Builder",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 10,
+              "fontWeight": "normal",
+              "letterSpacing": 2
+            },
+            {
+              "type": "frame",
+              "id": "Jgkul",
+              "name": "spacerBtn",
+              "enabled": false,
+              "width": 10,
+              "height": 64
+            },
+            {
+              "type": "text",
+              "id": "lvcue",
+              "name": "Press Start",
+              "enabled": false,
+              "fill": "#555555",
+              "content": "PRESS  START",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 14,
+              "fontWeight": "normal",
+              "letterSpacing": 3
+            },
+            {
+              "type": "frame",
+              "id": "fV492",
+              "name": "spacerBot",
+              "enabled": false,
+              "width": 10,
+              "height": 40
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "GDVf0",
+          "x": 696,
+          "y": 395,
+          "name": "Cursor",
+          "enabled": false,
+          "fill": "#555555",
+          "width": 48,
+          "height": 4
+        },
+        {
+          "type": "frame",
+          "id": "U7XyN",
+          "x": 0,
+          "y": 0,
+          "name": "Night Sky",
+          "width": 1440,
+          "height": 720,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#050510",
+                "position": 0
+              },
+              {
+                "color": "#0C0828",
+                "position": 0.4
+              },
+              {
+                "color": "#150A30",
+                "position": 0.7
+              },
+              {
+                "color": "#0A0518",
+                "position": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "3hh5r",
+          "x": 0,
+          "y": 720,
+          "name": "Ground Dark",
+          "fill": "#0D0D15",
+          "width": 1440,
+          "height": 180
+        },
+        {
+          "type": "rectangle",
+          "id": "UZO50",
+          "x": 0,
+          "y": 719,
+          "name": "Ground Glow Line",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 90,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F430",
+                "position": 0
+              },
+              {
+                "color": "#9334E630",
+                "position": 0.5
+              },
+              {
+                "color": "#EA438530",
+                "position": 1
+              }
+            ]
+          },
+          "width": 1440,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "Gh36w",
+          "x": 1060,
+          "y": 50,
+          "name": "Moon Glow",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#FFFFFF0A",
+                "position": 0
+              },
+              {
+                "color": "#FFFFFF00",
+                "position": 1
+              }
+            ]
+          },
+          "width": 200,
+          "height": 200
+        },
+        {
+          "type": "ellipse",
+          "id": "TXANn",
+          "x": 1150,
+          "y": 100,
+          "name": "Moon",
+          "fill": "#EEEECC60",
+          "width": 30,
+          "height": 30
+        },
+        {
+          "type": "ellipse",
+          "id": "3aP51",
+          "x": 200,
+          "y": 80,
+          "name": "Star",
+          "fill": "#FFFFFF50",
+          "width": 3,
+          "height": 3
+        },
+        {
+          "type": "ellipse",
+          "id": "Rtiy1",
+          "x": 450,
+          "y": 50,
+          "name": "Star",
+          "fill": "#FFFFFF40",
+          "width": 2,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "KBhM3",
+          "x": 700,
+          "y": 100,
+          "name": "Star",
+          "fill": "#FFFFFF35",
+          "width": 2,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "rvzHI",
+          "x": 900,
+          "y": 60,
+          "name": "Star",
+          "fill": "#FFFFFF45",
+          "width": 3,
+          "height": 3
+        },
+        {
+          "type": "ellipse",
+          "id": "L7hpa",
+          "x": 350,
+          "y": 130,
+          "name": "Star",
+          "fill": "#FFFFFF30",
+          "width": 2,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "os9e6",
+          "x": 1300,
+          "y": 90,
+          "name": "Star",
+          "fill": "#FFFFFF35",
+          "width": 2,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "36SYU",
+          "x": 60,
+          "y": 450,
+          "name": "Neon Glow 1",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#EA43850A",
+                "position": 0
+              },
+              {
+                "color": "#EA438500",
+                "position": 1
+              }
+            ]
+          },
+          "width": 200,
+          "height": 300
+        },
+        {
+          "type": "ellipse",
+          "id": "W1QEM",
+          "x": 210,
+          "y": 400,
+          "name": "Neon Glow 2",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F408",
+                "position": 0
+              },
+              {
+                "color": "#4285F400",
+                "position": 1
+              }
+            ]
+          },
+          "width": 200,
+          "height": 300
+        },
+        {
+          "type": "ellipse",
+          "id": "Nblc8",
+          "x": 1000,
+          "y": 420,
+          "name": "Neon Glow 3",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F40A",
+                "position": 0
+              },
+              {
+                "color": "#4285F400",
+                "position": 1
+              }
+            ]
+          },
+          "width": 200,
+          "height": 300
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "r6pBl",
+          "x": 120,
+          "y": 555,
+          "name": "Neon Sign 1",
+          "fill": "#EA438540",
+          "width": 30,
+          "height": 12
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "tWpAY",
+          "x": 255,
+          "y": 520,
+          "name": "Neon Sign 2",
+          "fill": "#4285F435",
+          "width": 35,
+          "height": 10
+        },
+        {
+          "type": "ellipse",
+          "id": "gb7ou",
+          "x": 370,
+          "y": 150,
+          "name": "Center Glow",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#9334E612",
+                "position": 0
+              },
+              {
+                "color": "#4285F408",
+                "position": 0.3
+              },
+              {
+                "color": "#EA438506",
+                "position": 0.6
+              },
+              {
+                "color": "#00000000",
+                "position": 1
+              }
+            ]
+          },
+          "width": 700,
+          "height": 400
+        },
+        {
+          "type": "ellipse",
+          "id": "EfiC0",
+          "x": 50,
+          "y": -150,
+          "name": "GM Visible Glow",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F41C",
+                "position": 0
+              },
+              {
+                "color": "#9334E614",
+                "position": 0.4
+              },
+              {
+                "color": "#00000000",
+                "position": 1
+              }
+            ]
+          },
+          "width": 1340,
+          "height": 1200
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 755,
+          "id": "Sg6Pc",
+          "x": 211,
+          "y": 31,
+          "name": "Game Master",
+          "opacity": 0.9,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../asset/character/game-master/game-master-asking.png",
+            "mode": "fill"
+          },
+          "width": 947,
+          "height": 1419
+        },
+        {
+          "type": "frame",
+          "id": "TaGPa",
+          "x": 120,
+          "y": 680,
+          "name": "Dialogue Box",
+          "width": 1200,
+          "height": 180,
+          "fill": "#0A0A0ACC",
+          "cornerRadius": 4,
+          "stroke": {
+            "align": "inside",
+            "thickness": 2,
+            "fill": "#9334E640"
+          },
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "4OleV",
+              "x": 16,
+              "y": -14,
+              "name": "GM Label",
+              "width": 180,
+              "height": 28,
+              "fill": "#0E0E14",
+              "cornerRadius": 2,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "#9334E650"
+              },
+              "padding": [
+                4,
+                12
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "E1Ose",
+                  "name": "GM Name",
+                  "fill": "#A855F780",
+                  "content": "Game Master",
+                  "fontFamily": "Press Start 2P",
+                  "fontSize": 9,
+                  "fontWeight": "normal",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "LMmxy",
+              "x": 32,
+              "y": 32,
+              "name": "Message",
+              "fill": "#CCCCCC",
+              "content": "좋아하는 동물은 뭐야?\n좋아하는 음식도 알려줘!\n특별한 동료를 더 만들어줄게!",
+              "lineHeight": 2.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 11,
+              "fontWeight": "normal",
+              "letterSpacing": 1
+            },
+            {
+              "type": "frame",
+              "id": "pHffN",
+              "x": 1020,
+              "y": -14,
+              "name": "Progress",
+              "width": 164,
+              "height": 28,
+              "fill": "#0E0E14",
+              "cornerRadius": 2,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "#9334E650"
+              },
+              "gap": 8,
+              "padding": [
+                4,
+                12
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "dUmwc",
+                  "name": "P1",
+                  "fill": "#4285F480",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "Wfq2a",
+                  "name": "P2",
+                  "fill": "#9334E670",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "ZPzAC",
+                  "name": "P3",
+                  "fill": "#EA438560",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "KZmQH",
+                  "name": "P4",
+                  "fill": "#FBBC0450",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "gTw1v",
+                  "name": "P5",
+                  "fill": "#222222",
+                  "width": 16,
+                  "height": 12
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "1zrWX",
+              "x": 32,
+              "y": 136,
+              "name": "Input Cursor",
+              "fill": "#9334E640",
+              "width": 120,
+              "height": 3
+            },
+            {
+              "type": "text",
+              "id": "KUekk",
+              "x": 32,
+              "y": 148,
+              "name": "Input Hint",
+              "fill": "#9334E660",
+              "content": "> _",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 10,
+              "fontWeight": "normal",
+              "letterSpacing": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "TpO2Q",
+      "x": 208,
+      "y": 2065,
+      "name": "Step 4 — 모험 시작",
+      "clip": true,
+      "width": 1440,
+      "height": 900,
+      "fill": "#0A0A0A",
+      "layout": "none",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "97sWg",
+          "x": 0,
+          "y": 720,
+          "name": "Ground Line",
+          "fill": "#333333",
+          "width": 1440,
+          "height": 1
+        },
+        {
+          "type": "rectangle",
+          "id": "rNzsJ",
+          "x": 80,
+          "y": 600,
+          "name": "Building 1",
+          "fill": "#0E0E1A",
+          "width": 40,
+          "height": 120,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#EA438548"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "iWb78",
+          "x": 130,
+          "y": 540,
+          "name": "Building 2",
+          "fill": "#0D0D18",
+          "width": 60,
+          "height": 180,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#4285F440"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "aF6mu",
+          "x": 200,
+          "y": 630,
+          "name": "Building 3",
+          "fill": "#100E1C",
+          "width": 35,
+          "height": 90,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#9334E648"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "fu5nV",
+          "x": 260,
+          "y": 520,
+          "name": "Building 4",
+          "fill": "#0C0C16",
+          "width": 50,
+          "height": 200,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#EA438542"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "jQtps",
+          "x": 320,
+          "y": 580,
+          "name": "Building 5",
+          "fill": "#0F0E1A",
+          "width": 45,
+          "height": 140,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#1A73E838"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "1Qb2h",
+          "x": 1050,
+          "y": 500,
+          "name": "Building 6",
+          "fill": "#0C0C16",
+          "width": 70,
+          "height": 220,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#4285F442"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "oLjbx",
+          "x": 1130,
+          "y": 560,
+          "name": "Building 7",
+          "fill": "#0E0E1A",
+          "width": 40,
+          "height": 160,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#EA438538"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "HIrT4",
+          "x": 1190,
+          "y": 590,
+          "name": "Building 8",
+          "fill": "#100E1C",
+          "width": 55,
+          "height": 130,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#9334E648"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "Wx9Jg",
+          "x": 1260,
+          "y": 530,
+          "name": "Building 9",
+          "fill": "#0D0D18",
+          "width": 50,
+          "height": 190,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#1A73E842"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "tdWSM",
+          "x": 1340,
+          "y": 610,
+          "name": "Building 10",
+          "fill": "#0F0E1A",
+          "width": 60,
+          "height": 110,
+          "stroke": {
+            "align": "outside",
+            "thickness": 1,
+            "fill": "#EA438532"
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "x3Lxj",
+          "x": 142,
+          "y": 560,
+          "name": "Win",
+          "fill": "#4285F470",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "Jn8ly",
+          "x": 155,
+          "y": 560,
+          "name": "Win",
+          "fill": "#9334E655",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "t3EMG",
+          "x": 142,
+          "y": 580,
+          "name": "Win",
+          "fill": "#4285F445",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "6mr4x",
+          "x": 155,
+          "y": 580,
+          "name": "Win",
+          "fill": "#A855F750",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "2ueSZ",
+          "x": 142,
+          "y": 600,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "3gLLk",
+          "x": 155,
+          "y": 600,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "W3g6z",
+          "x": 270,
+          "y": 540,
+          "name": "Win",
+          "fill": "#EA438565",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "8Jviy",
+          "x": 283,
+          "y": 540,
+          "name": "Win",
+          "fill": "#4285F455",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "0Zpx8",
+          "x": 270,
+          "y": 560,
+          "name": "Win",
+          "fill": "#A855F748",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "RbLOb",
+          "x": 283,
+          "y": 560,
+          "name": "Win",
+          "fill": "#4285F460",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "KV1mb",
+          "x": 270,
+          "y": 580,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "DjG5o",
+          "x": 283,
+          "y": 580,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "b3na4",
+          "x": 1065,
+          "y": 520,
+          "name": "Win",
+          "fill": "#4285F465",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "gSs0Q",
+          "x": 1080,
+          "y": 520,
+          "name": "Win",
+          "fill": "#EA438550",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "FT2oC",
+          "x": 1095,
+          "y": 520,
+          "name": "Win",
+          "fill": "#A855F758",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "0gRcG",
+          "x": 1065,
+          "y": 540,
+          "name": "Win",
+          "fill": "#9334E655",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "iKD6G",
+          "x": 1080,
+          "y": 540,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "v0oJq",
+          "x": 1095,
+          "y": 540,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "kz9ag",
+          "x": 1275,
+          "y": 550,
+          "name": "Win",
+          "fill": "#1A73E858",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "RuaUK",
+          "x": 1290,
+          "y": 550,
+          "name": "Win",
+          "fill": "#EA438565",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "j3U6H",
+          "x": 1275,
+          "y": 570,
+          "name": "Win",
+          "fill": "#2A2A2A",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "rectangle",
+          "id": "QknQX",
+          "x": 1290,
+          "y": 570,
+          "name": "Win",
+          "fill": "#252525",
+          "width": 4,
+          "height": 4
+        },
+        {
+          "type": "frame",
+          "id": "bExKW",
+          "x": 0,
+          "y": 0,
+          "name": "Title Center",
+          "width": 1440,
+          "height": 900,
+          "layout": "vertical",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "4sqpb",
+              "name": "spacerTop",
+              "width": 10,
+              "height": 40
+            },
+            {
+              "type": "text",
+              "id": "jd1tk",
+              "name": "OOO Title",
+              "fill": "#3A3A3A",
+              "content": "OOO's",
+              "lineHeight": 1.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 36,
+              "fontWeight": "normal",
+              "letterSpacing": 4
+            },
+            {
+              "type": "text",
+              "id": "OJkV2",
+              "name": "adventure Title",
+              "fill": "#2D2D2D",
+              "content": "adventure",
+              "lineHeight": 1.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 36,
+              "fontWeight": "normal",
+              "letterSpacing": 4
+            },
+            {
+              "type": "frame",
+              "id": "lgaCJ",
+              "name": "spacerSub",
+              "enabled": false,
+              "width": 10,
+              "height": 32
+            },
+            {
+              "type": "text",
+              "id": "Vi4u7",
+              "name": "Subtitle",
+              "enabled": false,
+              "fill": "#2A2A2A",
+              "content": "with Gemini Story Builder",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 10,
+              "fontWeight": "normal",
+              "letterSpacing": 2
+            },
+            {
+              "type": "frame",
+              "id": "ZBLX2",
+              "name": "spacerBtn",
+              "enabled": false,
+              "width": 10,
+              "height": 64
+            },
+            {
+              "type": "text",
+              "id": "Pj6iJ",
+              "name": "Press Start",
+              "enabled": false,
+              "fill": "#555555",
+              "content": "PRESS  START",
+              "fontFamily": "Press Start 2P",
+              "fontSize": 14,
+              "fontWeight": "normal",
+              "letterSpacing": 3
+            },
+            {
+              "type": "frame",
+              "id": "jBgVg",
+              "name": "spacerBot",
+              "enabled": false,
+              "width": 10,
+              "height": 40
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "GGfpS",
+          "x": 696,
+          "y": 395,
+          "name": "Cursor",
+          "enabled": false,
+          "fill": "#555555",
+          "width": 48,
+          "height": 4
+        },
+        {
+          "type": "frame",
+          "id": "XjUHz",
+          "x": 0,
+          "y": 0,
+          "name": "Night Sky",
+          "width": 1440,
+          "height": 720,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#050510",
+                "position": 0
+              },
+              {
+                "color": "#0C0828",
+                "position": 0.4
+              },
+              {
+                "color": "#150A30",
+                "position": 0.7
+              },
+              {
+                "color": "#0A0518",
+                "position": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "rectangle",
+          "id": "VM3lZ",
+          "x": 0,
+          "y": 720,
+          "name": "Ground Dark",
+          "fill": "#0D0D15",
+          "width": 1440,
+          "height": 180
+        },
+        {
+          "type": "rectangle",
+          "id": "026V4",
+          "x": 0,
+          "y": 719,
+          "name": "Ground Glow Line",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 90,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F440",
+                "position": 0
+              },
+              {
+                "color": "#9334E640",
+                "position": 0.5
+              },
+              {
+                "color": "#EA438540",
+                "position": 1
+              }
+            ]
+          },
+          "width": 1440,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "9O4bX",
+          "x": 1050,
+          "y": 30,
+          "name": "Moon Glow",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#FFFFFF12",
+                "position": 0
+              },
+              {
+                "color": "#FFFFFF00",
+                "position": 1
+              }
+            ]
+          },
+          "width": 300,
+          "height": 300
+        },
+        {
+          "type": "ellipse",
+          "id": "fmT02",
+          "x": 1180,
+          "y": 160,
+          "name": "Moon",
+          "fill": "#EEEECCA0",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "type": "ellipse",
+          "id": "MP9g7",
+          "x": 200,
+          "y": 80,
+          "name": "Star",
+          "fill": "#FFFFFF70",
+          "width": 3,
+          "height": 3
+        },
+        {
+          "type": "ellipse",
+          "id": "fZDTc",
+          "x": 450,
+          "y": 50,
+          "name": "Star",
+          "fill": "#FFFFFF55",
+          "width": 2,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "eSJtj",
+          "x": 700,
+          "y": 100,
+          "name": "Star",
+          "fill": "#FFFFFF45",
+          "width": 2,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "U27kQ",
+          "x": 900,
+          "y": 60,
+          "name": "Star",
+          "fill": "#FFFFFF65",
+          "width": 3,
+          "height": 3
+        },
+        {
+          "type": "ellipse",
+          "id": "MqiZq",
+          "x": 350,
+          "y": 130,
+          "name": "Star",
+          "fill": "#FFFFFF38",
+          "width": 2,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "eVpj6",
+          "x": 600,
+          "y": 40,
+          "name": "Star",
+          "fill": "#FFFFFF50",
+          "width": 2,
+          "height": 2
+        },
+        {
+          "type": "ellipse",
+          "id": "2zvAw",
+          "x": 1300,
+          "y": 90,
+          "name": "Star",
+          "fill": "#FFFFFF40",
+          "width": 3,
+          "height": 3
+        },
+        {
+          "type": "ellipse",
+          "id": "H79wL",
+          "x": 60,
+          "y": 450,
+          "name": "Neon Glow 1",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#EA438510",
+                "position": 0
+              },
+              {
+                "color": "#EA438500",
+                "position": 1
+              }
+            ]
+          },
+          "width": 200,
+          "height": 300
+        },
+        {
+          "type": "ellipse",
+          "id": "arnFJ",
+          "x": 210,
+          "y": 400,
+          "name": "Neon Glow 2",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F40E",
+                "position": 0
+              },
+              {
+                "color": "#4285F400",
+                "position": 1
+              }
+            ]
+          },
+          "width": 200,
+          "height": 300
+        },
+        {
+          "type": "ellipse",
+          "id": "XXXqS",
+          "x": 1000,
+          "y": 420,
+          "name": "Neon Glow 3",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F410",
+                "position": 0
+              },
+              {
+                "color": "#4285F400",
+                "position": 1
+              }
+            ]
+          },
+          "width": 200,
+          "height": 300
+        },
+        {
+          "type": "ellipse",
+          "id": "rZPW4",
+          "x": 1200,
+          "y": 430,
+          "name": "Neon Glow 4",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#EA43850E",
+                "position": 0
+              },
+              {
+                "color": "#EA438500",
+                "position": 1
+              }
+            ]
+          },
+          "width": 200,
+          "height": 300
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "wnQ1C",
+          "x": 120,
+          "y": 555,
+          "name": "Neon Sign 1",
+          "fill": "#EA438558",
+          "width": 30,
+          "height": 12
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "PSZqK",
+          "x": 255,
+          "y": 520,
+          "name": "Neon Sign 2",
+          "fill": "#4285F450",
+          "width": 35,
+          "height": 10
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "joGub",
+          "x": 330,
+          "y": 600,
+          "name": "Neon Sign 3",
+          "fill": "#9334E655",
+          "width": 25,
+          "height": 10
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "rduzB",
+          "x": 1035,
+          "y": 540,
+          "name": "Neon Sign 4",
+          "fill": "#4285F448",
+          "width": 40,
+          "height": 12
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 2,
+          "id": "ohigq",
+          "x": 1255,
+          "y": 530,
+          "name": "Neon Sign 5",
+          "fill": "#EA438550",
+          "width": 30,
+          "height": 10
+        },
+        {
+          "type": "ellipse",
+          "id": "nh4I7",
+          "x": 270,
+          "y": 100,
+          "name": "Center Glow",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#9334E620",
+                "position": 0
+              },
+              {
+                "color": "#4285F412",
+                "position": 0.3
+              },
+              {
+                "color": "#EA43850E",
+                "position": 0.6
+              },
+              {
+                "color": "#00000000",
+                "position": 1
+              }
+            ]
+          },
+          "width": 900,
+          "height": 600
+        },
+        {
+          "type": "ellipse",
+          "id": "ZhbLK",
+          "x": 20,
+          "y": -180,
+          "name": "GM Clear Glow",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#4285F426",
+                "position": 0
+              },
+              {
+                "color": "#9334E61C",
+                "position": 0.4
+              },
+              {
+                "color": "#00000000",
+                "position": 1
+              }
+            ]
+          },
+          "width": 1400,
+          "height": 1300
+        },
+        {
+          "type": "rectangle",
+          "cornerRadius": 755,
+          "id": "7N3AU",
+          "x": 211,
+          "y": 31,
+          "name": "Game Master",
+          "opacity": 0.9,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "../asset/character/game-master/game-master-asking.png",
+            "mode": "fill"
+          },
+          "width": 947,
+          "height": 1419
+        },
+        {
+          "type": "frame",
+          "id": "aWNgY",
+          "x": 120,
+          "y": 680,
+          "name": "Dialogue Box",
+          "width": 1200,
+          "height": 180,
+          "fill": "#0A0A0ACC",
+          "cornerRadius": 4,
+          "stroke": {
+            "align": "inside",
+            "thickness": 2,
+            "fill": {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 90,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#4285F460",
+                  "position": 0
+                },
+                {
+                  "color": "#9334E660",
+                  "position": 0.5
+                },
+                {
+                  "color": "#EA438560",
+                  "position": 1
+                }
+              ]
+            }
+          },
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "bbKhZ",
+              "x": 16,
+              "y": -14,
+              "name": "GM Label",
+              "width": 180,
+              "height": 28,
+              "fill": "#0E0E18",
+              "cornerRadius": 2,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "#EA438560"
+              },
+              "padding": [
+                4,
+                12
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "IH4qz",
+                  "name": "GM Name",
+                  "fill": "#EA4385A0",
+                  "content": "Game Master",
+                  "fontFamily": "Press Start 2P",
+                  "fontSize": 9,
+                  "fontWeight": "normal",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "GX0wH",
+              "x": 32,
+              "y": 32,
+              "name": "Message",
+              "fill": "#EEEEEE",
+              "content": "모든 준비가 끝났어!\n너만의 파티가 완성됐다!\n자, 모험을 시작하자!",
+              "lineHeight": 2.2,
+              "fontFamily": "Press Start 2P",
+              "fontSize": 11,
+              "fontWeight": "normal",
+              "letterSpacing": 1
+            },
+            {
+              "type": "frame",
+              "id": "uhoP3",
+              "x": 1020,
+              "y": -14,
+              "name": "Progress",
+              "width": 164,
+              "height": 28,
+              "fill": "#0E0E18",
+              "cornerRadius": 2,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "#EA438560"
+              },
+              "gap": 8,
+              "padding": [
+                4,
+                12
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "8RJVJ",
+                  "name": "P1",
+                  "fill": "#4285F4A0",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "Ce0q0",
+                  "name": "P2",
+                  "fill": "#9334E690",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "fZyWt",
+                  "name": "P3",
+                  "fill": "#EA438580",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "5zKqM",
+                  "name": "P4",
+                  "fill": "#FBBC0470",
+                  "width": 16,
+                  "height": 12
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 1,
+                  "id": "0c0RC",
+                  "name": "P5",
+                  "fill": "#34A85380",
+                  "width": 16,
+                  "height": 12
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "themes": {
+    "Mode": [
+      "Light",
+      "Dark"
+    ]
+  },
+  "variables": {
+    "--sidebar": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E7E8E5"
+        },
+        {
+          "value": "#18181b",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#666666"
+        },
+        {
+          "value": "#fafafa",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-primary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#18181b"
+        },
+        {
+          "value": "#18181b",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-primary-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#fafafa"
+        },
+        {
+          "value": "#fafafa",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#CBCCC9"
+        },
+        {
+          "value": "#ffffff1a",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-accent": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#CBCCC9"
+        },
+        {
+          "value": "#2a2a30",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-accent-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#18181b"
+        },
+        {
+          "value": "#fafafa",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#71717a"
+        },
+        {
+          "value": "#71717a",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--background": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F2F3F0"
+        },
+        {
+          "value": "#111111",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--card": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF"
+        },
+        {
+          "value": "#1A1A1A",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--card-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--popover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FFFFFF"
+        },
+        {
+          "value": "#1A1A1A",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--popover-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--primary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#FF8400"
+        },
+        {
+          "value": "#FF8400",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--primary-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#111111",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--secondary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E7E8E5"
+        },
+        {
+          "value": "#2E2E2E",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--secondary-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#FFFFFF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--muted": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F2F3F0"
+        },
+        {
+          "value": "#2E2E2E",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--muted-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#666666"
+        },
+        {
+          "value": "#B8B9B6",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--accent": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#F2F3F0"
+        },
+        {
+          "value": "#111111",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--accent-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#111111"
+        },
+        {
+          "value": "#F2F3F0",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--destructive": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#D93C15"
+        },
+        {
+          "value": "#FF5C33",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#CBCCC9"
+        },
+        {
+          "value": "#2E2E2E",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--input": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#CBCCC9"
+        },
+        {
+          "value": "#2E2E2E",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#666666"
+        },
+        {
+          "value": "#666666",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--white": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "--black": {
+      "type": "color",
+      "value": "#000000"
+    },
+    "--font-primary": {
+      "type": "string",
+      "value": "JetBrains Mono"
+    },
+    "--font-secondary": {
+      "type": "string",
+      "value": "Geist"
+    },
+    "--radius-none": {
+      "type": "number",
+      "value": 0
+    },
+    "--radius-pill": {
+      "type": "number",
+      "value": 999
+    },
+    "--color-success": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#DFE6E1"
+        },
+        {
+          "value": "#222924",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-success-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#004D1A"
+        },
+        {
+          "value": "#B6FFCE",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-warning": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E9E3D8"
+        },
+        {
+          "value": "#291C0F",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-warning-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#804200"
+        },
+        {
+          "value": "#FF8400",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-error": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#E5DCDA"
+        },
+        {
+          "value": "#24100B",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-error-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#8C1C00"
+        },
+        {
+          "value": "#FF5C33",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-info": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#DFDFE6"
+        },
+        {
+          "value": "#222229",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--color-info-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#000066"
+        },
+        {
+          "value": "#B2B2FF",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--radius-m": {
+      "type": "number",
+      "value": 16
+    }
+  }
+}
