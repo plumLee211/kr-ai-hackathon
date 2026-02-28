@@ -18,6 +18,7 @@ import {
   type ChatMessage,
 } from "@/constants/survey";
 import type { StoryBible } from "@/types/story";
+import { useGmVoice } from "@/hooks/useGmVoice";
 
 type Phase = "title" | "game-master";
 
@@ -34,6 +35,7 @@ export function IntroContainer() {
   const [allCollected, setAllCollected] = useState(false);
   const [storyBible, setStoryBible] = useState<StoryBible | null>(null);
   const [gmPose, setGmPose] = useState<GMPose>("greeting");
+  const { speak, stop } = useGmVoice();
 
   const step = SURVEY_FIELDS.filter((k) => collectedFields[k] !== null).length;
 
@@ -98,6 +100,13 @@ export function IntroContainer() {
 
     buildStory();
   }, [collectedFields]);
+
+  // GM 음성: currentMessage 변경 시 TTS 자동 재생
+  useEffect(() => {
+    if (!currentMessage) return;
+    speak(currentMessage, gmPose);
+    return () => stop();
+  }, [currentMessage, speak, stop]);
 
   const handleStart = () => setPhase("game-master");
 
