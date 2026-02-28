@@ -1,4 +1,4 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 // ── 8-bit Procedural BGM (Web Audio API) ──
 const BPM = 130;
@@ -74,116 +74,243 @@ async function render8bitLoop(): Promise<AudioBuffer> {
 }
 
 export function useBgm() {
+  type BgmPhase = "chip" | "transitioning" | "lyria";
+
   const ctxRef = useRef<AudioContext | null>(null);
   const sourceRef = useRef<AudioBufferSourceNode | null>(null);
+  const sourcesRef = useRef<Set<AudioBufferSourceNode>>(new Set());
   const gainRef = useRef<GainNode | null>(null);
   const lyriaRef = useRef<HTMLAudioElement | null>(null);
+  const phaseRef = useRef<BgmPhase>("chip");
+  const transitionRequestedRef = useRef(false);
+  const pendingPromptRef = useRef<string | null>(null);
+  const activePromptRef = useRef<string | null>(null);
+  const transitionFnRef = useRef<(prompt: string) => Promise<void>>(async () => {});
+  const fadeTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const volumeRef = useRef(0.5);
   const bufferRef = useRef<AudioBuffer | null>(null);
-  const transitionedRef = useRef(false); // Lyria 전환 완료 플래그
+
+  const stopAll8bitSources = useCallback(() => {
+    for (const source of sourcesRef.current) {
+      try { source.stop(); } catch { /* already stopped */ }
+    }
+    sourcesRef.current.clear();
+    sourceRef.current = null;
+  }, []);
 
   /** Render and play 8-bit BGM loop. Safe to call repeatedly — plays on first valid user gesture. */
   const play = useCallback(async () => {
-    // Lyria로 전환됐으면 8-bit 다시 시작하지 않음
-    if (transitionedRef.current) return;
+    // 8-bit 단계에서만 재생
+    if (phaseRef.current !== "chip") return;
     if (!ctxRef.current) ctxRef.current = new AudioContext();
     if (ctxRef.current.state === "suspended") {
       await ctxRef.current.resume().catch(() => {});
     }
     if (ctxRef.current.state !== "running") return;
-    if (sourceRef.current) return;
+    // 렌더 대기 중 상태 변경(transition) 가능성 방지
+    if (phaseRef.current !== "chip") return;
+    if (sourcesRef.current.size > 0) return;
 
     // 버퍼 캐시 (한 번만 렌더링)
     if (!bufferRef.current) {
       bufferRef.current = await render8bitLoop();
     }
 
+    if (phaseRef.current !== "chip") return;
+    if (sourcesRef.current.size > 0) return;
+
+    if (!gainRef.current) {
+      gainRef.current = ctxRef.current.createGain();
+      gainRef.current.gain.value = volumeRef.current;
+      gainRef.current.connect(ctxRef.current.destination);
+    }
+
     const source = ctxRef.current.createBufferSource();
     source.buffer = bufferRef.current;
     source.loop = true;
-
-    const gain = ctxRef.current.createGain();
-    gain.gain.value = volumeRef.current;
-    source.connect(gain);
-    gain.connect(ctxRef.current.destination);
+    source.connect(gainRef.current);
+    source.onended = () => {
+      sourcesRef.current.delete(source);
+      if (sourceRef.current === source) {
+        sourceRef.current = null;
+      }
+    };
     source.start();
 
     sourceRef.current = source;
-    gainRef.current = gain;
+    sourcesRef.current.add(source);
   }, []);
 
-  /** Fetch Lyria BGM → Lyria 재생 시작 시 8-bit 페이드아웃. */
+  /** Fetch Lyria BGM → 재생 시작 시 3초 크로스페이드. 반복 호출 시 최신 프롬프트로 갱신. */
   const transition = useCallback(async (prompt: string) => {
-    transitionedRef.current = true;
+    const normalizedPrompt = prompt.trim();
+    if (!normalizedPrompt) return;
+
+    if (
+      phaseRef.current === "lyria"
+      && !transitionRequestedRef.current
+      && activePromptRef.current === normalizedPrompt
+    ) {
+      return;
+    }
+
+    if (transitionRequestedRef.current) {
+      pendingPromptRef.current = normalizedPrompt;
+      return;
+    }
+    transitionRequestedRef.current = true;
+
+    const fromPhase = phaseRef.current;
+    const previousLyria = lyriaRef.current;
+    let nextLyria: HTMLAudioElement | null = null;
+    const finalize = () => {
+      transitionRequestedRef.current = false;
+      const nextPrompt = pendingPromptRef.current;
+      pendingPromptRef.current = null;
+      if (nextPrompt && nextPrompt !== activePromptRef.current) {
+        void transitionFnRef.current(nextPrompt);
+      }
+    };
 
     try {
       const res = await fetch("/api/bgm", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt }),
+        body: JSON.stringify({ prompt: normalizedPrompt }),
       });
-      if (!res.ok) return;
+      if (!res.ok) {
+        phaseRef.current = fromPhase;
+        finalize();
+        return;
+      }
 
       const { audioData, mimeType } = await res.json();
-      if (!audioData) return;
+      if (!audioData) {
+        phaseRef.current = fromPhase;
+        finalize();
+        return;
+      }
 
-      const audio = new Audio(`data:${mimeType};base64,${audioData}`);
-      audio.loop = true;
-      audio.volume = 0;
-      lyriaRef.current = audio;
-      await audio.play();
+      nextLyria = new Audio(`data:${mimeType};base64,${audioData}`);
+      nextLyria.loop = true;
+      nextLyria.volume = 0;
+      await nextLyria.play();
 
-      // Lyria 재생 시작 → 8-bit 페이드아웃 + Lyria 페이드인 (3초)
+      phaseRef.current = "transitioning";
       const targetVol = volumeRef.current;
-      let step = 0;
-      const steps = 30;
-      const fade = setInterval(() => {
-        step++;
-        const ratio = step / steps;
-        if (gainRef.current) {
-          gainRef.current.gain.value = targetVol * (1 - ratio);
-        }
-        if (lyriaRef.current) {
-          lyriaRef.current.volume = Math.min(1, targetVol * ratio);
-        }
-        if (step >= steps) {
-          clearInterval(fade);
-          if (sourceRef.current) {
-            try { sourceRef.current.stop(); } catch { /* */ }
-            sourceRef.current = null;
+      const fadeDurationMs = 3000;
+      const fadeStartedAt = performance.now();
+
+      if (fadeTimerRef.current) {
+        clearInterval(fadeTimerRef.current);
+        fadeTimerRef.current = null;
+      }
+
+      if (fromPhase === "chip") {
+        const chipGain = gainRef.current;
+        const chipStartVol = chipGain?.gain.value ?? volumeRef.current;
+        lyriaRef.current = nextLyria;
+
+        fadeTimerRef.current = setInterval(() => {
+          const elapsed = performance.now() - fadeStartedAt;
+          const ratio = Math.min(1, elapsed / fadeDurationMs);
+
+          if (chipGain) {
+            chipGain.gain.value = chipStartVol * (1 - ratio);
           }
-          gainRef.current = null;
+          nextLyria.volume = targetVol * ratio;
+
+          if (ratio >= 1) {
+            if (fadeTimerRef.current) {
+              clearInterval(fadeTimerRef.current);
+              fadeTimerRef.current = null;
+            }
+            stopAll8bitSources();
+            phaseRef.current = "lyria";
+            activePromptRef.current = normalizedPrompt;
+            nextLyria.volume = volumeRef.current;
+            finalize();
+          }
+        }, 100);
+        return;
+      }
+
+      const prevStartVol = previousLyria?.volume ?? volumeRef.current;
+      lyriaRef.current = nextLyria;
+
+      fadeTimerRef.current = setInterval(() => {
+        const elapsed = performance.now() - fadeStartedAt;
+        const ratio = Math.min(1, elapsed / fadeDurationMs);
+
+        if (previousLyria && previousLyria !== nextLyria) {
+          previousLyria.volume = prevStartVol * (1 - ratio);
+        }
+        nextLyria.volume = targetVol * ratio;
+
+        if (ratio >= 1) {
+          if (fadeTimerRef.current) {
+            clearInterval(fadeTimerRef.current);
+            fadeTimerRef.current = null;
+          }
+          if (previousLyria && previousLyria !== nextLyria) {
+            previousLyria.pause();
+            previousLyria.currentTime = 0;
+          }
+          phaseRef.current = "lyria";
+          activePromptRef.current = normalizedPrompt;
+          nextLyria.volume = volumeRef.current;
+          finalize();
         }
       }, 100);
     } catch {
-      // Lyria 실패 시 8-bit 유지
-      transitionedRef.current = false;
+      if (nextLyria) {
+        nextLyria.pause();
+        nextLyria.currentTime = 0;
+      }
+      phaseRef.current = fromPhase;
+      finalize();
     }
-  }, []);
+  }, [stopAll8bitSources]);
 
   const stop = useCallback(() => {
-    if (sourceRef.current) {
-      try { sourceRef.current.stop(); } catch { /* */ }
-      sourceRef.current = null;
+    if (fadeTimerRef.current) {
+      clearInterval(fadeTimerRef.current);
+      fadeTimerRef.current = null;
     }
-    gainRef.current = null;
+    stopAll8bitSources();
+    if (gainRef.current) {
+      try { gainRef.current.disconnect(); } catch { /* */ }
+      gainRef.current = null;
+    }
     if (lyriaRef.current) {
       lyriaRef.current.pause();
       lyriaRef.current = null;
     }
-  }, []);
+    phaseRef.current = "chip";
+    transitionRequestedRef.current = false;
+    pendingPromptRef.current = null;
+    activePromptRef.current = null;
+  }, [stopAll8bitSources]);
 
-  /** Set volume (0–1). 전환 중에는 Lyria만 제어. */
+  /** Set volume (0–1). 전환 전 8-bit, 전환 후 Lyria만 제어한다. */
   const setVolume = useCallback((v: number) => {
     const clamped = Math.max(0, Math.min(1, v));
     volumeRef.current = clamped;
-    // 전환 완료 후에는 Lyria만, 전환 전에는 8-bit만
-    if (transitionedRef.current) {
-      if (lyriaRef.current) lyriaRef.current.volume = clamped;
-    } else {
+
+    if (phaseRef.current === "chip") {
       if (gainRef.current) gainRef.current.gain.value = clamped;
+      return;
     }
+    if (phaseRef.current === "lyria") {
+      if (lyriaRef.current) lyriaRef.current.volume = clamped;
+      return;
+    }
+    // transitioning 중엔 페이드 곡선을 깨지 않도록 직접 적용하지 않음.
   }, []);
+
+  useEffect(() => {
+    transitionFnRef.current = transition;
+  }, [transition]);
 
   return { play, transition, stop, setVolume };
 }
