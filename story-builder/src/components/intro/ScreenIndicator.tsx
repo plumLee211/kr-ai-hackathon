@@ -2,13 +2,15 @@ export function ScreenIndicator({ step }: { step: number }) {
   const indicators = [
     "[화면 연출: Step 0 - 완전한 어둠 (무채색)]",
     "[화면 연출: Step 1 - 미세한 보라빛 틴트 스며듦]",
-    "[화면 연출: Step 2 - 보라 그라데이션 + 달 등장]",
-    "[화면 연출: Step 3 - 마젠타 풀컬러]",
-    "[화면 연출: Step 4 - ★ Gemini 4색 그라데이션 폭발 + BGM 시작! ★]",
+    "[화면 연출: Step 2 - 보라 그라데이션]",
+    "[화면 연출: Step 3 - 보라 그라데이션 + 달 등장]",
+    "[화면 연출: Step 4 - 마젠타 풀컬러]",
+    "[화면 연출: Step 5 - ★ Gemini 4색 그라데이션 폭발 + BGM 시작! ★]",
   ];
 
   const bgColorClass = [
     "bg-black",
+    "bg-[#0d0318]",
     "bg-[#110524]",
     "bg-gradient-to-b from-[#2b0b3a] to-black",
     "bg-gradient-to-b from-[#4a0438] to-[#1a0219]",

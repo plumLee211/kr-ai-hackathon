@@ -4,15 +4,17 @@ import { useState, useEffect } from "react";
 import { ScreenIndicator } from "./ScreenIndicator";
 import { GameMasterFace } from "./GameMasterFace";
 import { DialogBox } from "./DialogBox";
-import type { Answers, CollectedFields, ChatMessage } from "./types";
+import {
+  SURVEY_FIELDS,
+  createEmptyFields,
+  isAllCollected,
+  toAnswers,
+  type CollectedFields,
+  type ChatMessage,
+} from "@/constants/survey";
 
 export function IntroContainer() {
-  const [collectedFields, setCollectedFields] = useState<CollectedFields>({
-    name: null,
-    mbti: null,
-    animalFood: null,
-    fear: null,
-  });
+  const [collectedFields, setCollectedFields] = useState<CollectedFields>(createEmptyFields);
   const [chatHistory, setChatHistory] = useState<ChatMessage[]>([]);
   const [currentMessage, setCurrentMessage] = useState("");
   const [placeholder, setPlaceholder] = useState("이름을 입력해줘...");
@@ -20,13 +22,8 @@ export function IntroContainer() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [allCollected, setAllCollected] = useState(false);
 
-  // step을 수집된 필드 수에서 파생
-  const step = [
-    collectedFields.name,
-    collectedFields.mbti,
-    collectedFields.animalFood,
-    collectedFields.fear,
-  ].filter(Boolean).length;
+  // step을 수집된 필드 수에서 파생 (0 ~ SURVEY_FIELDS.length)
+  const step = SURVEY_FIELDS.filter((k) => collectedFields[k] !== null).length;
 
   // 마운트 시 Gemini 첫 인사 요청
   useEffect(() => {
@@ -38,7 +35,7 @@ export function IntroContainer() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             messages: [],
-            collectedFields: { name: null, mbti: null, animalFood: null, fear: null },
+            collectedFields: createEmptyFields(),
           }),
         });
         const data = await res.json();
@@ -93,12 +90,7 @@ export function IntroContainer() {
   const handleStartGenerate = async () => {
     setIsGenerating(true);
     try {
-      const answers: Answers = {
-        name: collectedFields.name!,
-        mbti: collectedFields.mbti!,
-        animalFood: collectedFields.animalFood!,
-        fear: collectedFields.fear!,
-      };
+      const answers = toAnswers(collectedFields);
 
       const response = await fetch("/api/generate", {
         method: "POST",

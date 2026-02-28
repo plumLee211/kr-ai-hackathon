@@ -3,9 +3,10 @@ export function GameMasterFace({ step }: { step: number }) {
   const colors = [
     "text-gray-500", // 0
     "text-blue-400", // 1
-    "text-purple-400", // 2
-    "text-pink-400", // 3
-    "text-yellow-400", // 4
+    "text-indigo-400", // 2
+    "text-purple-400", // 3
+    "text-pink-400", // 4
+    "text-yellow-400", // 5
   ];
   
   const faceColor = colors[step] || colors[0];
