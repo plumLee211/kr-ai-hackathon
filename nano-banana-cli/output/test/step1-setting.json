@@ -1,0 +1,12 @@
+{
+  "name": "실아",
+  "class": "암살자",
+  "race": "수인",
+  "appearance": "She has a slender, flexible physique dressed in charcoal-gray leather armor adorned with translucent silver silk threads. Her long, ink-black hair is tied back, revealing six glowing amber eyes that pierce through the shadows. Four mechanical spider-like limbs extend from her back, allowing her to scale walls and deploy deadly web traps. She carries dual daggers coated in a faint violet-glowing venom.",
+  "colorPalette": [
+    "#1C1C1C",
+    "#4B0082",
+    "#ADFF2F"
+  ],
+  "personality": "말수가 적고 치밀하며, 보이지 않는 곳에서 승기를 잡는 냉철한 전략가"
+}
