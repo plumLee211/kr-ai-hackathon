@@ -116,10 +116,13 @@ export function ResultCards({ party, boss, images = {} }: ResultCardsProps) {
                   </span>
                 </div>
               </div>
-              <div className="pt-2 border-t border-purple-500/20 mt-auto">
-                <p className="text-[10px] text-gray-400 leading-relaxed italic line-clamp-2">
+              <div className="pt-2 border-t border-purple-500/20 mt-auto relative group/desc">
+                <p className="text-[10px] text-gray-400 leading-relaxed italic line-clamp-2 cursor-default">
                   &ldquo;{member.description}&rdquo;
                 </p>
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2 bg-gray-900 border border-purple-500/50 rounded text-[10px] text-gray-300 leading-relaxed italic opacity-0 pointer-events-none group-hover/desc:opacity-100 transition-opacity duration-200 z-20 shadow-lg shadow-purple-500/10">
+                  &ldquo;{member.description}&rdquo;
+                </div>
               </div>
             </div>
           </ItemCard>
