@@ -27,12 +27,16 @@
 | GM 채팅 대화 (설문 5개 수집) | [O] 완료 | Gemini Flash 멀티턴, JSON 구조화 응답 |
 | 캐릭터 생성 (파티 3인 + 보스) | [O] 완료 | 텍스트 스탯/설명/imagePrompt 생성 |
 | 캐릭터 카드 결과 화면 | [O] 완료 | 레이아웃/UI 완성, 이미지 영역은 플레이스홀더 |
-| 배경 색상 단계 전환 | [O] 완료 | ScreenIndicator — 6단계 전환, BGM 주석만 존재 |
+| 배경 색상 단계 전환 | [O] 완료 | ScreenIndicator — 6단계 배경색 전환, BGM 주석만 존재 |
+| 배경 크로스페이드 | [O] 완료 | DarkCityBackground → PixelCityBackground(세빛섬) 크로스페이드 |
+| 타이틀 그라데이션 | [O] 완료 | AdventureTitle — step 진행에 따라 Gemini 4색 그라데이션 오버레이 유입 |
+| 생성 결과 화면 | [O] 완료 | `/generate` 페이지 — 8-bit 아이템 획득 연출 (플래시+스태거), 파티 3+보스 1 |
+| 로딩 연출 | [O] 완료 | GenerateContainer — GM 포즈 순환 + 유머 로딩 메시지 타이핑 |
 | 이미지 실제 렌더링 | [X] 미연동 | imagePrompt 필드 생성되나 이미지 API 미호출 |
 | 음성 (TTS) | [X] 미구현 | |
 | 음악 / BGM | [X] 미구현 | |
 | SNS 개인화 | [X] 미구현 | |
-| GameMasterFace 비주얼 | [X] 플레이스홀더 | 빨간 타원만 표시, step 수신은 하나 미사용 |
+| GameMasterFace 비주얼 | [O] 완료 | GM 포즈 이미지 11종 (idle/greeting/asking/thinking/surprised/ok/celebrate/loading1~4) |
 | 세계 공유 표현 (World DNA) | [X] 없음 | 각 API가 독립 동작 |
 
 ### nano-banana-cli (에셋 생성 CLI)
@@ -259,7 +263,7 @@ World DNA의 팔레트/분위기를 이미지 프롬프트에 주입하면 스�
 | 작업 | 시간 | 파일 |
 |------|------|------|
 | `/api/image` 라우트 신규 작성 | 당일 1h | `story-builder/src/app/api/image/route.ts` |
-| 캐릭터 카드 이미지 컴포넌트 연결 | 당일 30m | `IntroContainer.tsx` 결과 화면 영역 |
+| 캐릭터 카드 이미지 컴포넌트 연결 | 당일 30m | `ResultCards.tsx` 결과 화면 영역 |
 
 **당일 투자: 1.5h**
 

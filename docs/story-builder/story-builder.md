@@ -36,17 +36,21 @@ header: "OOO's adventure — with Gemini Game Master"
 ---
 
 ```
-[타이틀] OOO's adventure          ■ 완전 어둠 (무채색)
-                │
-   [Game Master 등장 + 이름 질문]  ■ 미세한 빛 (10%)
-                │
-   [MBTI 질문]                     ■ 보라빛 스며듦 (30%)
-                │
-   [좋아하는 동물 질문]            ■ 보라 그라데이션 + 달 (60%)
-                │
-   [멸망 아이템 질문]              ■ 마젠타 풀컬러 (90%)
-                │
-   [타이틀 전환] 김철수's adventure ■ Gemini 컬러 폭발 + BGM (100%)
+[/ 타이틀] OOO's adventure          ■ 완전 어둠 (DarkCityBackground)
+              │ PRESS START (blink)
+              ▼ (같은 페이지 phase 전환)
+[/ GM 대화] Game Master 등장         ■ 미세한 빛 (10%)
+              │
+   [MBTI 질문]                       ■ 보라빛 스며듦 (30%)
+              │
+   [좋아하는 동물 질문]              ■ 보라 그라데이션 + 달 (60%)
+              │
+   [멸망 아이템 질문]                ■ 마젠타 풀컬러 (90%)
+              │
+   [설문 완료] 김철수's adventure     ■ Gemini 컬러 폭발 (PixelCityBackground)
+              │ PRESS START
+              ▼ (페이지 이동)
+[/generate] 캐릭터 생성 + 결과 카드  ■ 8-bit 아이템 획득 연출
 ```
 
 ---
@@ -147,16 +151,18 @@ header: "OOO's adventure — with Gemini Game Master"
 ## 5. 게임 플로우 — 전반부
 
 ```
-[타이틀] OOO's adventure             ← 무채색, 무음
+[/ phase:title]                       ← 어둠 도시 배경 (DarkCityBackground)
+              │ PRESS START (blink)
+              ▼ (같은 페이지 phase 전환)
+[/ phase:game-master]
+     [Game Master 대화 5단계]          ← ScreenIndicator: 대화마다 배경색 전환
               │
-     [Game Master 대화 4단계]         ← 대화마다 색상 점진적 유입
+ ★ 설문 완료 → 배경 크로스페이드 (DarkCity → PixelCity 세빛섬) ★
               │
- ★ 설문 완료 → Gemini 컬러 폭발 + BGM 시작 ★
-              │
-[타이틀 전환] 김철수's adventure      ← Gemini 4색 그라데이션
-              │
- [Gemini 3.1: 파티 + 보스 생성]
- [Nano Banana 2 Flash: 캐릭터 에셋]  ← 백그라운드 생성
+[타이틀 전환] 김철수's adventure       ← Gemini 4색 그라데이션 + gemini-glow
+              │ PRESS START
+              ▼ (페이지 이동 → /generate)
+ [Gemini Flash: 파티 3인 + 보스 생성]  ← 8-bit 로딩 + 아이템 획득 카드 연출
 ```
 
 ---
@@ -334,7 +340,7 @@ header: "OOO's adventure — with Gemini Game Master"
 
 ### 심사위원 체험 플로우 (3분)
 
-1. 타이틀 화면: **OOO's adventure** — 완전 어둠, 무음 ← "뭐지?"
+1. 타이틀 화면: **OOO's adventure** — 완전 어둠, 무음, 어두운 도시 실루엣 ← "뭐지?"
 2. **Game Master** 등장, 대화 시작 — 화면에 **색이 스며들기 시작** ← 첫 번째 "와"
 3. 대화할수록 **보라빛 → 마젠타** 세계가 물들어감 ← "대화로 색이 바뀌네?"
 4. 설문 완료 → **Gemini 컬러 폭발 + BGM** + 타이틀 전환 ← 두 번째 "와"
@@ -360,5 +366,7 @@ header: "OOO's adventure — with Gemini Game Master"
 ### 4. 일관된 세계관 — 도트 + 일러 2종, 어떤 입력이든 같은 스타일
 
 ### 5. 대기 시간 0 — 백그라운드 생성 전략
+
+### 6. 8-bit 아이템 획득 연출 — 캐릭터 카드 순차 등장 (플래시 + 스태거)
 
 > _"어둠 속에서 시작해, 대화로 세계를 물들이고, 빈칸은 당신이 채운다"_

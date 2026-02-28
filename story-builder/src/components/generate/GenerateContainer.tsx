@@ -3,10 +3,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
-import { PixelCityBackground } from "../background/PixelCityBackground";
-import { AdventureTitle } from "../intro/AdventureTitle";
-import { ScreenIndicator } from "../intro/ScreenIndicator";
 import { GameMasterFace, LOADING_POSES, type GMPose } from "../intro/GameMasterFace";
+import { GameHeader } from "./GameHeader";
 import { LoadingDialogBox } from "./LoadingDialogBox";
 import { ResultCards } from "./ResultCards";
 import type { Answers } from "@/constants/survey";
@@ -75,16 +73,28 @@ export function GenerateContainer() {
     generate();
   }, [router]);
 
+  // Image generation pipeline simulation
+  useEffect(() => {
+    if (phase !== "result" || !result) return;
+    let tick = 0;
+    const allCharacters = [...result.party, result.boss];
+    const interval = setInterval(() => {
+      tick++;
+      for (const char of allCharacters) {
+        console.log(
+          `[ImagePipeline] Generating image for: ${char.name} (${char.role})... (tick ${tick})`,
+        );
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [phase, result]);
+
   return (
     <div className="relative min-h-screen w-full bg-[#0A0A0A] overflow-hidden">
-      {/* Background */}
-      <PixelCityBackground />
-
-      {/* Title */}
-      <AdventureTitle variant="final" step={5} name={answers?.name ?? null} />
-
-      {/* Background indicator */}
-      <ScreenIndicator step={5} />
+      {/* Game HUD header */}
+      {phase === "result" && (
+        <GameHeader name={answers?.name ?? "???"} />
+      )}
 
       <AnimatePresence mode="wait">
         {/* ── Loading Phase ── */}

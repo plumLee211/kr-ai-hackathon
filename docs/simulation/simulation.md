@@ -21,21 +21,22 @@ header: "OOO's adventure — Play Simulation"
 │                                                  │
 │              OOO's adventure                     │
 │                                                  │
-│           with Gemini Game Master                │
+│           with Gemini Story Builder              │
 │                                                  │
-│              PRESS  START                        │
+│              PRESS  START  (blink)               │
 │                                                  │
 │  ▓▓  ▓▓▓  ▓                        ▓▓  ▓  ▓▓▓  │
 │  ▓▓  ▓▓▓  ▓▓  ▓                  ▓▓▓▓  ▓▓  ▓▓  │
 │▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄│
 └──────────────────────────────────────────────────┘
+  배경: DarkCityBackground (8-bit 서울 어둠 도시 실루엣)
 ```
 
 ---
 
-**화면**: 완전한 어둠. 검은 배경에 짙은 회색 빌딩 실루엣. 모든 텍스트 무채색.
+**화면**: 완전한 어둠. 8-bit 서울 어둠 도시 실루엣 (DarkCityBackground). 모든 텍스트 무채색.
 **BGM**: 없음. 완전한 정적.
-**조작**: PRESS START 깜빡임 → 클릭
+**조작**: PRESS START 깜빡임(blink 애니메이션) → 클릭 → 같은 페이지에서 phase 전환 (title → game-master)
 
 ---
 
