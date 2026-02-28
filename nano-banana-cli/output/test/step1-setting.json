@@ -1,12 +1,12 @@
 {
-  "name": "실아",
-  "class": "암살자",
+  "name": "바우",
+  "class": "전사",
   "race": "수인",
-  "appearance": "She has a slender, flexible physique dressed in charcoal-gray leather armor adorned with translucent silver silk threads. Her long, ink-black hair is tied back, revealing six glowing amber eyes that pierce through the shadows. Four mechanical spider-like limbs extend from her back, allowing her to scale walls and deploy deadly web traps. She carries dual daggers coated in a faint violet-glowing venom.",
+  "appearance": "A robust beastkin with golden-brown fur, drooping ears, and a thick, wagging tail. He wears heavy silver plate armor with leather accents and a vibrant blue scarf wrapped around his neck. His amber eyes are bright and full of energy, and he carries a massive shield shaped like a paw to protect his allies.",
   "colorPalette": [
-    "#1C1C1C",
-    "#4B0082",
-    "#ADFF2F"
+    "#D2691E",
+    "#C0C0C0",
+    "#4169E1"
   ],
-  "personality": "말수가 적고 치밀하며, 보이지 않는 곳에서 승기를 잡는 냉철한 전략가"
+  "personality": "언제나 꼬리를 흔들며 팀의 사기를 높이고, 위험한 순간에는 누구보다 먼저 앞장서는 충성스러운 수호자."
 }

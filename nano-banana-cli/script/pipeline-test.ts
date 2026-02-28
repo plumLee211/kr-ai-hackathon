@@ -112,7 +112,7 @@ const step2 = async (setting: {
     contents: prompt,
     config: {
       imageConfig: {
-        imageSize: "2K",
+        imageSize: "1K",
         aspectRatio: "1:1",
       },
     },
@@ -180,7 +180,7 @@ const step4 = async (
     ],
     config: {
       imageConfig: {
-        imageSize: "2K",
+        imageSize: "1K",
         aspectRatio: "1:1",
       },
     },
