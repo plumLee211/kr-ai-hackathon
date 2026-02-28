@@ -38,6 +38,8 @@ const ensureDir = (dir: string) => {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 };
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Part 타입 호환성
 const saveImage = (parts: any[], filePath: string): void => {
   for (const part of parts) {
@@ -131,8 +133,8 @@ const step2 = async (setting: {
 // ============================================================
 // Step 3 — 기본 일러 참조 → 스프라이트 시트 (이미지 모델, 참조 이미지)
 // ============================================================
-const step3 = async (name: string, baseImagePath: string): Promise<string> => {
-  console.log("\n🔷 Step 3: 기본 일러 참조 → 스프라이트 시트");
+const step3 = async (name: string, baseImagePath: string, direction: "front" | "back" | "side"): Promise<string> => {
+  console.log(`\n🔷 Step 3: 기본 일러 참조 → 스프라이트 시트 (${direction})`);
 
   const refBase64 = fs.readFileSync(baseImagePath).toString("base64");
 
@@ -140,7 +142,7 @@ const step3 = async (name: string, baseImagePath: string): Promise<string> => {
     model: IMAGE_MODEL,
     contents: [
       { inlineData: { mimeType: "image/png", data: refBase64 } },
-      { text: spriteSheetPrompt(name) },
+      { text: spriteSheetPrompt(name, direction) },
     ],
     config: {
       imageConfig: {
@@ -150,12 +152,12 @@ const step3 = async (name: string, baseImagePath: string): Promise<string> => {
     },
   });
 
-  const filePath = path.join(OUTPUT_DIR, "step3-sprite.png");
+  const filePath = path.join(OUTPUT_DIR, `step3-sprite-${direction}.png`);
   const parts = response.candidates?.[0]?.content?.parts;
-  if (!parts) throw new Error("Step 3: 스프라이트 시트 생성 실패 — 응답에 parts가 없음");
+  if (!parts) throw new Error(`Step 3: 스프라이트 시트 (${direction}) 생성 실패 — 응답에 parts가 없음`);
 
   saveImage(parts, filePath);
-  console.log("  ✅ 스프라이트 시트 생성 완료");
+  console.log(`  ✅ 스프라이트 시트 (${direction}) 생성 완료`);
 
   return filePath;
 };
@@ -213,11 +215,28 @@ const main = async () => {
   // Step 2: 캐릭터 설정 → 기본 일러스트
   const baseImagePath = await step2(setting);
 
-  // Step 3: 기본 일러 참조 → 스프라이트 시트
-  await step3(setting.name, baseImagePath);
+  console.log("⏳ API 속도 제한 우회를 위해 60초 대기 중...");
+  await sleep(60000);
+
+  // Step 3: 기본 일러 참조 → 스프라이트 시트 (3방향 개별 생성)
+  await step3(setting.name, baseImagePath, "front");
+  console.log("⏳ API 속도 제한 우회를 위해 60초 대기 중...");
+  await sleep(60000);
+  
+  await step3(setting.name, baseImagePath, "back");
+  console.log("⏳ API 속도 제한 우회를 위해 60초 대기 중...");
+  await sleep(60000);
+  
+  await step3(setting.name, baseImagePath, "side");
+
+  console.log("⏳ API 속도 제한 우회를 위해 60초 대기 중...");
+  await sleep(60000);
 
   // Step 4: 기본 일러 참조 → 공격/피격 표정 (순차 실행)
   await step4(setting.name, baseImagePath, "attack");
+  console.log("⏳ API 속도 제한 우회를 위해 60초 대기 중...");
+  await sleep(60000);
+  
   await step4(setting.name, baseImagePath, "hurt");
 
   console.log("\n═══════════════════════════════════════════");
