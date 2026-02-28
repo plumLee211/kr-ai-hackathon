@@ -57,6 +57,11 @@ export function IntroContainer() {
         ? "final"
         : "top";
 
+  // 페이지 진입 시 8-bit BGM 즉시 재생
+  useEffect(() => {
+    bgm.play();
+  }, []);
+
   // Game Master phase 진입 시 Gemini 첫 인사 요청
   useEffect(() => {
     if (phase !== "game-master") return;
@@ -116,6 +121,15 @@ export function IntroContainer() {
     buildStory();
   }, [collectedFields]);
 
+  // BGM: allCollected → Lyria 개인화 BGM으로 크로스페이드
+  useEffect(() => {
+    if (!allCollected) return;
+    const mood = storyBible?.characters?.hero_flaw
+      ? `Warm orchestral JRPG hero theme with 8-bit chiptune elements, hopeful and brave, building from gentle to triumphant`
+      : `Warm orchestral JRPG hero theme with 8-bit chiptune elements, gentle strings with light percussion, hopeful and brave`;
+    bgm.transition(mood);
+  }, [allCollected]);
+
   // BGM 볼륨 덕킹: GM 말할 때(isLoading=false → blip 재생 중) BGM 낮추기
   useEffect(() => {
     if (phase !== "game-master") return;
@@ -129,7 +143,6 @@ export function IntroContainer() {
 
   const handleStart = () => {
     unlock(); // unlock browser autoplay on user gesture
-    bgm.play(); // 8-bit BGM 즉시 재생
     setPhase("game-master");
   };
 

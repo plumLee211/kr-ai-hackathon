@@ -5,6 +5,7 @@ const BPM = 130;
 const BEAT = 60 / BPM;
 const EIGHTH = BEAT / 2;
 const SAMPLE_RATE = 44100;
+const CROSSFADE_SEC = 3; // 크로스페이드 시간
 
 // Note frequencies (C major pentatonic)
 const N: Record<string, number> = {
@@ -39,7 +40,6 @@ async function render8bitLoop(): Promise<AudioBuffer> {
   const frames = Math.ceil(SAMPLE_RATE * duration);
   const offline = new OfflineAudioContext(1, frames, SAMPLE_RATE);
 
-  // ── Melody (square wave) ──
   for (let i = 0; i < MELODY.length; i++) {
     const note = MELODY[i];
     if (!note || !N[note]) continue;
@@ -56,7 +56,6 @@ async function render8bitLoop(): Promise<AudioBuffer> {
     osc.stop(t + EIGHTH * 0.9);
   }
 
-  // ── Bass (triangle wave) ──
   for (let i = 0; i < BASS.length; i++) {
     const note = BASS[i];
     if (!note || !N[note]) continue;
@@ -80,8 +79,10 @@ export function useBgm() {
   const ctxRef = useRef<AudioContext | null>(null);
   const sourceRef = useRef<AudioBufferSourceNode | null>(null);
   const gainRef = useRef<GainNode | null>(null);
+  const lyriaRef = useRef<HTMLAudioElement | null>(null);
+  const volumeRef = useRef(0.5); // 현재 목표 볼륨 기억
 
-  /** Render and play 8-bit BGM loop. Safe to call multiple times (no-ops if already playing). */
+  /** Render and play 8-bit BGM loop. */
   const play = useCallback(async () => {
     if (sourceRef.current) return;
     if (!ctxRef.current) ctxRef.current = new AudioContext();
@@ -93,7 +94,7 @@ export function useBgm() {
     source.loop = true;
 
     const gain = ctxRef.current.createGain();
-    gain.gain.value = 0.5;
+    gain.gain.value = volumeRef.current;
     source.connect(gain);
     gain.connect(ctxRef.current.destination);
     source.start();
@@ -102,20 +103,80 @@ export function useBgm() {
     gainRef.current = gain;
   }, []);
 
+  /** Fetch Lyria BGM → crossfade from 8-bit. */
+  const transition = useCallback(async (prompt: string) => {
+    try {
+      const res = await fetch("/api/bgm", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt }),
+      });
+      if (!res.ok) return;
+
+      const { audioData, mimeType } = await res.json();
+      if (!audioData) return;
+
+      const audio = new Audio(`data:${mimeType};base64,${audioData}`);
+      audio.loop = true;
+      audio.volume = 0;
+      lyriaRef.current = audio;
+      await audio.play();
+
+      // Crossfade: 8-bit fade out, Lyria fade in
+      const targetVol = volumeRef.current;
+      const steps = 30;
+      const interval = (CROSSFADE_SEC * 1000) / steps;
+      let step = 0;
+
+      const fade = setInterval(() => {
+        step++;
+        const ratio = step / steps;
+        // 8-bit fade out
+        if (gainRef.current) {
+          gainRef.current.gain.value = targetVol * (1 - ratio);
+        }
+        // Lyria fade in
+        if (lyriaRef.current) {
+          lyriaRef.current.volume = Math.min(1, targetVol * ratio);
+        }
+        if (step >= steps) {
+          clearInterval(fade);
+          // 8-bit 완전히 정지
+          if (sourceRef.current) {
+            try { sourceRef.current.stop(); } catch { /* */ }
+            sourceRef.current = null;
+          }
+          gainRef.current = null;
+        }
+      }, interval);
+    } catch {
+      // Lyria 실패 시 8-bit 유지
+    }
+  }, []);
+
   const stop = useCallback(() => {
     if (sourceRef.current) {
-      try { sourceRef.current.stop(); } catch { /* already stopped */ }
+      try { sourceRef.current.stop(); } catch { /* */ }
       sourceRef.current = null;
     }
     gainRef.current = null;
-  }, []);
-
-  /** Set volume (0–1). Use to duck BGM when GM speaks. */
-  const setVolume = useCallback((v: number) => {
-    if (gainRef.current) {
-      gainRef.current.gain.value = Math.max(0, Math.min(1, v));
+    if (lyriaRef.current) {
+      lyriaRef.current.pause();
+      lyriaRef.current = null;
     }
   }, []);
 
-  return { play, stop, setVolume };
+  /** Set volume (0–1). Applies to whichever source is active. */
+  const setVolume = useCallback((v: number) => {
+    const clamped = Math.max(0, Math.min(1, v));
+    volumeRef.current = clamped;
+    if (gainRef.current) {
+      gainRef.current.gain.value = clamped;
+    }
+    if (lyriaRef.current) {
+      lyriaRef.current.volume = clamped;
+    }
+  }, []);
+
+  return { play, transition, stop, setVolume };
 }
