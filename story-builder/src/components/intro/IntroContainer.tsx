@@ -23,6 +23,45 @@ import { useBgm } from "@/hooks/useBgm";
 
 type Phase = "title" | "game-master";
 
+function buildLyriaPrompt(
+  fields: CollectedFields,
+  storyBible: StoryBible | null,
+): string {
+  const name = fields.name ?? "Hero";
+  const mbti = fields.mbti ?? "Unknown";
+  const animal = fields.animal ?? "mystic creature";
+  const item = fields.item ?? "ancient relic";
+  const fear = fields.fear ?? "unknown darkness";
+  const animalLower = animal.toLowerCase();
+
+  const animalMotif =
+    animalLower.includes("고양") || animalLower.includes("cat")
+      ? "Animal motif: cat-like agility with nimble staccato jumps, sly syncopation, and graceful stealth energy."
+      : animalLower.includes("강아") || animalLower.includes("개") || animalLower.includes("dog")
+        ? "Animal motif: dog-like loyalty and momentum with upbeat rhythmic drive and bright heroic phrasing."
+        : animalLower.includes("늑대") || animalLower.includes("wolf")
+          ? "Animal motif: wolf-like pack energy with haunting minor touches and bold rhythmic runs."
+          : `Animal motif: clearly evoke "${animal}" through movement, rhythm, and melodic attitude.`;
+
+  const flaw = storyBible?.characters?.hero_flaw;
+  const boss = storyBible?.characters?.boss_archetype;
+
+  return [
+    "Classic 8-bit JRPG soundtrack, pure chiptune only, no orchestral instruments, no vocals.",
+    "Use square-wave lead, triangle-wave bass, and noise-channel drums.",
+    "Seamless game loop suitable for gameplay.",
+    `Hero profile: name "${name}", MBTI "${mbti}", spirit animal "${animal}", signature item "${item}", core fear "${fear}".`,
+    animalMotif,
+    `Item motif: recurring hook inspired by "${item}" as a memorable 2-bar riff.`,
+    `Fear arc: start with tension inspired by "${fear}", then evolve into brave determination.`,
+    flaw ? `Character flaw tone: "${flaw}" should be reflected in the harmony and mood.` : "",
+    boss ? `Foreshadow the villain archetype "${boss}" with subtle ominous undertones.` : "",
+    "Tempo 125-132 BPM, energetic but readable melody, retro game texture.",
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
 export function IntroContainer() {
   const router = useRouter();
   const [phase, setPhase] = useState<Phase>("title");
@@ -62,8 +101,6 @@ export function IntroContainer() {
     bgm.play();
     const startOnGesture = () => {
       bgm.play();
-      document.removeEventListener("click", startOnGesture);
-      document.removeEventListener("touchstart", startOnGesture);
     };
     document.addEventListener("click", startOnGesture);
     document.addEventListener("touchstart", startOnGesture);
@@ -120,14 +157,13 @@ export function IntroContainer() {
     buildStory();
   }, [collectedFields]);
 
-  // BGM: allCollected → Lyria 개인화 BGM으로 크로스페이드
+  // BGM: 진행도(step 3 이후)와 수집 내용에 따라 Lyria를 계속 갱신
   useEffect(() => {
-    if (!allCollected) return;
-    const mood = storyBible?.characters?.hero_flaw
-      ? `Warm orchestral JRPG hero theme with 8-bit chiptune elements, hopeful and brave, building from gentle to triumphant`
-      : `Warm orchestral JRPG hero theme with 8-bit chiptune elements, gentle strings with light percussion, hopeful and brave`;
+    if (phase !== "game-master") return;
+    if (step < 3) return; // animal 수집 이후부터 개인화 반영
+    const mood = buildLyriaPrompt(collectedFields, storyBible);
     bgm.transition(mood);
-  }, [allCollected]);
+  }, [phase, step, collectedFields, storyBible]);
 
   // BGM 볼륨 덕킹: GM 말할 때(isLoading=false → blip 재생 중) BGM 낮추기
   useEffect(() => {
@@ -165,10 +201,12 @@ export function IntroContainer() {
       const data = await res.json();
 
       const pose: GMPose = data.gmPose || "idle";
+      setCollectedFields(data.collectedFields);
+      // allCollected는 먼저 반영해서 BGM 전환이 지연되지 않도록 한다.
+      if (data.allCollected) setAllCollected(true);
       // Prefetch TTS while still loading — audio ready before text appears
       const play = await prefetch(data.gmMessage, pose);
       // Show text + play voice simultaneously
-      setCollectedFields(data.collectedFields);
       setCurrentMessage(data.gmMessage);
       setPlaceholder(data.placeholder);
       setGmPose(pose);
@@ -177,8 +215,6 @@ export function IntroContainer() {
         { role: "model", content: data.gmMessage },
       ]);
       play();
-
-      if (data.allCollected) setAllCollected(true);
     } catch {
       setCurrentMessage("어... 잠깐, 마법이 좀 꼬였나봐.\n다시 한번 말해줄래?");
     }
