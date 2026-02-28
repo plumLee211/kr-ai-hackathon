@@ -7,18 +7,21 @@ import type { GenerateResult } from "@/types/generate";
 import type { StoryBible } from "@/types/story";
 import type { WorldDNA } from "@/types/world";
 
-const apiKey = process.env.GOOGLE_AI_API_KEY;
-if (!apiKey) {
-  console.error("GOOGLE_AI_API_KEY 환경 변수가 설정되지 않았습니다.");
-}
-
-const ai = new GoogleGenAI({ apiKey: apiKey || "" });
+let _ai: GoogleGenAI;
+const ai = () => {
+  if (!_ai) {
+    const apiKey = process.env.GOOGLE_AI_API_KEY;
+    if (!apiKey) console.error("GOOGLE_AI_API_KEY 환경 변수가 설정되지 않았습니다.");
+    _ai = new GoogleGenAI({ apiKey: apiKey! });
+  }
+  return _ai;
+};
 
 async function generateWorldDna(storyBible: StoryBible): Promise<WorldDNA | null> {
   try {
     const prompt = buildWorldPrompt(storyBible);
 
-    const response = await ai.models.generateContent({
+    const response = await ai().models.generateContent({
       model: GEMINI_MODEL,
       contents: [{ role: "user", parts: [{ text: prompt }] }],
       config: { responseMimeType: "application/json" },
@@ -33,7 +36,7 @@ async function generateWorldDna(storyBible: StoryBible): Promise<WorldDNA | null
 }
 
 export async function POST(req: NextRequest) {
-  if (!apiKey) {
+  if (!process.env.GOOGLE_AI_API_KEY) {
     return NextResponse.json({ error: "Server Configuration Error" }, { status: 500 });
   }
 
@@ -54,7 +57,7 @@ export async function POST(req: NextRequest) {
 
     const systemInstruction = buildGenerateSystemPrompt(data, worldDna ?? undefined);
 
-    const response = await ai.models.generateContent({
+    const response = await ai().models.generateContent({
       model: GEMINI_MODEL,
       contents: [{ role: "user", parts: [{ text: systemInstruction }] }],
       config: { responseMimeType: "application/json" },

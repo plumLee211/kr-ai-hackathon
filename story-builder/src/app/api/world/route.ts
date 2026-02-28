@@ -5,7 +5,8 @@ import { buildWorldPrompt } from "@/constants/prompt/world";
 import type { StoryBible } from "@/types/story";
 import type { WorldDNA } from "@/types/world";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_AI_API_KEY! });
+let _ai: GoogleGenAI;
+const ai = () => (_ai ??= new GoogleGenAI({ apiKey: process.env.GOOGLE_AI_API_KEY! }));
 
 export async function POST(request: NextRequest) {
   const body = (await request.json()) as { storyBible: StoryBible };
@@ -13,7 +14,7 @@ export async function POST(request: NextRequest) {
   try {
     const prompt = buildWorldPrompt(body.storyBible);
 
-    const response = await ai.models.generateContent({
+    const response = await ai().models.generateContent({
       model: GEMINI_MODEL,
       contents: [{ role: "user", parts: [{ text: prompt }] }],
       config: { responseMimeType: "application/json" },
