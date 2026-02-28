@@ -35,7 +35,7 @@ export function IntroContainer() {
   const [allCollected, setAllCollected] = useState(false);
   const [storyBible, setStoryBible] = useState<StoryBible | null>(null);
   const [gmPose, setGmPose] = useState<GMPose>("greeting");
-  const { speak, stop } = useGmVoice();
+  const { unlock, prefetch, stop } = useGmVoice();
 
   const step = SURVEY_FIELDS.filter((k) => collectedFields[k] !== null).length;
 
@@ -63,10 +63,15 @@ export function IntroContainer() {
           }),
         });
         const data = await res.json();
+        const pose: GMPose = data.gmPose || "greeting";
+        // Prefetch TTS while still loading — audio ready before text appears
+        const play = await prefetch(data.gmMessage, pose);
+        // Show text + play voice simultaneously
         setCurrentMessage(data.gmMessage);
         setPlaceholder(data.placeholder);
-        setGmPose(data.gmPose || "greeting");
+        setGmPose(pose);
         setChatHistory([{ role: "model", content: data.gmMessage }]);
+        play();
       } catch {
         setCurrentMessage(
           "안녕! 나는 Game Master야.\n너만의 모험을 같이 만들어볼까?\n먼저 이름을 알려줘!",
@@ -101,17 +106,19 @@ export function IntroContainer() {
     buildStory();
   }, [collectedFields]);
 
-  // GM 음성: currentMessage 변경 시 TTS 자동 재생
+  // Cleanup: stop audio on unmount
   useEffect(() => {
-    if (!currentMessage) return;
-    speak(currentMessage, gmPose);
     return () => stop();
-  }, [currentMessage, speak, stop]);
+  }, [stop]);
 
-  const handleStart = () => setPhase("game-master");
+  const handleStart = () => {
+    unlock(); // unlock browser autoplay on user gesture
+    setPhase("game-master");
+  };
 
   const handleUserInput = async (value: string) => {
     if (isLoading) return;
+    stop(); // 재생 중인 GM 음성 즉시 중단
     setIsLoading(true);
 
     const newHistory: ChatMessage[] = [
@@ -128,14 +135,19 @@ export function IntroContainer() {
       });
       const data = await res.json();
 
+      const pose: GMPose = data.gmPose || "idle";
+      // Prefetch TTS while still loading — audio ready before text appears
+      const play = await prefetch(data.gmMessage, pose);
+      // Show text + play voice simultaneously
       setCollectedFields(data.collectedFields);
       setCurrentMessage(data.gmMessage);
       setPlaceholder(data.placeholder);
-      setGmPose(data.gmPose || "idle");
+      setGmPose(pose);
       setChatHistory([
         ...newHistory,
         { role: "model", content: data.gmMessage },
       ]);
+      play();
 
       if (data.allCollected) setAllCollected(true);
     } catch {
