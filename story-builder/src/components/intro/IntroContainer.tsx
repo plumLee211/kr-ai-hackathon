@@ -57,9 +57,23 @@ export function IntroContainer() {
         ? "final"
         : "top";
 
-  // 페이지 진입 시 8-bit BGM 즉시 재생
+  // 페이지 진입 시 8-bit BGM 재생 (autoplay 차단 시 첫 인터랙션에 시작)
   useEffect(() => {
-    bgm.play();
+    bgm.play(); // autoplay 허용 시 즉시 재생
+    const startOnGesture = () => {
+      bgm.play();
+      document.removeEventListener("click", startOnGesture);
+      document.removeEventListener("touchstart", startOnGesture);
+      document.removeEventListener("mousemove", startOnGesture);
+    };
+    document.addEventListener("click", startOnGesture);
+    document.addEventListener("touchstart", startOnGesture);
+    document.addEventListener("mousemove", startOnGesture, { once: true });
+    return () => {
+      document.removeEventListener("click", startOnGesture);
+      document.removeEventListener("touchstart", startOnGesture);
+      document.removeEventListener("mousemove", startOnGesture);
+    };
   }, []);
 
   // Game Master phase 진입 시 미리 준비된 인사 즉시 표시
@@ -68,11 +82,21 @@ export function IntroContainer() {
   useEffect(() => {
     if (phase !== "game-master") return;
     setGmPose("greeting");
-    setCurrentMessage(GM_GREETING);
     setPlaceholder("이름을 입력해줘...");
-    setChatHistory([{ role: "model", content: GM_GREETING }]);
     // 블립 재생
     prefetch(GM_GREETING, "greeting").then((play) => play());
+    // 스트리밍 효과: 글자 하나씩 표시
+    let i = 0;
+    setCurrentMessage("");
+    const timer = setInterval(() => {
+      i++;
+      setCurrentMessage(GM_GREETING.slice(0, i));
+      if (i >= GM_GREETING.length) {
+        clearInterval(timer);
+        setChatHistory([{ role: "model", content: GM_GREETING }]);
+      }
+    }, 40); // 40ms per char
+    return () => clearInterval(timer);
   }, [phase]);
 
   // Story Engine: 새 필드가 수집될 때마다 백그라운드에서 Story Bible 증분 빌드
