@@ -6,9 +6,10 @@ import type { PartyMember, Boss } from "@/types/generate";
 interface ResultCardsProps {
   party: PartyMember[];
   boss: Boss;
+  images: Record<string, string>;
 }
 
-export function ResultCards({ party, boss }: ResultCardsProps) {
+export function ResultCards({ party, boss, images }: ResultCardsProps) {
   return (
     <div className="relative z-10 flex flex-col items-center min-h-screen w-full p-4 py-12 overflow-auto">
       <div className="relative z-10 w-full max-w-5xl space-y-10 mt-[55vh]">
@@ -34,13 +35,21 @@ export function ResultCards({ party, boss }: ResultCardsProps) {
               }}
               className="border border-green-500/50 bg-black/80 rounded-lg overflow-hidden backdrop-blur-sm flex flex-col pulse-glow-green"
             >
-              <div className="relative w-full aspect-[3/4] bg-gradient-to-b from-green-900/30 to-black/60 flex items-center justify-center border-b border-green-500/30">
-                <div className="text-green-600/40 text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16 mx-auto mb-2 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                  </svg>
-                  <span className="text-xs font-mono">IMAGE</span>
-                </div>
+              <div className="relative w-full aspect-[3/4] bg-gradient-to-b from-green-900/30 to-black/60 flex items-center justify-center border-b border-green-500/30 overflow-hidden">
+                {images[member.id] ? (
+                  <img
+                    src={`data:image/png;base64,${images[member.id]}`}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="text-green-600/40 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16 mx-auto mb-2 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                    <span className="text-xs font-mono">IMAGE</span>
+                  </div>
+                )}
               </div>
               <div className="p-4 flex flex-col gap-3 flex-1">
                 <div>
@@ -87,13 +96,21 @@ export function ResultCards({ party, boss }: ResultCardsProps) {
             transition={{ duration: 0.01, delay: 0.5 + party.length * 0.4 + 0.7 }}
             className="border border-red-600/60 bg-black/80 rounded-lg overflow-hidden backdrop-blur-sm max-w-sm mx-auto shadow-[0_0_30px_rgba(220,38,38,0.15)] pulse-glow-red"
           >
-            <div className="relative w-full aspect-[3/4] bg-gradient-to-b from-red-900/40 to-black/70 flex items-center justify-center border-b border-red-600/30">
-              <div className="text-red-600/40 text-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-20 h-20 mx-auto mb-2 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                </svg>
-                <span className="text-xs font-mono">IMAGE</span>
-              </div>
+            <div className="relative w-full aspect-[3/4] bg-gradient-to-b from-red-900/40 to-black/70 flex items-center justify-center border-b border-red-600/30 overflow-hidden">
+              {images[boss.name] ? (
+                <img
+                  src={`data:image/png;base64,${images[boss.name]}`}
+                  alt={boss.name}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="text-red-600/40 text-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-20 h-20 mx-auto mb-2 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                  </svg>
+                  <span className="text-xs font-mono">IMAGE</span>
+                </div>
+              )}
             </div>
             <div className="p-5 flex flex-col gap-3">
               <div>

@@ -31,6 +31,7 @@ export function GenerateContainer() {
   const [phase, setPhase] = useState<Phase>("loading");
   const [answers, setAnswers] = useState<Answers | null>(null);
   const [result, setResult] = useState<GenerateResult | null>(null);
+  const [images, setImages] = useState<Record<string, string>>({});
   const [gmPose, setGmPose] = useState<GMPose>("loading1");
   const [messageIndex, setMessageIndex] = useState(0);
 
@@ -61,6 +62,32 @@ export function GenerateContainer() {
     const storedBible = sessionStorage.getItem("storybuilder_story_bible");
     const storyBible: StoryBible | null = storedBible ? JSON.parse(storedBible) : null;
 
+    const fetchImages = async (data: GenerateResult) => {
+      const characters = [
+        ...data.party.map((m) => ({ id: m.id, imagePrompt: m.imagePrompt })),
+        { id: data.boss.name, imagePrompt: data.boss.imagePrompt },
+      ];
+
+      await Promise.allSettled(
+        characters.map(async ({ id, imagePrompt }) => {
+          try {
+            const res = await fetch("/api/image", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ imagePrompt }),
+            });
+            if (!res.ok) return;
+            const { imageData } = await res.json();
+            if (imageData) {
+              setImages((prev) => ({ ...prev, [id]: imageData }));
+            }
+          } catch {
+            // silent fail per character
+          }
+        })
+      );
+    };
+
     const generate = async () => {
       try {
         const response = await fetch("/api/generate", {
@@ -72,6 +99,7 @@ export function GenerateContainer() {
         const data: GenerateResult = await response.json();
         setResult(data);
         setPhase("result");
+        fetchImages(data); // non-blocking, images appear progressively
       } catch {
         setPhase("error");
       }
@@ -125,7 +153,7 @@ export function GenerateContainer() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.01 }}
           >
-            <ResultCards party={result.party} boss={result.boss} />
+            <ResultCards party={result.party} boss={result.boss} images={images} />
           </motion.div>
         )}
 
@@ -144,11 +172,36 @@ export function GenerateContainer() {
             <button
               onClick={() => {
                 setPhase("loading");
+                setImages({});
                 const stored = sessionStorage.getItem("storybuilder_answers");
                 if (stored) {
                   const parsed: Answers = JSON.parse(stored);
                   const retryBible = sessionStorage.getItem("storybuilder_story_bible");
                   const retryStoryBible: StoryBible | null = retryBible ? JSON.parse(retryBible) : null;
+                  const fetchImages = async (data: GenerateResult) => {
+                    const characters = [
+                      ...data.party.map((m) => ({ id: m.id, imagePrompt: m.imagePrompt })),
+                      { id: data.boss.name, imagePrompt: data.boss.imagePrompt },
+                    ];
+                    await Promise.allSettled(
+                      characters.map(async ({ id, imagePrompt }) => {
+                        try {
+                          const res = await fetch("/api/image", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ imagePrompt }),
+                          });
+                          if (!res.ok) return;
+                          const { imageData } = await res.json();
+                          if (imageData) {
+                            setImages((prev) => ({ ...prev, [id]: imageData }));
+                          }
+                        } catch {
+                          // silent fail per character
+                        }
+                      })
+                    );
+                  };
                   fetch("/api/generate", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -161,6 +214,7 @@ export function GenerateContainer() {
                     .then((data: GenerateResult) => {
                       setResult(data);
                       setPhase("result");
+                      fetchImages(data); // non-blocking, images appear progressively
                     })
                     .catch(() => setPhase("error"));
                 }
