@@ -12,6 +12,7 @@ import {
   type CollectedFields,
   type ChatMessage,
 } from "@/constants/survey";
+import type { GenerateResult } from "@/types/generate";
 
 export function IntroContainer() {
   const [collectedFields, setCollectedFields] = useState<CollectedFields>(createEmptyFields);
@@ -21,6 +22,7 @@ export function IntroContainer() {
   const [isLoading, setIsLoading] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [allCollected, setAllCollected] = useState(false);
+  const [generateResult, setGenerateResult] = useState<GenerateResult | null>(null);
 
   // step을 수집된 필드 수에서 파생 (0 ~ SURVEY_FIELDS.length)
   const step = SURVEY_FIELDS.filter((k) => collectedFields[k] !== null).length;
@@ -102,17 +104,63 @@ export function IntroContainer() {
         throw new Error("API 오류 발생");
       }
 
-      const result = await response.json();
-      console.log("Gemini API 생성 완료:", result);
-      alert("콘솔창을 확인하세요! 파티와 보스 설정이 생성되었습니다.");
-      // 추후 여기서 Zustand에 저장 후 페이지 이동 (라우팅) 처리
-    } catch (error) {
-      console.error("생성 실패:", error);
-      alert("생성에 실패했습니다.");
+      const result: GenerateResult = await response.json();
+      setGenerateResult(result);
+    } catch {
+      setCurrentMessage("세계 생성에 실패했습니다... 다시 시도해주세요.");
     } finally {
       setIsGenerating(false);
     }
   };
+
+  if (generateResult) {
+    return (
+      <div className="relative flex flex-col items-center justify-center min-h-screen w-full p-4 overflow-hidden">
+        <ScreenIndicator step={step} />
+
+        <div className="relative z-10 w-full max-w-4xl space-y-8">
+          {/* 파티원 카드 */}
+          <h2 className="text-2xl font-bold text-white tracking-widest text-center font-mono">
+            ─── YOUR PARTY ───
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {generateResult.party.map((member) => (
+              <div
+                key={member.id}
+                className="border-2 border-green-400 bg-black/80 p-4 font-mono text-green-400"
+              >
+                <div className="text-lg font-bold text-white">{member.name}</div>
+                <div className="text-sm text-gray-400 mb-2">{member.role}</div>
+                <div className="flex gap-4 text-sm mb-2">
+                  <span>HP: {member.hp}</span>
+                  <span>ATK: {member.atk}</span>
+                </div>
+                <p className="text-xs text-gray-300 leading-relaxed">
+                  {member.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* 보스 카드 */}
+          <h2 className="text-2xl font-bold text-red-400 tracking-widest text-center font-mono">
+            ─── BOSS ───
+          </h2>
+          <div className="border-2 border-red-600 bg-black/80 p-6 font-mono text-red-400 max-w-md mx-auto">
+            <div className="text-xl font-bold text-red-300">{generateResult.boss.name}</div>
+            <div className="text-sm text-red-400/70 mb-2">{generateResult.boss.role}</div>
+            <div className="flex gap-4 text-sm mb-2">
+              <span>HP: {generateResult.boss.hp}</span>
+              <span>ATK: {generateResult.boss.atk}</span>
+            </div>
+            <p className="text-xs text-gray-300 leading-relaxed">
+              {generateResult.boss.description}
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen w-full p-4 overflow-hidden">

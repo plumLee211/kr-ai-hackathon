@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenAI } from "@google/genai";
 import { SURVEY_FIELDS, GEMINI_MODEL, type Answers } from "@/constants/survey";
 import { buildGenerateSystemPrompt } from "@/constants/prompt/generate";
+import type { GenerateResult } from "@/types/generate";
 
 const apiKey = process.env.GOOGLE_AI_API_KEY;
 if (!apiKey) {
@@ -35,7 +36,7 @@ export async function POST(req: NextRequest) {
     });
 
     const responseText = response.text || "";
-    const resultJson = JSON.parse(responseText);
+    const resultJson: GenerateResult = JSON.parse(responseText);
 
     return NextResponse.json(resultJson);
   } catch (error) {
