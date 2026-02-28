@@ -120,8 +120,8 @@ export function IntroContainer() {
   useEffect(() => {
     if (!allCollected) return;
     const mood = storyBible?.characters?.hero_flaw
-      ? `Warm orchestral JRPG hero theme, hopeful and brave, building from gentle to triumphant`
-      : `Warm orchestral JRPG hero theme, gentle strings with driving percussion, hopeful and brave`;
+      ? `Cute cheerful 8-bit JRPG town theme, playful chiptune melody with light xylophone and pizzicato strings, warm and whimsical but slightly adventurous`
+      : `Cute cheerful 8-bit JRPG town theme, playful chiptune melody with gentle bells and soft percussion, warm and whimsical`;
     bgm.play(mood);
     return () => bgm.stop();
   }, [allCollected]);
