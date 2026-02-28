@@ -191,12 +191,14 @@ export function useBgm() {
         return;
       }
 
-      nextLyria = new Audio(`data:${mimeType};base64,${audioData}`);
-      nextLyria.loop = true;
-      nextLyria.volume = 0;
-      await nextLyria.play();
+      const lyria = new Audio(`data:${mimeType};base64,${audioData}`);
+      lyria.loop = true;
+      lyria.volume = 0;
+      nextLyria = lyria;
+      await lyria.play();
 
       phaseRef.current = "transitioning";
+      lyriaRef.current = lyria;
       const targetVol = volumeRef.current;
       const fadeDurationMs = 3000;
       const fadeStartedAt = performance.now();
@@ -209,7 +211,6 @@ export function useBgm() {
       if (fromPhase === "chip") {
         const chipGain = gainRef.current;
         const chipStartVol = chipGain?.gain.value ?? volumeRef.current;
-        lyriaRef.current = nextLyria;
 
         fadeTimerRef.current = setInterval(() => {
           const elapsed = performance.now() - fadeStartedAt;
@@ -218,7 +219,7 @@ export function useBgm() {
           if (chipGain) {
             chipGain.gain.value = chipStartVol * (1 - ratio);
           }
-          nextLyria.volume = targetVol * ratio;
+          lyria.volume = targetVol * ratio;
 
           if (ratio >= 1) {
             if (fadeTimerRef.current) {
@@ -228,7 +229,7 @@ export function useBgm() {
             stopAll8bitSources();
             phaseRef.current = "lyria";
             activePromptRef.current = normalizedPrompt;
-            nextLyria.volume = volumeRef.current;
+            lyria.volume = volumeRef.current;
             finalize();
           }
         }, 100);
@@ -236,29 +237,28 @@ export function useBgm() {
       }
 
       const prevStartVol = previousLyria?.volume ?? volumeRef.current;
-      lyriaRef.current = nextLyria;
 
       fadeTimerRef.current = setInterval(() => {
         const elapsed = performance.now() - fadeStartedAt;
         const ratio = Math.min(1, elapsed / fadeDurationMs);
 
-        if (previousLyria && previousLyria !== nextLyria) {
+        if (previousLyria && previousLyria !== lyria) {
           previousLyria.volume = prevStartVol * (1 - ratio);
         }
-        nextLyria.volume = targetVol * ratio;
+        lyria.volume = targetVol * ratio;
 
         if (ratio >= 1) {
           if (fadeTimerRef.current) {
             clearInterval(fadeTimerRef.current);
             fadeTimerRef.current = null;
           }
-          if (previousLyria && previousLyria !== nextLyria) {
+          if (previousLyria && previousLyria !== lyria) {
             previousLyria.pause();
             previousLyria.currentTime = 0;
           }
           phaseRef.current = "lyria";
           activePromptRef.current = normalizedPrompt;
-          nextLyria.volume = volumeRef.current;
+          lyria.volume = volumeRef.current;
           finalize();
         }
       }, 100);
