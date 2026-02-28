@@ -25,9 +25,10 @@ interface ChatResponse {
   gmPose: string;
 }
 
-// ── Gemini Client ──
+// ── Gemini Client (lazy init to avoid build-time error when API key is absent) ──
 
-const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_AI_API_KEY! });
+let _ai: GoogleGenAI;
+const ai = () => (_ai ??= new GoogleGenAI({ apiKey: process.env.GOOGLE_AI_API_KEY! }));
 
 // ── Route Handler ──
 
@@ -53,7 +54,7 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const response = await ai.models.generateContent({
+    const response = await ai().models.generateContent({
       model: GEMINI_MODEL,
       contents,
       config: {

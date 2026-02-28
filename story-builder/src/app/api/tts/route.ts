@@ -2,7 +2,8 @@ import { GoogleGenAI } from "@google/genai";
 import { NextRequest, NextResponse } from "next/server";
 
 const TTS_MODEL = "gemini-2.5-flash-preview-tts";
-const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_AI_API_KEY! });
+let _ai: GoogleGenAI;
+const ai = () => (_ai ??= new GoogleGenAI({ apiKey: process.env.GOOGLE_AI_API_KEY! }));
 
 /** Wrap raw PCM (16-bit LE mono) in a WAV container so browsers can play it. */
 function pcmToWav(pcmBase64: string, sampleRate: number): string {
@@ -47,7 +48,7 @@ export async function POST(request: NextRequest) {
   const prompt = tone ? `${tone}:\n${text}` : text;
 
   try {
-    const response = await ai.models.generateContent({
+    const response = await ai().models.generateContent({
       model: TTS_MODEL,
       contents: [{ role: "user", parts: [{ text: prompt }] }],
       config: {

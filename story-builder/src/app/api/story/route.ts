@@ -3,7 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { GEMINI_MODEL, isAllCollected, type CollectedFields } from "@/constants/survey";
 import type { StoryBible } from "@/types/story";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_AI_API_KEY! });
+let _ai: GoogleGenAI;
+const ai = () => (_ai ??= new GoogleGenAI({ apiKey: process.env.GOOGLE_AI_API_KEY! }));
 
 export function buildStoryPrompt(fields: CollectedFields): string {
   const available = Object.entries(fields)
@@ -83,7 +84,7 @@ export async function POST(request: NextRequest) {
     const maxAttempts = allCollected ? 2 : 1;
 
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
-      const response = await ai.models.generateContent({
+      const response = await ai().models.generateContent({
         model: GEMINI_MODEL,
         contents: [{ role: "user", parts: [{ text: prompt }] }],
         config: {
