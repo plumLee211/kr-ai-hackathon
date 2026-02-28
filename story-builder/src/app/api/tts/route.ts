@@ -5,15 +5,19 @@ const TTS_MODEL = "gemini-2.5-flash-preview-tts";
 const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_AI_API_KEY! });
 
 export async function POST(request: NextRequest) {
-  const { text, voiceName = "Kore" } = (await request.json()) as {
+  const { text, voiceName = "Kore", tone } = (await request.json()) as {
     text: string;
     voiceName?: string;
+    tone?: string;
   };
+
+  // Gemini TTS reads text literally — embed tone as a leading stage direction
+  const prompt = tone ? `${tone}:\n${text}` : text;
 
   try {
     const response = await ai.models.generateContent({
       model: TTS_MODEL,
-      contents: [{ parts: [{ text }] }],
+      contents: [{ role: "user", parts: [{ text: prompt }] }],
       config: {
         responseModalities: ["AUDIO"],
         speechConfig: {
@@ -36,7 +40,8 @@ export async function POST(request: NextRequest) {
       mimeType: audioPart.inlineData.mimeType ?? "audio/wav",
     });
   } catch (error) {
-    console.error("TTS error:", error);
-    return NextResponse.json({ error: "TTS failed" }, { status: 500 });
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error("TTS error:", msg);
+    return NextResponse.json({ error: "TTS failed", detail: msg }, { status: 500 });
   }
 }
