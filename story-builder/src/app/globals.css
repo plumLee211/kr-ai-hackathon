@@ -115,3 +115,223 @@ body {
   );
   pointer-events: none;
 }
+
+/* ── CRT Scanlines Overlay ── */
+
+.crt-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: scanline-scroll 8s linear infinite;
+}
+
+@keyframes scanline-scroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100vh; }
+}
+
+/* ── Glitch Text Effect ── */
+
+@keyframes glitch-1 {
+  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  20% { clip-path: inset(20% 0 60% 0); transform: translate(-2px, 1px); }
+  40% { clip-path: inset(40% 0 30% 0); transform: translate(2px, -1px); }
+  60% { clip-path: inset(60% 0 10% 0); transform: translate(-1px, 2px); }
+  80% { clip-path: inset(10% 0 80% 0); transform: translate(1px, -2px); }
+}
+
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+}
+
+.glitch-text::before {
+  color: #ff00ff;
+  animation: glitch-1 3s infinite linear alternate-reverse;
+  opacity: 0.5;
+}
+
+.glitch-text::after {
+  color: #00ffff;
+  animation: glitch-1 2s infinite linear alternate;
+  opacity: 0.5;
+}
+
+/* ── Screen Shake ── */
+
+@keyframes screen-shake {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-3px, -2px); }
+  20% { transform: translate(3px, 2px); }
+  30% { transform: translate(-2px, 3px); }
+  40% { transform: translate(2px, -3px); }
+  50% { transform: translate(-3px, 1px); }
+  60% { transform: translate(3px, -1px); }
+  70% { transform: translate(-1px, 3px); }
+  80% { transform: translate(1px, -2px); }
+  90% { transform: translate(-2px, 1px); }
+}
+
+.screen-shake {
+  animation: screen-shake 0.5s ease-out;
+}
+
+/* ── Floating Pixel Particles ── */
+
+@keyframes float-up {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.pixel-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  image-rendering: pixelated;
+  animation: float-up var(--duration, 6s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+/* ── Pulsing Glow (for buttons, borders) ── */
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(74, 222, 128, 0.3), 0 0 10px rgba(74, 222, 128, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(74, 222, 128, 0.6), 0 0 30px rgba(74, 222, 128, 0.3), 0 0 45px rgba(74, 222, 128, 0.1);
+  }
+}
+
+.pulse-glow-green {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow-red {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.3), 0 0 10px rgba(239, 68, 68, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.6), 0 0 40px rgba(239, 68, 68, 0.3), 0 0 60px rgba(239, 68, 68, 0.1);
+  }
+}
+
+.pulse-glow-red {
+  animation: pulse-glow-red 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow-gemini {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(66, 133, 244, 0.3), 0 0 20px rgba(162, 89, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(66, 133, 244, 0.6), 0 0 40px rgba(162, 89, 255, 0.4), 0 0 60px rgba(255, 79, 203, 0.3);
+  }
+}
+
+.pulse-glow-gemini {
+  animation: pulse-glow-gemini 2s ease-in-out infinite;
+}
+
+/* ── Typewriter Cursor ── */
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typewriter-cursor::after {
+  content: "▌";
+  animation: cursor-blink 0.7s step-end infinite;
+  color: #4ade80;
+  margin-left: 2px;
+}
+
+/* ── RPG Stat Bar Fill ── */
+
+@keyframes stat-fill {
+  from { width: 0%; }
+  to { width: var(--fill-width, 100%); }
+}
+
+.stat-bar-fill {
+  animation: stat-fill 1s ease-out forwards;
+  animation-delay: var(--fill-delay, 0s);
+}
+
+/* ── Card Shimmer Effect ── */
+
+@keyframes card-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.card-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: card-shimmer 3s ease-in-out infinite;
+}
+
+/* ── Press Start Glow Pulse ── */
+
+@keyframes press-start-glow {
+  0%, 100% {
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+    opacity: 1;
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(74, 222, 128, 0.5);
+    opacity: 0.6;
+  }
+}
+
+.press-start-glow {
+  animation: press-start-glow 1.5s step-end infinite;
+}
+
+/* ── Magic Sparkle ── */
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1) rotate(180deg); opacity: 1; }
+}
+
+.magic-sparkle {
+  animation: sparkle var(--sparkle-duration, 2s) ease-in-out infinite;
+  animation-delay: var(--sparkle-delay, 0s);
+}

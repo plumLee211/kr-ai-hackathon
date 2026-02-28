@@ -14,7 +14,7 @@ export function ScreenIndicator({ step }: { step: number }) {
     "bg-[#110524]",
     "bg-gradient-to-b from-[#2b0b3a] to-black",
     "bg-gradient-to-b from-[#4a0438] to-[#1a0219]",
-    "bg-gradient-to-r from-blue-900 via-purple-900 to-pink-900",
+    "bg-transparent",
   ];
 
   return (

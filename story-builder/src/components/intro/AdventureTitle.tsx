@@ -22,7 +22,7 @@ const titleVariants = {
     opacity: 1,
   },
   final: {
-    top: "30vh",
+    top: "15vh",
     scale: 1.4,
     opacity: 1,
   },
@@ -50,6 +50,13 @@ export function AdventureTitle({ variant, step, name }: AdventureTitleProps) {
         mass: 1,
       }}
     >
+      {/* Subtle dark backdrop for readability on bright backgrounds */}
+      {isFinal && (
+        <div
+          className="absolute inset-0 -inset-x-8 -inset-y-4 rounded-2xl bg-black/65"
+        />
+      )}
+
       {/* Name line: "OOO's" or "{name}'s" */}
       <div className="relative">
         <AnimatePresence mode="wait">
