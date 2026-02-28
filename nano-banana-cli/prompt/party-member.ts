@@ -109,23 +109,23 @@ Framing (MUST maintain):
  * @param name 캐릭터 이름
  */
 export const spriteSheetPrompt = (name: string): string =>
-  `다음 이미지는 "${name}" 캐릭터입니다.
+  `The provided reference image is the base design for the character "${name}".
 
-이 캐릭터의 상하좌우 걷는 도트 스프라이트 이미지를 생성해줘.
+Generate a 2D pixel art walking sprite sheet for this character.
 
-요구사항:
-- 모던 픽셀 아트 스타일 (스타듀밸리, 언더테일 레퍼런스). 둥근 머리, 2~3등신 비율.
-- 4방향 걷기 애니메이션, 방향당 4프레임 = 총 16프레임.
-- **단일 스프라이트 시트 이미지**로 출력. 4행 4열 그리드.
-- 행 순서 (반드시 지켜야 함):
-  - 첫번째 행: 상(뒤) 걷기 4프레임
-  - 두번째 행: 하(앞) 걷기 4프레임
-  - 세번째 행: 좌 걷기 4프레임
-  - 네번째 행: 우 걷기 4프레임
-- 참조 이미지의 캐릭터 디자인·색상을 충실히 반영.
-- 또렷한 외곽선, 제한된 색상 팔레트 (4~6색).
-- 형광 초록 단색 배경 (#00FF00) 보장. 결과물을 바로 crop해서 사용할 수 있도록.
-- 각 프레임 크기가 균일하게.`;
+STRICT REQUIREMENTS:
+1. Style: Modern pixel art (like Stardew Valley or Undertale). Chibi style (2-3 heads tall), round head, clear outlines, limited color palette (4-6 colors).
+2. Format: A single sprite sheet image containing exactly a 4x4 grid (4 rows, 4 columns).
+3. Animation: 4-directional walking animation. 4 frames per direction.
+4. Row Order (CRITICAL):
+   - Row 1 (Top): Walking UP (Back view) - 4 frames
+   - Row 2: Walking DOWN (Front view) - 4 frames
+   - Row 3: Walking LEFT (Side view) - 4 frames
+   - Row 4 (Bottom): Walking RIGHT (Side view) - 4 frames
+5. Background: Solid neon green background (#00FF00) for chroma-key extraction.
+6. Layout: Ensure all 16 frames are evenly spaced and perfectly aligned in the 4x4 grid.
+
+Faithfully translate the character's design, clothing, and colors from the reference image into this pixel art format.`;
 
 // ============================================================
 // Step 4 — 기본 일러 참조 → 공격/피격 표정
