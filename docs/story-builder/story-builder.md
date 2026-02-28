@@ -55,7 +55,7 @@ header: "OOO's adventure — with Gemini Game Master"
 
 ### Phase 1: Game Master 대화 (필수) — 단계별 색상 연출
 
-![bg right:35%](../../asset/character/game-master/game-master-asking.png)
+![bg right:35%](game-master-asking.png)
 
 ---
 

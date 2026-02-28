@@ -1,0 +1,7 @@
+packages:
+  - "story-builder"
+  - "nano-banana-cli"
+
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver

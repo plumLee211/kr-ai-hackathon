@@ -1,0 +1,9 @@
+{
+  "name": "kr-ai-hackathon",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter story-builder dev",
+    "build": "pnpm --filter story-builder build",
+    "dev:cli": "pnpm --filter nano-banana-cli dev"
+  }
+}
