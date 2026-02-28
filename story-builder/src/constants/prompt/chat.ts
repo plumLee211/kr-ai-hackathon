@@ -1,8 +1,10 @@
 import { SURVEY_FIELDS, type CollectedFields } from "@/constants/survey";
+import type { WorldDNA } from "@/types/world";
 
 export function buildChatSystemPrompt(
   fields: CollectedFields,
   turnCount: number,
+  worldDna?: WorldDNA,
 ): string {
   const collected = SURVEY_FIELDS
     .filter((k) => fields[k] !== null)
@@ -39,7 +41,8 @@ export function buildChatSystemPrompt(
 - 유머러스하고 위트 있게
 - 플레이어 답변에 재미있는 리액션을 해줘 (감탄, 농담, 드립 등)
 - 메시지는 2~4줄로 짧게. 너무 길면 안 돼.
-- 이모지 사용 금지 (레트로 게임 느낌)
+- 이모지 사용 금지 (레트로 게임 느낌)${worldDna ? `
+- 세계관: ${worldDna.world_name} — ${worldDna.atmosphere}. GM은 이 세계의 GM으로서 자연스럽게 세계 분위기를 대화에 녹여.` : ""}
 
 ## 대화 규칙
 - 한 턴에 한 가지 정보만 물어봐. 절대 한꺼번에 여러 개 묻지 마.

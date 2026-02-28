@@ -11,6 +11,7 @@ import { LoadingDialogBox } from "./LoadingDialogBox";
 import { ResultCards } from "./ResultCards";
 import type { Answers } from "@/constants/survey";
 import type { GenerateResult } from "@/types/generate";
+import type { StoryBible } from "@/types/story";
 
 type Phase = "loading" | "result" | "error";
 
@@ -57,12 +58,15 @@ export function GenerateContainer() {
     const parsed: Answers = JSON.parse(stored);
     setAnswers(parsed);
 
+    const storedBible = sessionStorage.getItem("storybuilder_story_bible");
+    const storyBible: StoryBible | null = storedBible ? JSON.parse(storedBible) : null;
+
     const generate = async () => {
       try {
         const response = await fetch("/api/generate", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(parsed),
+          body: JSON.stringify({ ...parsed, ...(storyBible ? { storyBible } : {}) }),
         });
         if (!response.ok) throw new Error("API error");
         const data: GenerateResult = await response.json();
@@ -143,10 +147,12 @@ export function GenerateContainer() {
                 const stored = sessionStorage.getItem("storybuilder_answers");
                 if (stored) {
                   const parsed: Answers = JSON.parse(stored);
+                  const retryBible = sessionStorage.getItem("storybuilder_story_bible");
+                  const retryStoryBible: StoryBible | null = retryBible ? JSON.parse(retryBible) : null;
                   fetch("/api/generate", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(parsed),
+                    body: JSON.stringify({ ...parsed, ...(retryStoryBible ? { storyBible: retryStoryBible } : {}) }),
                   })
                     .then((res) => {
                       if (!res.ok) throw new Error();

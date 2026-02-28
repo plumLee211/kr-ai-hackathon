@@ -17,6 +17,7 @@ import {
   type CollectedFields,
   type ChatMessage,
 } from "@/constants/survey";
+import type { StoryBible } from "@/types/story";
 
 type Phase = "title" | "game-master";
 
@@ -31,6 +32,7 @@ export function IntroContainer() {
   const [isLoading, setIsLoading] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
   const [allCollected, setAllCollected] = useState(false);
+  const [storyBible, setStoryBible] = useState<StoryBible | null>(null);
   const [gmPose, setGmPose] = useState<GMPose>("greeting");
 
   const step = SURVEY_FIELDS.filter((k) => collectedFields[k] !== null).length;
@@ -73,6 +75,30 @@ export function IntroContainer() {
     fetchGreeting();
   }, [phase]);
 
+  // Story Engine: 새 필드가 수집될 때마다 백그라운드에서 Story Bible 증분 빌드
+  useEffect(() => {
+    const collectedCount = SURVEY_FIELDS.filter((k) => collectedFields[k] !== null).length;
+    // mbti(2번째)가 수집된 이후부터 빌드 시작
+    if (collectedCount < 2) return;
+
+    const buildStory = async () => {
+      try {
+        const res = await fetch("/api/story", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ collectedFields }),
+        });
+        if (!res.ok) return;
+        const bible = await res.json() as StoryBible;
+        setStoryBible(bible);
+      } catch {
+        // silent fail — story engine is non-blocking
+      }
+    };
+
+    buildStory();
+  }, [collectedFields]);
+
   const handleStart = () => setPhase("game-master");
 
   const handleUserInput = async (value: string) => {
@@ -113,6 +139,9 @@ export function IntroContainer() {
     setIsNavigating(true);
     const answers = toAnswers(collectedFields);
     sessionStorage.setItem("storybuilder_answers", JSON.stringify(answers));
+    if (storyBible) {
+      sessionStorage.setItem("storybuilder_story_bible", JSON.stringify(storyBible));
+    }
     router.push("/generate");
   };
 
