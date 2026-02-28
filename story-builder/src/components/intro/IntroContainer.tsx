@@ -57,22 +57,19 @@ export function IntroContainer() {
         ? "final"
         : "top";
 
-  // 페이지 진입 시 8-bit BGM 재생 (autoplay 차단 시 첫 인터랙션에 시작)
+  // 페이지 진입 시 8-bit BGM 재생 시도 (autoplay 허용 시 즉시, 아니면 첫 클릭에)
   useEffect(() => {
-    bgm.play(); // autoplay 허용 시 즉시 재생
+    bgm.play();
     const startOnGesture = () => {
       bgm.play();
       document.removeEventListener("click", startOnGesture);
       document.removeEventListener("touchstart", startOnGesture);
-      document.removeEventListener("mousemove", startOnGesture);
     };
     document.addEventListener("click", startOnGesture);
     document.addEventListener("touchstart", startOnGesture);
-    document.addEventListener("mousemove", startOnGesture, { once: true });
     return () => {
       document.removeEventListener("click", startOnGesture);
       document.removeEventListener("touchstart", startOnGesture);
-      document.removeEventListener("mousemove", startOnGesture);
     };
   }, []);
 

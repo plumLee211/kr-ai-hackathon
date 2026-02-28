@@ -19,7 +19,7 @@ function scheduleBlips(
   const sampled = Array.from(chars).filter((_, i) => i % 2 === 0);
 
   const masterGain = ctx.createGain();
-  masterGain.gain.value = 0.35;
+  masterGain.gain.value = 0.6;
   masterGain.connect(ctx.destination);
 
   const oscillators: OscillatorNode[] = [];
@@ -42,7 +42,7 @@ function scheduleBlips(
 
     // 짧은 엔벨로프 — 톡 하고 사라지는 느낌
     const env = ctx.createGain();
-    env.gain.setValueAtTime(0.4, startTime);
+    env.gain.setValueAtTime(0.7, startTime);
     env.gain.exponentialRampToValueAtTime(0.001, startTime + BLIP_DURATION);
 
     osc.connect(env);

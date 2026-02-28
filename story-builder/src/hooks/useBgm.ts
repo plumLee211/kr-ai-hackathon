@@ -82,15 +82,26 @@ export function useBgm() {
   const lyriaRef = useRef<HTMLAudioElement | null>(null);
   const volumeRef = useRef(0.5); // 현재 목표 볼륨 기억
 
-  /** Render and play 8-bit BGM loop. */
-  const play = useCallback(async () => {
-    if (sourceRef.current) return;
-    if (!ctxRef.current) ctxRef.current = new AudioContext();
-    if (ctxRef.current.state === "suspended") await ctxRef.current.resume();
+  const bufferRef = useRef<AudioBuffer | null>(null);
 
-    const buffer = await render8bitLoop();
+  /** Render and play 8-bit BGM loop. Safe to call repeatedly — plays on first valid user gesture. */
+  const play = useCallback(async () => {
+    if (!ctxRef.current) ctxRef.current = new AudioContext();
+    if (ctxRef.current.state === "suspended") {
+      await ctxRef.current.resume().catch(() => {});
+    }
+    // AudioContext가 아직 suspended면 유저 제스처 없음 → 다음 호출 대기
+    if (ctxRef.current.state !== "running") return;
+    // 이미 재생 중
+    if (sourceRef.current) return;
+
+    // 버퍼 캐시 (한 번만 렌더링)
+    if (!bufferRef.current) {
+      bufferRef.current = await render8bitLoop();
+    }
+
     const source = ctxRef.current.createBufferSource();
-    source.buffer = buffer;
+    source.buffer = bufferRef.current;
     source.loop = true;
 
     const gain = ctxRef.current.createGain();
