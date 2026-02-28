@@ -4,6 +4,14 @@
   "scripts": {
     "dev": "pnpm --filter story-builder dev",
     "build": "pnpm --filter story-builder build",
-    "dev:cli": "pnpm --filter nano-banana-cli dev"
+    "gen": "pnpm --filter nano-banana-cli gen",
+    "video": "pnpm --filter nano-banana-cli video",
+    "extract": "pnpm --filter nano-banana-cli extract",
+    "pipeline-test": "pnpm --filter nano-banana-cli pipeline-test"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
   }
 }
