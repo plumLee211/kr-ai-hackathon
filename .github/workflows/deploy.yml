@@ -1,0 +1,46 @@
+name: Deploy to Cloud Run
+
+on:
+  push:
+    branches:
+      - deploy/cloud-run
+
+env:
+  GCP_PROJECT_ID: seoul-hackathon-0260228
+  GCP_REGION: asia-northeast3
+  SERVICE_NAME: story-builder
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker ${{ env.GCP_REGION }}-docker.pkg.dev
+
+      - name: Build and push Docker image
+        run: |
+          IMAGE=${{ env.GCP_REGION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/cloud-run-source-deploy/${{ env.SERVICE_NAME }}:${{ github.sha }}
+          docker build -t $IMAGE .
+          docker push $IMAGE
+
+      - name: Deploy to Cloud Run
+        run: |
+          IMAGE=${{ env.GCP_REGION }}-docker.pkg.dev/${{ env.GCP_PROJECT_ID }}/cloud-run-source-deploy/${{ env.SERVICE_NAME }}:${{ github.sha }}
+          gcloud run deploy ${{ env.SERVICE_NAME }} \
+            --image $IMAGE \
+            --region ${{ env.GCP_REGION }} \
+            --platform managed \
+            --allow-unauthenticated \
+            --port 8080 \
+            --set-env-vars GOOGLE_AI_API_KEY=${{ secrets.GOOGLE_AI_API_KEY }}

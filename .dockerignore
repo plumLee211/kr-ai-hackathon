@@ -1,0 +1,15 @@
+node_modules
+**/node_modules
+**/.next
+**/dist
+**/build
+.git
+.github
+.env
+**/.env
+*.log
+.DS_Store
+nano-banana-cli/node_modules
+nano-banana-cli/output
+nano-banana-cli/.env
+nano-banana-cli/script
