@@ -19,6 +19,7 @@ import {
 } from "@/constants/survey";
 import type { StoryBible } from "@/types/story";
 import { useGmVoice } from "@/hooks/useGmVoice";
+import { useBgm } from "@/hooks/useBgm";
 
 type Phase = "title" | "game-master";
 
@@ -38,6 +39,7 @@ export function IntroContainer() {
   const [storyBible, setStoryBible] = useState<StoryBible | null>(null);
   const [gmPose, setGmPose] = useState<GMPose>("greeting");
   const { unlock, prefetch, stop } = useGmVoice();
+  const bgm = useBgm();
 
   const step = SURVEY_FIELDS.filter((k) => collectedFields[k] !== null).length;
 
@@ -114,9 +116,25 @@ export function IntroContainer() {
     buildStory();
   }, [collectedFields]);
 
+  // BGM: allCollected 시 개인화 테마송 생성 + 재생
+  useEffect(() => {
+    if (!allCollected) return;
+    const mood = storyBible?.characters?.hero_flaw
+      ? `Warm orchestral JRPG hero theme, hopeful and brave, building from gentle to triumphant`
+      : `Warm orchestral JRPG hero theme, gentle strings with driving percussion, hopeful and brave`;
+    bgm.play(mood);
+    return () => bgm.stop();
+  }, [allCollected]);
+
+  // GM TTS 볼륨 덕킹: GM 말할 때 BGM 낮추기
+  useEffect(() => {
+    if (!allCollected) return;
+    bgm.setVolume(isLoading ? 0.6 : 0.3);
+  }, [isLoading, allCollected]);
+
   // Cleanup: stop audio on unmount
   useEffect(() => {
-    return () => stop();
+    return () => { stop(); bgm.stop(); };
   }, [stop]);
 
   const handleStart = () => {
