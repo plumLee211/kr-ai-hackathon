@@ -5,42 +5,54 @@ const VOICE_MODE = process.env.NEXT_PUBLIC_GM_VOICE_MODE ?? "blip"; // "tts" | "
 
 const GM_TONE = "너는 진중하면서도 장난기 있는 JRPG 게임마스터야. 낮고 안정된 목소리로 또박또박 말하되, 모험가를 이끄는 여유와 자신감을 담아. 톤을 일정하게 유지해.";
 
-// ── Dialogue Blip (Undertale-style) ──
-const BLIP_BASE_FREQ = 220; // A3 — GM 기본 음높이
-const BLIP_DURATION = 0.06; // 각 글자 60ms
-const BLIP_INTERVAL = 0.08; // 글자 간 간격 80ms
+// ── Dialogue Blip (도토리 톡톡 스타일) ──
+const BLIP_BASE_FREQ = 380; // 통통한 높은 톤
+const BLIP_DURATION = 0.035; // 짧고 통통한 35ms
+const BLIP_INTERVAL = 0.11; // 글자 간 간격 110ms
 
 function scheduleBlips(
   ctx: AudioContext,
   text: string,
 ): { duration: number; stop: () => void } {
-  const chars = text.replace(/[\s\n]/g, ""); // 공백 제외
-  const gainNode = ctx.createGain();
-  gainNode.gain.value = 0.15;
-  gainNode.connect(ctx.destination);
+  const chars = text.replace(/[\s\n]/g, "");
+  // 한국어 텍스트가 길므로 2글자마다 한 번만 블립
+  const sampled = Array.from(chars).filter((_, i) => i % 2 === 0);
+
+  const masterGain = ctx.createGain();
+  masterGain.gain.value = 0.12;
+  masterGain.connect(ctx.destination);
 
   const oscillators: OscillatorNode[] = [];
   let cancelled = false;
 
-  for (let i = 0; i < chars.length; i++) {
+  for (let i = 0; i < sampled.length; i++) {
     if (cancelled) break;
-    // 글자 코드 기반으로 음높이 미세 변화 → 캐릭터 느낌
-    const charCode = chars.charCodeAt(i);
-    const pitchVariation = (charCode % 8 - 4) * 15; // -60 ~ +45 Hz
+    const charCode = sampled[i].charCodeAt(0);
+    const pitchVariation = (charCode % 5 - 2) * 12; // ±24 Hz
     const freq = BLIP_BASE_FREQ + pitchVariation;
 
     const osc = ctx.createOscillator();
-    osc.type = "square"; // 8-bit 느낌
+    osc.type = "sine"; // 둥글고 부드러운 톤
     osc.frequency.value = freq;
-    osc.connect(gainNode);
 
+    // 도토리 "톡" 느낌: 시작 시 높은 주파수에서 빠르게 내려오기
     const startTime = ctx.currentTime + i * BLIP_INTERVAL;
+    osc.frequency.setValueAtTime(freq * 1.5, startTime);
+    osc.frequency.exponentialRampToValueAtTime(freq, startTime + 0.015);
+
+    // 짧은 엔벨로프 — 톡 하고 사라지는 느낌
+    const env = ctx.createGain();
+    env.gain.setValueAtTime(0.15, startTime);
+    env.gain.exponentialRampToValueAtTime(0.001, startTime + BLIP_DURATION);
+
+    osc.connect(env);
+    env.connect(masterGain);
     osc.start(startTime);
-    osc.stop(startTime + BLIP_DURATION);
+    osc.stop(startTime + BLIP_DURATION + 0.01);
     oscillators.push(osc);
   }
 
-  const totalDuration = chars.length * BLIP_INTERVAL;
+  const totalDuration = sampled.length * BLIP_INTERVAL;
 
   return {
     duration: totalDuration,

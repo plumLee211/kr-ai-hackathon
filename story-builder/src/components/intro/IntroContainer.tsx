@@ -116,21 +116,11 @@ export function IntroContainer() {
     buildStory();
   }, [collectedFields]);
 
-  // BGM: allCollected 시 개인화 테마송 생성 + 재생
+  // BGM 볼륨 덕킹: GM 말할 때(isLoading=false → blip 재생 중) BGM 낮추기
   useEffect(() => {
-    if (!allCollected) return;
-    const mood = storyBible?.characters?.hero_flaw
-      ? `Cute cheerful 8-bit JRPG town theme, playful chiptune melody with light xylophone and pizzicato strings, warm and whimsical but slightly adventurous`
-      : `Cute cheerful 8-bit JRPG town theme, playful chiptune melody with gentle bells and soft percussion, warm and whimsical`;
-    bgm.play(mood);
-    return () => bgm.stop();
-  }, [allCollected]);
-
-  // GM TTS 볼륨 덕킹: GM 말할 때 BGM 낮추기
-  useEffect(() => {
-    if (!allCollected) return;
-    bgm.setVolume(isLoading ? 0.6 : 0.3);
-  }, [isLoading, allCollected]);
+    if (phase !== "game-master") return;
+    bgm.setVolume(isLoading ? 0.5 : 0.3);
+  }, [isLoading, phase]);
 
   // Cleanup: stop audio on unmount
   useEffect(() => {
@@ -139,6 +129,7 @@ export function IntroContainer() {
 
   const handleStart = () => {
     unlock(); // unlock browser autoplay on user gesture
+    bgm.play(); // 8-bit BGM 즉시 재생
     setPhase("game-master");
   };
 
