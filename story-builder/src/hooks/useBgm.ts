@@ -112,8 +112,16 @@ export function useBgm() {
     gainRef.current = gain;
   }, []);
 
-  /** Fetch Lyria BGM → crossfade from 8-bit. */
+  /** Fetch Lyria BGM → 8-bit 즉시 정지 후 전환. */
   const transition = useCallback(async (prompt: string) => {
+    // 8-bit 즉시 정지 (API 응답 기다리지 않음)
+    if (sourceRef.current) {
+      try { sourceRef.current.stop(); } catch { /* */ }
+      sourceRef.current = null;
+    }
+    gainRef.current = null;
+    transitionedRef.current = true;
+
     try {
       const res = await fetch("/api/bgm", {
         method: "POST",
@@ -125,21 +133,13 @@ export function useBgm() {
       const { audioData, mimeType } = await res.json();
       if (!audioData) return;
 
-      // 8-bit 즉시 정지 후 Lyria 재생 (깔끔한 전환)
-      if (sourceRef.current) {
-        try { sourceRef.current.stop(); } catch { /* */ }
-        sourceRef.current = null;
-      }
-      gainRef.current = null;
-      transitionedRef.current = true;
-
       const audio = new Audio(`data:${mimeType};base64,${audioData}`);
       audio.loop = true;
       audio.volume = volumeRef.current;
       lyriaRef.current = audio;
       await audio.play();
     } catch {
-      // Lyria 실패 시 8-bit 유지
+      // Lyria 실패 시 무음 유지
     }
   }, []);
 
