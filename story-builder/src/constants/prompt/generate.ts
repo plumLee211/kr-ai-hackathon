@@ -7,7 +7,7 @@ export function buildGenerateSystemPrompt(data: Answers): string {
 - 주인공 이름: ${data.name}
 - 파티원 A 테마 (MBTI): ${data.mbti}
 - 파티원 B 테마 (좋아하는 동물): ${data.animal}
-- 파티원 C 테마 (좋아하는 음식): ${data.food}
+- 파티원 C 테마 (멸망 아이템): ${data.item}
 - 보스 테마 (가장 무서워하는 것): ${data.fear}
 
 [응답 규칙]

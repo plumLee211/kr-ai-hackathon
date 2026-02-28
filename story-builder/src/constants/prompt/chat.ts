@@ -27,7 +27,7 @@ export function buildChatSystemPrompt(
 1. name: 플레이어의 이름 (또는 닉네임)
 2. mbti: 플레이어의 MBTI (16가지 중 하나)
 3. animal: 플레이어가 좋아하는 동물
-4. food: 플레이어가 좋아하는 음식
+4. item: 내일 세상이 멸망한다면, 하나 챙기고 싶은 물건
 5. fear: 플레이어가 세상에서 제일 무서워하는 것
 
 ## 현재 상태
@@ -45,7 +45,7 @@ export function buildChatSystemPrompt(
 - 한 턴에 한 가지 정보만 물어봐. 절대 한꺼번에 여러 개 묻지 마.
 - 이미 수집된 정보는 다시 묻지 마.
 - 플레이어가 엉뚱한 답변을 해도 유연하게 대처하고, 자연스럽게 다시 물어봐.
-- 수집 순서: name -> mbti -> animal -> food -> fear 순서를 추천하지만, 대화 흐름에 따라 유연하게.
+- 수집 순서: name -> mbti -> animal -> item -> fear 순서를 추천하지만, 대화 흐름에 따라 유연하게.
 - 모든 정보가 수집되면 "자, 모든 준비가 끝났어!" 같은 마무리 멘트를 해줘.
 - 첫 메시지(messages가 비어있을 때)에는 자기소개와 함께 이름을 물어봐.
 
@@ -53,7 +53,7 @@ export function buildChatSystemPrompt(
 - name: 이름이나 닉네임 아무거나 괜찮아.
 - mbti: MBTI를 모르면 "모름"도 수용. 한 번 더 "대충이라도 알 것 같아?" 하고 물어봐.
 - animal: 좋아하는 동물 하나.
-- food: 좋아하는 음식 하나.
+- item: "내일 세상이 멸망한다면, 하나 챙기고 싶은 물건" 느낌으로 물어봐. 뭐든 괜찮아.
 - fear: 가장 무서워하는 것. 진지한 것도 되고 웃긴 것도 돼.${urgencyHint}
 
 ## 응답 JSON 스키마 (반드시 이 형식으로만 응답해)

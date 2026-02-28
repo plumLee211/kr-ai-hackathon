@@ -1,6 +1,6 @@
 // ── 설문 필드 정의 (Single Source of Truth) ──
 
-export const SURVEY_FIELDS = ["name", "mbti", "animal", "food", "fear"] as const;
+export const SURVEY_FIELDS = ["name", "mbti", "animal", "item", "fear"] as const;
 
 export type SurveyFieldKey = (typeof SURVEY_FIELDS)[number];
 

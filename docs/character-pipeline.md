@@ -54,7 +54,7 @@
 
 ### Step 1: 설문 → 캐릭터 설정 JSON
 
-**입력**: 설문 유형 (`animal` / `mbti` / `food` / `fear`) + 답변 텍스트
+**입력**: 설문 유형 (`animal` / `mbti` / `item` / `fear`) + 답변 텍스트
 
 **출력 JSON 스키마**:
 ```json
@@ -71,7 +71,7 @@
 **설문 유형별 역할**:
 - `animal` → 파티원 B (동물 특성 기반)
 - `mbti` → 파티원 A (성격 유형 기반)
-- `food` → 파티원 C (음식 색감/느낌 기반)
+- `item` → 파티원 C (멸망 아이템 기반)
 - `fear` → 보스 (공포 대상 → 위협적 존재)
 
 **핵심 규칙**:
@@ -142,7 +142,7 @@ pnpm pipeline-test
 # 커스텀
 pnpm pipeline-test "고양이" "animal"
 pnpm pipeline-test "INFP" "mbti"
-pnpm pipeline-test "불닭볶음면" "food"
+pnpm pipeline-test "기타" "item"
 pnpm pipeline-test "거미" "fear"
 ```
 
