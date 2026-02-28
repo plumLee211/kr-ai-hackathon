@@ -1,8 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { ScreenIndicator } from "./ScreenIndicator";
-import { GameMasterFace, type GMPose } from "./GameMasterFace";
+import { GameMasterFace, LOADING_POSES, type GMPose } from "./GameMasterFace";
 import { DialogBox } from "./DialogBox";
 
 interface GameMasterScreenProps {
@@ -28,6 +29,15 @@ export function GameMasterScreen({
   onUserInput,
   onStartGenerate,
 }: GameMasterScreenProps) {
+  const [loadingPose, setLoadingPose] = useState<GMPose>("loading1");
+
+  useEffect(() => {
+    if (isLoading) {
+      const random = LOADING_POSES[Math.floor(Math.random() * LOADING_POSES.length)];
+      setLoadingPose(random);
+    }
+  }, [isLoading]);
+
   return (
     <motion.div
       key="game-master"
@@ -47,7 +57,7 @@ export function GameMasterScreen({
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <GameMasterFace step={step} pose={isLoading ? "thinking" : gmPose} />
+          <GameMasterFace step={step} pose={isLoading ? loadingPose : gmPose} />
         </motion.div>
       )}
 

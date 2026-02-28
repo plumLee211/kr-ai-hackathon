@@ -8,7 +8,13 @@ const GM_IMAGES = {
   surprised: "/game-master/surprised.webp",
   ok: "/game-master/ok.webp",
   celebrate: "/game-master/celebrate.webp",
+  loading1: "/game-master/thinking.webp",
+  loading2: "/game-master/loading-thinking.webp",
+  loading3: "/game-master/loading-stretching.webp",
+  loading4: "/game-master/loading-impatient.webp",
 } as const;
+
+export const LOADING_POSES: GMPose[] = ["loading1", "loading2", "loading3", "loading4"];
 
 export type GMPose = keyof typeof GM_IMAGES;
 
