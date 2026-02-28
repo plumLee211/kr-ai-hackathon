@@ -218,7 +218,7 @@ export function useBgm() {
           if (chipGain) {
             chipGain.gain.value = chipStartVol * (1 - ratio);
           }
-          nextLyria.volume = targetVol * ratio;
+          nextLyria!.volume = targetVol * ratio;
 
           if (ratio >= 1) {
             if (fadeTimerRef.current) {
@@ -228,7 +228,7 @@ export function useBgm() {
             stopAll8bitSources();
             phaseRef.current = "lyria";
             activePromptRef.current = normalizedPrompt;
-            nextLyria.volume = volumeRef.current;
+            nextLyria!.volume = volumeRef.current;
             finalize();
           }
         }, 100);
@@ -245,7 +245,7 @@ export function useBgm() {
         if (previousLyria && previousLyria !== nextLyria) {
           previousLyria.volume = prevStartVol * (1 - ratio);
         }
-        nextLyria.volume = targetVol * ratio;
+        nextLyria!.volume = targetVol * ratio;
 
         if (ratio >= 1) {
           if (fadeTimerRef.current) {
@@ -258,7 +258,7 @@ export function useBgm() {
           }
           phaseRef.current = "lyria";
           activePromptRef.current = normalizedPrompt;
-          nextLyria.volume = volumeRef.current;
+          nextLyria!.volume = volumeRef.current;
           finalize();
         }
       }, 100);
