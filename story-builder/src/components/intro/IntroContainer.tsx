@@ -32,16 +32,24 @@ export function IntroContainer() {
   const [isLoading, setIsLoading] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
   const [allCollected, setAllCollected] = useState(false);
+  const [showPressStart, setShowPressStart] = useState(false);
+  const [showFinal, setShowFinal] = useState(false);
   const [storyBible, setStoryBible] = useState<StoryBible | null>(null);
   const [gmPose, setGmPose] = useState<GMPose>("greeting");
 
   const step = SURVEY_FIELDS.filter((k) => collectedFields[k] !== null).length;
 
+  // User clicks proceed button after reading GM closing message
+  const handleProceed = () => {
+    setShowPressStart(true);
+    setTimeout(() => setShowFinal(true), 1000);
+  };
+
   // Compute title variant
   const titleVariant =
     phase === "title"
       ? "hero"
-      : allCollected
+      : showFinal
         ? "final"
         : "top";
 
@@ -150,7 +158,7 @@ export function IntroContainer() {
     <div className="relative min-h-screen w-full bg-[#0A0A0A] overflow-hidden">
       {/* Background crossfade: dark city → bright 세빛섬 */}
       <AnimatePresence mode="wait">
-        {allCollected ? (
+        {showFinal ? (
           <motion.div
             key="pixel-city-bg"
             initial={{ opacity: 0 }}
@@ -189,13 +197,15 @@ export function IntroContainer() {
         ) : (
           <GameMasterScreen
             step={step}
-            allCollected={allCollected}
+            surveyDone={allCollected}
+            showPressStart={showPressStart}
             isGenerating={isNavigating}
             currentMessage={currentMessage}
             placeholder={placeholder}
             isLoading={isLoading}
             gmPose={gmPose}
             onUserInput={handleUserInput}
+            onProceed={handleProceed}
             onStartGenerate={handleStartGenerate}
           />
         )}

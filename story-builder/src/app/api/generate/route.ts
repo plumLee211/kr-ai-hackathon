@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenAI } from "@google/genai";
 import { SURVEY_FIELDS, GEMINI_MODEL, type Answers } from "@/constants/survey";
-import { buildGenerateSystemPrompt } from "@/constants/prompt/generate";
+import { buildGenerateSystemPrompt, buildCharacterImagePrompt } from "@/constants/prompt/generate";
 import { buildWorldPrompt } from "@/constants/prompt/world";
 import type { GenerateResult } from "@/types/generate";
 import type { StoryBible } from "@/types/story";
@@ -61,7 +61,13 @@ export async function POST(req: NextRequest) {
     });
 
     const responseText = response.text || "";
-    const resultJson: GenerateResult = JSON.parse(responseText);
+    const resultJson = JSON.parse(responseText) as GenerateResult;
+
+    // 공통 스타일 앵커 + appearance + WorldDNA로 imagePrompt 합성
+    for (const member of resultJson.party) {
+      member.imagePrompt = buildCharacterImagePrompt(member.appearance, worldDna ?? undefined);
+    }
+    resultJson.boss.imagePrompt = buildCharacterImagePrompt(resultJson.boss.appearance, worldDna ?? undefined);
 
     return NextResponse.json(resultJson);
   } catch (error) {

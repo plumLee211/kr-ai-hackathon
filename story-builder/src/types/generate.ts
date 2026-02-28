@@ -7,7 +7,9 @@ export interface CharacterBase {
   hp: number;
   atk: number;
   description: string;
-  /** 영문 이미지 생성 프롬프트 */
+  /** 영문 캐릭터 외형 묘사 (Gemini 생성) */
+  appearance: string;
+  /** 영문 이미지 생성 프롬프트 (코드에서 합성: 스타일 앵커 + appearance + WorldDNA) */
   imagePrompt: string;
 }
 

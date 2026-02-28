@@ -68,6 +68,7 @@ export function GenerateContainer() {
         });
         if (!response.ok) throw new Error("API error");
         const data: GenerateResult = await response.json();
+        console.log("[GenerateResult]", JSON.stringify(data, null, 2));
         setResult(data);
         setPhase("result");
       } catch {
@@ -77,21 +78,6 @@ export function GenerateContainer() {
     generate();
   }, [router]);
 
-  // Image generation pipeline simulation
-  useEffect(() => {
-    if (phase !== "result" || !result) return;
-    let tick = 0;
-    const allCharacters = [...result.party, result.boss];
-    const interval = setInterval(() => {
-      tick++;
-      for (const char of allCharacters) {
-        console.log(
-          `[ImagePipeline] Generating image for: ${char.name} (${char.role})... (tick ${tick})`,
-        );
-      }
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [phase, result]);
 
   return (
     <div className="relative min-h-screen w-full bg-[#0A0A0A] overflow-hidden">

@@ -9,9 +9,9 @@ export function GameHeader({ name }: GameHeaderProps) {
     <header className="fixed top-0 left-0 w-full h-12 bg-black/65 backdrop-blur-sm z-30 flex items-center justify-center px-4">
       {/* Center title */}
       <span
-        className="font-mono text-sm tracking-widest font-bold"
+        className="text-[10px] tracking-widest font-[family-name:var(--font-pixel)]"
         style={{
-          background: "linear-gradient(90deg, #4285F4, #EA4335, #FBBC04, #34A853, #4285F4)",
+          background: "linear-gradient(90deg, #4285F4, #A259FF, #FF4FCB)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
         }}

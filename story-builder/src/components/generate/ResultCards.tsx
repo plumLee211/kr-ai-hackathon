@@ -56,7 +56,7 @@ function ItemCard({
       </AnimatePresence>
 
       <div
-        className={`border ${borderColor} bg-black/90 rounded-lg overflow-hidden backdrop-blur-sm flex flex-col h-full transition-all ${glowClass}`}
+        className={`border ${borderColor} bg-black/90 rounded-lg overflow-hidden backdrop-blur-sm flex flex-col h-full ${glowClass}`}
         style={{
           opacity: visible ? 1 : 0,
           transform: visible ? "scale(1)" : "scale(0.3)",
@@ -71,18 +71,17 @@ function ItemCard({
 
 export function ResultCards({ party, boss }: ResultCardsProps) {
   return (
-    <div className="relative z-10 flex justify-center w-full min-h-screen px-4 pt-16 pb-4">
-      <div className="grid grid-cols-5 gap-4 w-full max-w-6xl h-fit">
+    <div className="relative z-10 flex items-center justify-center w-full min-h-screen px-4 pt-12 pb-4">
+      <div className="grid grid-cols-5 gap-4 w-full max-w-6xl">
         {/* Party member cards */}
         {party.map((member, i) => (
           <ItemCard
             key={member.id}
             index={i}
-            borderColor="border-green-500/50"
-            glowClass="pulse-glow-green"
+            borderColor="border-purple-500/50"
+            glowClass="pulse-glow-gemini"
           >
-            {/* Image placeholder */}
-            <div className="w-full aspect-square bg-gray-800/60 flex items-center justify-center border-b border-green-500/20">
+            <div className="w-full aspect-square bg-gray-800/60 flex items-center justify-center border-b border-purple-500/20">
               <span className="text-gray-600 font-mono text-xs">LOADING...</span>
             </div>
             <div className="p-3 flex flex-col gap-2 flex-1">
@@ -90,7 +89,7 @@ export function ResultCards({ party, boss }: ResultCardsProps) {
                 <div className="text-sm font-bold text-white font-mono tracking-wide truncate">
                   {member.name}
                 </div>
-                <div className="text-[10px] text-green-400/80 font-mono uppercase tracking-widest">
+                <div className="text-[10px] text-purple-400/80 font-mono uppercase tracking-widest">
                   {member.role}
                 </div>
               </div>
@@ -108,7 +107,7 @@ export function ResultCards({ party, boss }: ResultCardsProps) {
                   </span>
                 </div>
               </div>
-              <div className="pt-2 border-t border-green-500/20 mt-auto">
+              <div className="pt-2 border-t border-purple-500/20 mt-auto">
                 <p className="text-[10px] text-gray-400 leading-relaxed italic line-clamp-2">
                   &ldquo;{member.description}&rdquo;
                 </p>
@@ -123,7 +122,6 @@ export function ResultCards({ party, boss }: ResultCardsProps) {
           borderColor="border-red-600/60"
           glowClass="pulse-glow-red"
         >
-          {/* Image placeholder */}
           <div className="w-full aspect-square bg-gray-800/60 flex items-center justify-center border-b border-red-600/20">
             <span className="text-gray-600 font-mono text-xs">???</span>
           </div>
