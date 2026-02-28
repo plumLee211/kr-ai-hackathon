@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useRef } from "react";
 import { motion } from "motion/react";
 import { ScreenIndicator } from "./ScreenIndicator";
 import { GameMasterFace, LOADING_POSES, type GMPose } from "./GameMasterFace";
@@ -29,14 +29,14 @@ export function GameMasterScreen({
   onUserInput,
   onStartGenerate,
 }: GameMasterScreenProps) {
-  const [loadingPose, setLoadingPose] = useState<GMPose>("loading1");
+  const loadingPoseRef = useRef<GMPose>(LOADING_POSES[0]);
+  const prevIsLoadingRef = useRef(false);
 
-  useEffect(() => {
-    if (isLoading) {
-      const random = LOADING_POSES[Math.floor(Math.random() * LOADING_POSES.length)];
-      setLoadingPose(random);
-    }
-  }, [isLoading]);
+  // isLoading이 false→true로 바뀌는 순간에만 랜덤 선택 (동기적, 리렌더 없음)
+  if (isLoading && !prevIsLoadingRef.current) {
+    loadingPoseRef.current = LOADING_POSES[Math.floor(Math.random() * LOADING_POSES.length)];
+  }
+  prevIsLoadingRef.current = isLoading;
 
   return (
     <motion.div
@@ -57,7 +57,7 @@ export function GameMasterScreen({
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <GameMasterFace step={step} pose={isLoading ? loadingPose : gmPose} />
+          <GameMasterFace step={step} pose={isLoading ? loadingPoseRef.current : gmPose} />
         </motion.div>
       )}
 

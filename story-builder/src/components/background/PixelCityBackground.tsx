@@ -79,7 +79,7 @@ export function PixelCityBackground() {
       {/* 배경 이미지 — 느린 패닝 */}
       <div className="pixel-city-bg__image">
         <Image
-          src="/bg/seoul-sebitseom-8bit.png"
+          src="/bg/seoul-sebitseom-8bit.webp"
           alt="Seoul Sebitseom 8bit Night View"
           fill
           priority
